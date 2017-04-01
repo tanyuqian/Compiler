@@ -1,0 +1,49 @@
+class Pair {
+	public int first = 0;
+	public int second = 0;
+	public bool equal = true;
+    
+    public Pair() {
+        this.first = this.second = 0;
+        this.equal = true;
+    }
+
+	public Pair(int first, int second) {
+		this.first = first;
+		this.second = second;
+		this.equal = (first == second);
+	}
+
+    public void print() {
+        println(toString(this.first) + " " + toString(this.second));
+    }
+}
+
+class Triple extends Pair {
+    public int third = 0;
+    public bool equal = true;
+    
+    public Triple() {
+        this.first = this.second = this.third = 0;
+        this.equal = true;
+    }
+
+    public Triple(int first, int second, int third) {
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.equal = (first == second && second == third);
+    }
+
+    public void print() {
+        println(toString(this.first) + " " + toString(this.second) + " " + toString(this.third));
+    }
+}
+
+int main() {
+	Pair pair = new Pair(1, 2);
+    pair.print();
+    Triple triple = new Triple(1, 2, 3);
+    triple.print();
+    return 0;
+}
