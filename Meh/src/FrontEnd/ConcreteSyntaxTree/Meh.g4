@@ -9,7 +9,8 @@ classDeclaration
 ;
 
 functionDeclaration
-    : type IDENTIFIER '(' (type IDENTIFIER (',' type IDENTIFIER)* )? ')' blockStatement
+    : type IDENTIFIER '(' (type IDENTIFIER (',' type IDENTIFIER)* )? ')' blockStatement #normalFunctionDeclaration
+    | IDENTIFIER '(' ')' blockStatement                                                 #constructorFunctionDeclaration
 ;
 
 variableDeclarationStatement

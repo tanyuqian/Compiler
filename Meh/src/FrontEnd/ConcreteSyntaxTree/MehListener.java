@@ -28,15 +28,29 @@ public interface MehListener extends ParseTreeListener {
 	 */
 	void exitClassDeclaration(MehParser.ClassDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link MehParser#functionDeclaration}.
+	 * Enter a parse tree produced by the {@code normalFunctionDeclaration}
+	 * labeled alternative in {@link MehParser#functionDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionDeclaration(MehParser.FunctionDeclarationContext ctx);
+	void enterNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link MehParser#functionDeclaration}.
+	 * Exit a parse tree produced by the {@code normalFunctionDeclaration}
+	 * labeled alternative in {@link MehParser#functionDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionDeclaration(MehParser.FunctionDeclarationContext ctx);
+	void exitNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code constructorFunctionDeclaration}
+	 * labeled alternative in {@link MehParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code constructorFunctionDeclaration}
+	 * labeled alternative in {@link MehParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MehParser#variableDeclarationStatement}.
 	 * @param ctx the parse tree

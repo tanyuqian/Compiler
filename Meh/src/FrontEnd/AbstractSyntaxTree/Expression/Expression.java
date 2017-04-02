@@ -8,4 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
  */
 public class Expression extends Node {
     public Type type;
+
+    public Expression(Type type) {
+        this.type = type;
+    }
 }

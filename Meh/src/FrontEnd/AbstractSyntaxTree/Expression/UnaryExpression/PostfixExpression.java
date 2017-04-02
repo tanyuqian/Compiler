@@ -1,6 +1,7 @@
 package FrontEnd.AbstractSyntaxTree.Expression.UnaryExpression;
 
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
+import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
  * Created by tan on 4/1/17.
@@ -8,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 public class PostfixExpression extends UnaryExpression {
     public String operation;
 
-    public PostfixExpression(Expression expression, String operation) {
-        this.expression = expression;
+    public PostfixExpression(Type type, Expression expression, String operation) {
+        super(type, expression);
         this.operation = operation;
     }
 

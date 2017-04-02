@@ -6,13 +6,13 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 /**
  * Created by tan on 4/1/17.
  */
-public class FieldExpression extends Expression {
-    public String field;
+public class SubscriptExpression extends Expression {
     public Expression expression;
+    public Expression subscript;
 
-    public FieldExpression(Type type, String field, Expression expression) {
+    public SubscriptExpression(Type type, Expression expression, Expression subscript) {
         super(type);
-        this.field = field;
         this.expression = expression;
+        this.subscript = subscript;
     }
 }

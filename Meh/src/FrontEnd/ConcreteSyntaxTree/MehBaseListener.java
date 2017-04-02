@@ -40,13 +40,25 @@ public class MehBaseListener implements MehListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDeclaration(MehParser.FunctionDeclarationContext ctx) { }
+	@Override public void enterNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDeclaration(MehParser.FunctionDeclarationContext ctx) { }
+	@Override public void exitNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
