@@ -9,7 +9,8 @@ classDeclaration
 ;
 
 functionDeclaration
-    : type IDENTIFIER '(' (type IDENTIFIER (',' type IDENTIFIER)* )? ')' blockStatement
+    : type IDENTIFIER '(' (type IDENTIFIER (',' type IDENTIFIER)* )? ')' blockStatement #normalFunctionDeclaration
+    | IDENTIFIER '(' ')' blockStatement                                                 #constructorFunctionDeclaration
 ;
 
 variableDeclarationStatement
@@ -53,9 +54,9 @@ expression
     | IDENTIFIER                                                #variableExpression
     | '(' expression ')'                                        #subExpression
     | expression operator=('++'|'--')                           #postfixExpression
-    | expression '(' (expression (',' expression)*)? ')'         #functionCallExpression
+    | expression '(' (expression (',' expression)*)? ')'        #functionCallExpression
     | expression '[' expression ']'                             #subscriptExpression
-    | expression '.' IDENTIFIER                                 #fieldExpression  //doubt!!!
+    | expression '.' IDENTIFIER                                 #fieldExpression
     | operator=('++'|'--'|'+'|'-'|'!'|'~') expression           #unaryExpression
     | 'new' type ('[' expression ']')* ('[' ']')*               #newExpression
     | expression operator=('*'|'/'|'%') expression              #multiplicativeExpression
@@ -77,7 +78,7 @@ type
     | 'int'         #intType
     | 'string'      #stringType
     | IDENTIFIER    #classType
-    | type '[]'     #arrayType
+    | type '[' ']'     #arrayType
 ;
 
 constant

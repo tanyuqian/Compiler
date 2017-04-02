@@ -5,6 +5,7 @@ import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberFunction;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,6 +16,13 @@ public class ClassType extends Type {
     public Map<String, MemberVariable> memberVariables;
     public Map<String, MemberFunction> memberFunctions;
     Function constructor;
+
+    public ClassType(String name) {
+        this.name = name;
+        memberFunctions = new HashMap<>();
+        memberFunctions = new HashMap<>();
+
+    }
 
     public boolean compatibleWith(Type other) {
         return false;

@@ -12,6 +12,12 @@ public class Function extends Type {
     public String name;
     public List<String> parameters;
 
+    public Function(Type type, String name, List<String> parameters) {
+        this.type = type;
+        this.name = name;
+        this.parameters = parameters;
+    }
+
     public boolean compatibleWith(Type other) {
         return false;
     }

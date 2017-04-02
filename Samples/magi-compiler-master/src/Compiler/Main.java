@@ -51,6 +51,7 @@ public class Main {
 		parser.addErrorListener(new SyntaxErrorListener());
 		ParseTree tree = parser.program();
 		ParseTreeWalker walker = new ParseTreeWalker();
+
 		walker.walk(new ClassFetcherListener(), tree);
 		walker.walk(new DeclarationFetcherListener(), tree);
 		Environment.classTable.analysis();
