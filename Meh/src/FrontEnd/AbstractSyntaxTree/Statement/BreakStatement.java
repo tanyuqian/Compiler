@@ -8,7 +8,7 @@ import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.LoopStatement;
 public class BreakStatement extends Statement {
     public LoopStatement owner;
 
-    public LoopStatement(LoopStatement owner) {
+    public BreakStatement(LoopStatement owner) {
         this.owner = owner;
     }
 }
