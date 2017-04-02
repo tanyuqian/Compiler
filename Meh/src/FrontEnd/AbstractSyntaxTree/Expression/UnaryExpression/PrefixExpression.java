@@ -10,8 +10,8 @@ public class PrefixExpression extends UnaryExpression {
     public String operation;
 
     public PrefixExpression(Type type, String operation, Expression expression) {
-        super(type, operation);
-        this.expression = expression;
+        super(type, expression);
+        this.operation = operation;
     }
 
     @Override
