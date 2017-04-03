@@ -26,7 +26,7 @@ public class DeclarationFetcherListener extends BaseListener {
         Type type = (Type)returnNode.get(ctx.type(0));
         ClassType classType = Environment.scopeTable.getClassScope();
 
-        List<Symbol> parameters = new ArrayList<Symbol>();
+        List<Symbol> parameters = new ArrayList<>();
         if (classType != null) {
             parameters.add(new Symbol(classType, "this"));
         }

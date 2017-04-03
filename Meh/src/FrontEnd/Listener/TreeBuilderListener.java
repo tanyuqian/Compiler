@@ -4,11 +4,14 @@ import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Statement.BlockStatement;
+import FrontEnd.AbstractSyntaxTree.Statement.ExpressionStatement;
+import FrontEnd.AbstractSyntaxTree.Statement.Statement;
 import FrontEnd.AbstractSyntaxTree.Statement.VariableDeclarationStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.Member;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
+import Environment.Symbol;
 
 import java.util.List;
 
@@ -77,5 +80,49 @@ public class TreeBuilderListener extends BaseListener {
             }
         });
         Environment.exitScope();
+    }
+
+    @Override
+    public void enterStatement(MehParser.StatementContext ctx) {
+        if (ctx.parent instanceof MehParser.SelectionStatementContext) {
+            Environment.enterScope(null);
+        }
+    }
+
+    @Override
+    public void exitStatement(MehParser.StatementContext ctx) {
+        if (ctx.parent instanceof MehParser.SelectionStatementContext) {
+            Environment.exitScope();
+        }
+        returnNode.put(ctx, returnNode.get(ctx.getChild(0)));
+    }
+
+    @Override
+    public void enterBlockStatement(MehParser.BlockStatementContext ctx) {
+        BlockStatement node = new BlockStatement();
+        Environment.enterScope(node);
+        if (ctx.parent instanceof MehParser.NormalFunctionDeclarationContext) {
+            Function function = (Function)returnNode.get(ctx.parent);
+            for (int i = 0; i < function.parameters.size(); i++) {
+                Symbol symbol = function.parameters.get(i);
+                function.parameters.set(i, Environment.symbolTable.addParameterVariable(symbol.type, symbol.name));
+            }
+        }
+        returnNode.put(ctx, node);
+    }
+
+    @Override
+    public void exitBlockStatement(MehParser.BlockStatementContext ctx) {
+        ctx.statement().forEach(statementCtx -> {
+            ((BlockStatement)returnNode.get(ctx)).addStatement((Statement)returnNode.get(statementCtx));
+        });
+        Environment.exitScope();
+    }
+
+    @Override
+    public void exitExpressionStatement(MehParser.ExpressionStatementContext ctx) {
+        returnNode.put(ctx, ExpressionStatement.getStatement(
+                (Expression)returnNode.get(ctx.expression())
+        ));
     }
 }

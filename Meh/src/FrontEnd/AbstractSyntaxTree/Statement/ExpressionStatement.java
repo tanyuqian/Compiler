@@ -11,4 +11,8 @@ public class ExpressionStatement extends Statement {
     public ExpressionStatement(Expression expression) {
         this.expression = expression;
     }
+
+    public static ExpressionStatement getStatement(Expression expression) {
+        return new ExpressionStatement(expression);
+    }
 }

@@ -44,5 +44,15 @@ public class SymbolTable {
         return symbol;
     }
 
+    public Symbol addParameterVariable(Type type, String name) {
+        return add(type, name);
+    }
 
+    public Symbol addGlobalVariable(Type type, String name) {
+        return add(type, name);
+    }
+
+    public Symbol addTemporatyVariable(Type type, String name) {
+        return add(type, name);
+    }
 }
