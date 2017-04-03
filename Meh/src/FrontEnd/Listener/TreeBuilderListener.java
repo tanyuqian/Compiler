@@ -3,15 +3,16 @@ package FrontEnd.Listener;
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Function;
-import FrontEnd.AbstractSyntaxTree.Statement.BlockStatement;
-import FrontEnd.AbstractSyntaxTree.Statement.ExpressionStatement;
-import FrontEnd.AbstractSyntaxTree.Statement.Statement;
-import FrontEnd.AbstractSyntaxTree.Statement.VariableDeclarationStatement;
+import FrontEnd.AbstractSyntaxTree.Statement.*;
+import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.ForStatement;
+import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.WhileStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.Member;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import Environment.Symbol;
+import Utility.CompilationError;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.List;
 
@@ -125,4 +126,78 @@ public class TreeBuilderListener extends BaseListener {
                 (Expression)returnNode.get(ctx.expression())
         ));
     }
+
+    @Override
+    public void exitSelectionStatement(MehParser.SelectionStatementContext ctx) {
+        Expression condition = (Expression)returnNode.get(ctx.expression());
+        Statement trueStatement = (Statement)returnNode.get(ctx.statement(0));
+        Statement falseStatement = (Statement)returnNode.get(ctx.statement(1));
+        returnNode.put(ctx, SelectionStatement.getStatement(condition, trueStatement, falseStatement));
+    }
+
+    @Override
+    public void enterWhileStatement(MehParser.WhileStatementContext ctx) {
+        WhileStatement node = new WhileStatement(null, null);
+        Environment.enterScope(node);
+        returnNode.put(ctx, node);
+    }
+
+    @Override
+    public void exitWhileStatement(MehParser.WhileStatementContext ctx) {
+        WhileStatement node = (WhileStatement)returnNode.get(ctx);
+        node.addCondition((Expression)returnNode.get(ctx.expression()));
+        node.addStatement((Statement)returnNode.get(ctx.statement()));
+        Environment.exitScope();
+    }
+
+    @Override
+    public void enterForStatement(MehParser.ForStatementContext ctx) {
+        ForStatement node = new ForStatement();
+        returnNode.put(ctx, node);
+        Environment.enterScope(node);
+    }
+
+    @Override
+    public void exitForStatement(MehParser.ForStatementContext ctx) {
+        ForStatement node = (ForStatement)returnNode.get(ctx);
+        node.addStatement((Statement)returnNode.get(ctx.statement()));
+
+        int cnt = 0;
+        for (ParseTree u : ctx.children) {
+            if (u.getText().equals(";")) {
+                cnt++;
+            }
+            if (u instanceof MehParser.ExpressionContext) {
+                Expression expression = (Expression)returnNode.get(u);
+                if (cnt == 0) {
+                    node.addInitialization(expression);
+                } else if (cnt == 1) {
+                    node.addCondition(expression);
+                } else if (cnt == 2) {
+                    node.addIncrement(expression);
+                } else {
+                    throw new CompilationError("Internal Error!");
+                }
+            }
+        }
+        Environment.exitScope();
+    }
+
+    @Override
+    public void exitContinueStatement(MehParser.ContinueStatementContext ctx) {
+        returnNode.put(ctx, ContinueStatement.getStatement());
+    }
+
+    @Override
+    public void exitBreakStatement(MehParser.BreakStatementContext ctx) {
+        returnNode.put(ctx, BreakStatement.getStatement());
+    }
+
+    @Override
+    public void exitReturnStatement(MehParser.ReturnStatementContext ctx) {
+        Expression expression = (Expression)returnNode.get(ctx.expression());
+        returnNode.put(ctx, ReturnStatement.getStatement(expression));
+    }
+
+
 }
