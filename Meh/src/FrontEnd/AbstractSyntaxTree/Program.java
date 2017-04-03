@@ -19,4 +19,12 @@ public class Program {
         globalVariables = new ArrayList<>();
         classTypes = new ArrayList<>();
     }
+
+    public void addClassType(ClassType node) {
+        classTypes.add(node);
+    }
+
+    public void addFunction(Function node) {
+        functions.add(node);
+    }
 }

@@ -1,16 +1,17 @@
 package FrontEnd.AbstractSyntaxTree.Type.ClassType.Member;
 
+import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
- * Created by tan on 3/31/17.
+ * Created by tan on 4/2/17.
  */
-public class MemberVariable {
+public class MemberVariable extends Member {
     public Type type;
-    public String name;
+    public Expression expression;
 
-    public MemberVariable(Type type, String name) {
+    public MemberVariable(String name, Type type) {
+        super(name);
         this.type = type;
-        this.name = name;
     }
 }

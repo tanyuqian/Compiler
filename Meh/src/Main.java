@@ -1,8 +1,8 @@
 import Environment.Environment;
 import FrontEnd.ConcreteSyntaxTree.MehLexer;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
-import FrontEnd.Listener.BaseListener;
-import FrontEnd.Listener.classFetcherListener;
+import FrontEnd.Listener.ClassFetcherListener;
+import FrontEnd.Listener.DeclarationFetcherListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -23,6 +23,7 @@ public class Main {
 
         Environment.initialize();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new classFetcherListener(), tree);
+        walker.walk(new ClassFetcherListener(), tree);
+        walker.walk(new DeclarationFetcherListener(), tree);
     }
 }

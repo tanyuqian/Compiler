@@ -2,8 +2,12 @@ import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
-        AAA b = new BBB();
+        BBB a = new BBB();
+        a.a = 1;
 
-        System.out.println(b instanceof Inter);
+        BBB b = a;
+        b.a = 2;
+
+        System.out.println(a.a);
     }
 }

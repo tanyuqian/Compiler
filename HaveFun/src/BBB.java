@@ -3,7 +3,7 @@
  */
 public class BBB extends AAA implements Inter {
     AAA son;
-    int b;
+    int a, b;
 
     BBB() {
         b = 5;
