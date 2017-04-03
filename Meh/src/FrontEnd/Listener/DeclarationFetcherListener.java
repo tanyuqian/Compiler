@@ -1,6 +1,7 @@
 package FrontEnd.Listener;
 
 import Environment.Environment;
+import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
@@ -10,13 +11,58 @@ import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import Utility.CompilationError;
+import Environment.Symbol;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by tan on 4/2/17.
  */
 public class DeclarationFetcherListener extends BaseListener {
+    @Override
+    public void enterNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx) {
+        String name = ctx.IDENTIFIER(0).getText();
+        Type type = (Type)returnNode.get(ctx.type(0));
+        ClassType classType = Environment.scopeTable.getClassScope();
+
+        List<Symbol> parameters = new ArrayList<Symbol>();
+        if (classType != null) {
+            parameters.add(new Symbol(classType, "this"));
+        }
+        for (int i = 1; i < ctx.type().size(); i++) {
+            String parameterName = ctx.IDENTIFIER(i).getText();
+            Type parameterType = (Type)returnNode.get(ctx.type(i));
+            parameters.add(new Symbol(parameterType, parameterName));
+        }
+        Function function = new Function(type, name, parameters);
+        if (classType != null) {
+            classType.addMember(function, name);
+        } else {
+            Environment.symbolTable.add(function, name);
+        }
+        Environment.program.addFunction(function);
+        returnNode.put(ctx, function);
+    }
+
+    @Override
+    public void enterConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx) {
+        String name = ctx.IDENTIFIER().getText();
+        ClassType classType = Environment.scopeTable.getClassScope();
+        if (classType == null) {
+            throw new CompilationError("constructor function should be in a class");
+        }
+        if (name.equals(classType.name) == false) {
+            throw new CompilationError("[className: " + classType.name + "]" + ": constructor must have same name with class");
+        }
+        List<Symbol> parameters = new ArrayList<Symbol>();
+        parameters.add(new Symbol(new VoidType(), "this"));
+        Function function = new Function(new VoidType(), classType.name, parameters);
+        classType.addConstructor(function);
+        Environment.program.addFunction(function);
+        returnNode.put(ctx, function);
+    }
+
     @Override
     public void enterClassDeclaration(MehParser.ClassDeclarationContext ctx) {
         ClassType node = (ClassType)returnNode.get(ctx);

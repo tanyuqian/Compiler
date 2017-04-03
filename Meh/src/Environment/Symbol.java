@@ -10,9 +10,9 @@ public class Symbol {
     public String name;
     public Scope scope;
 
-    public Symbol(Type type, String name, Scope scope) {
+    public Symbol(Type type, String name) {
         this.type = type;
         this.name = name;
-        this.scope = scope;
+        this.scope = Environment.scopeTable.getScope();
     }
 }

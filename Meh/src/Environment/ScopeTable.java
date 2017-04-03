@@ -60,4 +60,32 @@ public class ScopeTable {
             loopScopes.pop();
         }
     }
+
+    public Scope getScope() {
+        if (scopes.empty()) {
+            return null;
+        }
+        return scopes.peek();
+    }
+
+    public ClassType getClassScope() {
+        if (classScopes.empty()) {
+            return null;
+        }
+        return classScopes.peek();
+    }
+
+    public Function getFunctionScope() {
+        if (functionScopes.empty()) {
+            return null;
+        }
+        return functionScopes.peek();
+    }
+
+    public LoopStatement getLoopScope() {
+        if (loopScopes.empty()) {
+            return null;
+        }
+        return loopScopes.peek();
+    }
 }

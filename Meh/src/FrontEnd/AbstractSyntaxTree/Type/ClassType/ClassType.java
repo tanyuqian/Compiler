@@ -48,6 +48,10 @@ public class ClassType extends Type implements Scope {
         }
     }
 
+    public void addConstructor(Function function) {
+        constructor = function;
+    }
+
     public boolean checkExisted(String name) {
         return memberFunctions.containsKey(name) || memberVariables.containsKey(name);
     }

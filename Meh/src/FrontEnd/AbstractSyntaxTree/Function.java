@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree;
 
+import Environment.Symbol;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 import java.util.List;
@@ -10,9 +11,9 @@ import java.util.List;
 public class Function extends Type {
     public Type type;
     public String name;
-    public List<String> parameters;
+    public List<Symbol> parameters;
 
-    public Function(Type type, String name, List<String> parameters) {
+    public Function(Type type, String name, List<Symbol> parameters) {
         this.type = type;
         this.name = name;
         this.parameters = parameters;
