@@ -23,8 +23,7 @@ public class ClassType extends Type implements Scope {
     public ClassType(String name) {
         this.name = name;
         memberFunctions = new HashMap<>();
-        memberFunctions = new HashMap<>();
-
+        memberVariables = new HashMap<>();
     }
 
     public boolean compatibleWith(Type other) {
@@ -48,7 +47,25 @@ public class ClassType extends Type implements Scope {
         }
     }
 
+    public Member getMember(String name) {
+        Member result = null;
+        if (memberFunctions.containsKey(name)) {
+            result = memberFunctions.get(name);
+        }
+        if (memberVariables.containsKey(name)) {
+            result = memberVariables.get(name);
+        }
+        if (result != null) {
+            return result;
+        } else {
+            throw new CompilationError("class \"" + this.name + " \" has no member named \"" + name);
+        }
+    }
+
     public void addConstructor(Function function) {
+        if (constructor != null) {
+            throw new CompilationError("class \"" + name + "\" can only have one constructor function.");
+        }
         constructor = function;
     }
 

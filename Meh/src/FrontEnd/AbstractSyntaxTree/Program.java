@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree;
 
+import Environment.Scope;
 import FrontEnd.AbstractSyntaxTree.Statement.VariableDeclarationStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 
@@ -26,5 +27,9 @@ public class Program {
 
     public void addFunction(Function node) {
         functions.add(node);
+    }
+
+    public void addGlobalVariable(VariableDeclarationStatement node) {
+        globalVariables.add(node);
     }
 }
