@@ -24,6 +24,6 @@ public class VariableDeclarationStatement extends Statement {
         if (expression == null || symbol.type.compatibleWith(expression.type)) {
             return new VariableDeclarationStatement(symbol, expression);
         }
-        throw new CompilationError("variable declaration: the types is not match.");
+        throw new CompilationError("variable declaration: the types is not match. name is \"" + symbol.name + "\"");
     }
 }

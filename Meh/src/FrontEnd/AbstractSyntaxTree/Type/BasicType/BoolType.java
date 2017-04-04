@@ -7,7 +7,7 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
  */
 public class BoolType extends Type {
     public boolean compatibleWith(Type other) {
-        return false;
+        return other instanceof BoolType;
     }
 
     @Override
