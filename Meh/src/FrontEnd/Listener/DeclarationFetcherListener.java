@@ -35,7 +35,7 @@ public class DeclarationFetcherListener extends BaseListener {
             Type parameterType = (Type)returnNode.get(ctx.type(i));
             parameters.add(new Symbol(parameterType, parameterName));
         }
-        Function function = new Function(type, name, parameters);
+        Function function = Function.getFunction(name, type, parameters);
         if (classType != null) {
             classType.addMember(function, name);
         } else {
@@ -46,7 +46,7 @@ public class DeclarationFetcherListener extends BaseListener {
     }
 
     @Override
-    public void enterConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx) {
+    public void exitConstructorFunctionDeclaration(MehParser.ConstructorFunctionDeclarationContext ctx) {
         String name = ctx.IDENTIFIER().getText();
         ClassType classType = Environment.scopeTable.getClassScope();
         if (classType == null) {
@@ -55,9 +55,9 @@ public class DeclarationFetcherListener extends BaseListener {
         if (!name.equals(classType.name)) {
             throw new CompilationError("[className: " + classType.name + "]" + ": constructor must have same name with class");
         }
-        List<Symbol> parameters = new ArrayList<Symbol>();
+        List<Symbol> parameters = new ArrayList<>();
         parameters.add(new Symbol(new VoidType(), "this"));
-        Function function = new Function(new VoidType(), classType.name, parameters);
+        Function function = new Function(new VoidType(), name, parameters);
         classType.addConstructor(function);
         Environment.program.addFunction(function);
         returnNode.put(ctx, function);

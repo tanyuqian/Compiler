@@ -297,7 +297,7 @@ public class TreeBuilderListener extends BaseListener {
     public void exitFunctionCallExpression(MehParser.FunctionCallExpressionContext ctx) {
         Expression function = (Expression)returnNode.get(ctx.expression(0));
         List<Expression> parameters = new ArrayList<>();
-        for (int i = 1; i < parameters.size(); i++) {
+        for (int i = 1; i < ctx.expression().size(); i++) {
             Expression parameter = (Expression)returnNode.get(ctx.expression(i));
             parameters.add(parameter);
         }

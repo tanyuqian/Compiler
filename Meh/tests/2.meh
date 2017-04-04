@@ -1,5 +1,11 @@
 int main() {
-	AAA a;
+    int[] b = new int[5];
+
+    int c = b[0];
+
+    print(toString(c));
+
+    fuck(c);
 
 	return 0;
 }

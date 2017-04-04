@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Type;
 
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.NullType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
 import Utility.CompilationError;
 
@@ -16,6 +17,12 @@ public class ArrayType extends Type {
     }
 
     public boolean compatibleWith(Type other) {
+        if (other instanceof NullType) {
+            return true;
+        } else if (other instanceof ArrayType) {
+            return baseType.compatibleWith(((ArrayType) other).baseType) &&
+                    dimension == ((ArrayType) other).dimension;
+        }
         return false;
     }
 
