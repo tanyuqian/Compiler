@@ -1,6 +1,11 @@
 package FrontEnd.Listener;
 
 import Environment.Environment;
+import FrontEnd.AbstractSyntaxTree.Expression.BinaryExpression.*;
+import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
+import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
+import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.NullConstant;
+import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.StringConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Expression.FunctionCallExpression;
 import FrontEnd.AbstractSyntaxTree.Expression.NewExpression;
@@ -19,6 +24,7 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import Environment.Symbol;
 import Utility.CompilationError;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -314,5 +320,138 @@ public class TreeBuilderListener extends BaseListener {
         });
         Type baseType = (Type)returnNode.get(ctx.type());
         returnNode.put(ctx, NewExpression.getExpression(baseType, list));
+    }
+
+    @Override
+    public void exitMultiplicativeExpression(MehParser.MultiplicativeExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        if (ctx.operator.getText().equals("*")) {
+            returnNode.put(ctx, MultiplicationExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals("/")) {
+            returnNode.put(ctx, DivisionExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals("%")) {
+            returnNode.put(ctx, ModuloExpression.getExpression(left, right));
+        } else  {
+            throw new CompilationError("Internal Error!");
+        }
+    }
+
+    @Override
+    public void exitAdditiveExpression(MehParser.AdditiveExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        if (ctx.operator.getText().equals("+")) {
+            returnNode.put(ctx, AdditionExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals("-")) {
+            returnNode.put(ctx, SubtractionExpression.getExpression(left, right));
+        } else {
+            throw new CompilationError("Internal Error!");
+        }
+    }
+
+    @Override
+    public void exitShiftExpression(MehParser.ShiftExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        if (ctx.operator.getText().equals("<<")) {
+            returnNode.put(ctx, BitwiseLeftShiftExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals(">>")) {
+            returnNode.put(ctx, BitwiseRightShiftExpression.getExpression(left, right));
+        } else {
+            throw new CompilationError("Internal Error!");
+        }
+    }
+
+    @Override
+    public void exitRelationExpression(MehParser.RelationExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        if (ctx.operator.getText().equals("<")) {
+            returnNode.put(ctx, LessThanExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals("<=")) {
+            returnNode.put(ctx, LessThanOrEqualToExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals(">")) {
+            returnNode.put(ctx, GreaterThanExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals(">=")) {
+            returnNode.put(ctx, GreaterThanOrEqualToExpression.getExpression(left, right));
+        } else {
+            throw new CompilationError("Internal Error!");
+        }
+    }
+
+    @Override
+    public void exitEqualityExpression(MehParser.EqualityExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        if (ctx.operator.getText().equals("==")) {
+            returnNode.put(ctx, EqualToExpression.getExpression(left, right));
+        } else if (ctx.operator.getText().equals("!=")) {
+            returnNode.put(ctx, NotEqualToExpression.getExpression(left, right));
+        } else {
+            throw new CompilationError("Internal Error!");
+        }
+    }
+
+    @Override
+    public void exitAndExpression(MehParser.AndExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, BitwiseAndExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitExclusiveOrExpression(MehParser.ExclusiveOrExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, BitwiseXorExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitInclusiveOrExpression(MehParser.InclusiveOrExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, BitwiseOrExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitLogicalAndExpression(MehParser.LogicalAndExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, LogicalAndExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitLogicalOrExpression(MehParser.LogicalOrExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, LogicalOrExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitAssignmentExpression(MehParser.AssignmentExpressionContext ctx) {
+        Expression left = (Expression)returnNode.get(ctx.expression(0));
+        Expression right = (Expression)returnNode.get(ctx.expression(1));
+        returnNode.put(ctx, AssignmentExpression.getExpression(left, right));
+    }
+
+    @Override
+    public void exitBoolConstant(MehParser.BoolConstantContext ctx) {
+        returnNode.put(ctx, new BoolConstant(Boolean.valueOf(ctx.getText())));
+    }
+
+    @Override
+    public void exitIntConstant(MehParser.IntConstantContext ctx) {
+        returnNode.put(ctx, new IntConstant(Integer.valueOf(ctx.getText())));
+    }
+
+    @Override
+    public void exitStringConstant(MehParser.StringConstantContext ctx) {
+        returnNode.put(ctx, new StringConstant(ctx.getText()));
+    }
+
+    @Override
+    public void exitNullConstant(MehParser.NullConstantContext ctx) {
+        returnNode.put(ctx, new NullConstant());
     }
 }
