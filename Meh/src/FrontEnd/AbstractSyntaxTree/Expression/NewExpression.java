@@ -8,8 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class NewExpression extends Expression {
     public Expression expression;
 
-    public NewExpression(Type type, Expression expression) {
-        super(type);
+    public NewExpression(Type type, boolean isLeftValue, Expression expression) {
+        super(type, isLeftValue);
         this.expression = expression;
     }
 }

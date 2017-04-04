@@ -40,7 +40,10 @@ public class ClassType extends Type implements Scope {
             throw new CompilationError("class addMember gg!!");
         }
         if (type instanceof Function) {
-            // waiting...
+            Function function = (Function)type;
+            function.name = this.name + "." + function.name;
+            MemberFunction member = new MemberFunction(name, function);
+            memberFunctions.put(name, member);
         } else {
             MemberVariable t = new MemberVariable(name, type);
             memberVariables.put(name, t);

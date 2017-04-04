@@ -52,7 +52,7 @@ public class DeclarationFetcherListener extends BaseListener {
         if (classType == null) {
             throw new CompilationError("constructor function should be in a class");
         }
-        if (name.equals(classType.name) == false) {
+        if (!name.equals(classType.name)) {
             throw new CompilationError("[className: " + classType.name + "]" + ": constructor must have same name with class");
         }
         List<Symbol> parameters = new ArrayList<Symbol>();

@@ -10,8 +10,8 @@ public class BinaryExpression extends Expression {
     public Expression left, right;
     public String operation;
 
-    public BinaryExpression(Type type, Expression left, String operation, Expression right) {
-        super(type);
+    public BinaryExpression(Type type, boolean isLeftValue, Expression left, String operation, Expression right) {
+        super(type, isLeftValue);
         this.left = left;
         this.operation = operation;
         this.right = right;

@@ -8,8 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class BoolConstant extends Constant {
     public boolean tag;
 
-    public BoolConstant(Type type, boolean tag) {
-        super(type);
+    public BoolConstant(Type type, boolean isLeftValue, boolean tag) {
+        super(type, isLeftValue);
         this.tag = tag;
     }
 

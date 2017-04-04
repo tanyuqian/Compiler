@@ -9,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public abstract class UnaryExpression extends Expression {
     public Expression expression;
 
-    public UnaryExpression(Type type, Expression expression) {
-        super(type);
+    public UnaryExpression(Type type, boolean isLeftValue, Expression expression) {
+        super(type, isLeftValue);
         this.expression = expression;
     }
 }

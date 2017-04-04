@@ -9,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class PostfixExpression extends UnaryExpression {
     public String operation;
 
-    public PostfixExpression(Type type, Expression expression, String operation) {
-        super(type, expression);
+    public PostfixExpression(Type type, boolean isLeftValue, Expression expression, String operation) {
+        super(type, isLeftValue, expression);
         this.operation = operation;
     }
 

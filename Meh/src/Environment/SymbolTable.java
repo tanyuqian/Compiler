@@ -55,4 +55,12 @@ public class SymbolTable {
     public Symbol addTemporatyVariable(Type type, String name) {
         return add(type, name);
     }
+
+    public boolean contains(String name) {
+        return currentSymbols.containsKey(name) && !currentSymbols.get(name).empty();
+    }
+
+    public Symbol get(String name) {
+        return currentSymbols.get(name).peek();
+    }
 }

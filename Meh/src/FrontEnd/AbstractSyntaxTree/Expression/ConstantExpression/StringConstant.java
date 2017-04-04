@@ -8,8 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class StringConstant extends Constant {
     public String str;
 
-    public StringConstant(Type type, String str) {
-        super(type);
+    public StringConstant(Type type, boolean isLeftValue, String str) {
+        super(type, isLeftValue);
         this.str = str;
     }
 

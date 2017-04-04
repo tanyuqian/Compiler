@@ -8,8 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class IntConstant extends Constant {
     public int number;
 
-    public IntConstant(Type type, int number) {
-        super(type);
+    public IntConstant(Type type, boolean isLeftValue, int number) {
+        super(type, isLeftValue);
         this.number = number;
     }
 

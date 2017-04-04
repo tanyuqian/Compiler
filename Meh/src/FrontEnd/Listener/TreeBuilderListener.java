@@ -2,6 +2,9 @@ package FrontEnd.Listener;
 
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
+import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.FieldExpression;
+import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.IdentifierExpression;
+import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.SubscriptExpression;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Statement.*;
 import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.ForStatement;
@@ -9,6 +12,7 @@ import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.WhileStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.Member;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
+import FrontEnd.AbstractSyntaxTree.Type.Type;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import Environment.Symbol;
 import Utility.CompilationError;
@@ -199,5 +203,46 @@ public class TreeBuilderListener extends BaseListener {
         returnNode.put(ctx, ReturnStatement.getStatement(expression));
     }
 
+    @Override
+    public void exitVariableDeclarationStatement(MehParser.VariableDeclarationStatementContext ctx) {
+        if (!(ctx.parent instanceof MehParser.ClassDeclarationContext)) {
+            Type type = (Type)returnNode.get(ctx.type());
+            String name = ctx.IDENTIFIER().getText();
+            Symbol symbol;
+            if (Environment.scopeTable.getScope() == Environment.program) {
+                symbol = Environment.symbolTable.addGlobalVariable(type, name);
+            } else {
+                symbol = Environment.symbolTable.addTemporatyVariable(type, name);
+            }
+            Expression expression = (Expression)returnNode.get(ctx.expression());
+            returnNode.put(ctx, VariableDeclarationStatement.getStatement(symbol, expression));
+        }
+    }
 
+    @Override
+    public void exitConstantExpression(MehParser.ConstantExpressionContext ctx) {
+        returnNode.put(ctx, returnNode.get(ctx.constant()));
+    }
+
+    @Override
+    public void exitVariableExpression(MehParser.VariableExpressionContext ctx) {
+        returnNode.put(ctx, IdentifierExpression.getExpression(ctx.getText()));
+    }
+
+    @Override
+    public void exitFieldExpression(MehParser.FieldExpressionContext ctx) {
+        returnNode.put(ctx, FieldExpression.getExpression(
+                (Expression)returnNode.get(ctx.expression()),
+                ctx.IDENTIFIER().getText()
+        ));
+    }
+
+    @Override
+    public void exitSubscriptExpression(MehParser.SubscriptExpressionContext ctx) {
+        returnNode.put(ctx, SubscriptExpression.getExpression(
+                (Expression)returnNode.get(ctx.expression(0)),
+                (Expression)returnNode.get(ctx.expression(1))
+        ));
+    }
+    
 }

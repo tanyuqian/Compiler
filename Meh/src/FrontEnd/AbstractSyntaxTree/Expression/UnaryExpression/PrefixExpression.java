@@ -9,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class PrefixExpression extends UnaryExpression {
     public String operation;
 
-    public PrefixExpression(Type type, String operation, Expression expression) {
-        super(type, expression);
+    public PrefixExpression(Type type, boolean isLeftValue, String operation, Expression expression) {
+        super(type, isLeftValue, expression);
         this.operation = operation;
     }
 

@@ -35,4 +35,22 @@ public class ArrayType extends Type {
             return new ArrayType(baseType, 1);
         }
     }
+
+    public static Type getType(Type baseType, int dimension) {
+        if (baseType instanceof VoidType) {
+            throw new CompilationError("void array basetype!!");
+        }
+        if (dimension == 0) {
+            throw new CompilationError("Internal Error!");
+        }
+        return new ArrayType(baseType, dimension);
+    }
+
+    public Type reduce() {
+        if (dimension == 1) {
+            return baseType;
+        } else {
+            return ArrayType.getType(baseType, dimension - 1);
+        }
+    }
 }
