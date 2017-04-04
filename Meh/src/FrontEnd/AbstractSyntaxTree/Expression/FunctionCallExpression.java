@@ -21,6 +21,11 @@ public class FunctionCallExpression extends Expression {
         this.parameters = parameters;
     }
 
+    @Override
+    public String toString() {
+        return "call -> " + function.toString();
+    }
+
     public static FunctionCallExpression getExpression(Function function, List<Expression> parameters) {
         return new FunctionCallExpression(function.type, false, function, parameters);
     }
@@ -41,8 +46,8 @@ public class FunctionCallExpression extends Expression {
                 if (!parameters.get(i).type.compatibleWith(function.parameters.get(i).type)) {
                     throw new CompilationError("type of parameter Error!");
                 }
-                return new FunctionCallExpression(function.type, false, function, parameters);
             }
+            return new FunctionCallExpression(function.type, false, function, parameters);
         }
         throw new CompilationError("function-call need a function");
     }

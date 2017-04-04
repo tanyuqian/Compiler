@@ -26,6 +26,11 @@ public class Function extends Type implements Scope {
         this.parameters = parameters;
     }
 
+    @Override
+    public String toString() {
+        return "[function: name->" + name + "type->" + type.toString() + "]";
+    }
+
     public boolean compatibleWith(Type other) {
         return false;
     }
