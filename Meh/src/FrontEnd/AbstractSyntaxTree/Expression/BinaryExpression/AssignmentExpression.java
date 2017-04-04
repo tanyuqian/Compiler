@@ -17,7 +17,7 @@ public class AssignmentExpression extends BinaryExpression {
             throw new CompilationError("left Value Error.");
         }
         if (!left.type.compatibleWith(right.type)) {
-            throw new CompilationError("can't compatible in assignement　expression");
+            throw new CompilationError("can't compatible in assignement expression");
         }
         return new AssignmentExpression(left.type, true, left, right);
     }

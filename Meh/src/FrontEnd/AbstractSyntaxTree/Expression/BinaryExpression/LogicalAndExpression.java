@@ -21,6 +21,6 @@ public class LogicalAndExpression extends BinaryExpression {
             }
             return new LogicalAndExpression(new BoolType(), false, left, right);
         }
-        throw new CompilationError("Type　Error occur in \"&&\"");
+        throw new CompilationError("Type Error occur in \"&&\"");
     }
 }
