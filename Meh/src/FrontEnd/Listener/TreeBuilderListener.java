@@ -2,6 +2,9 @@ package FrontEnd.Listener;
 
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
+import FrontEnd.AbstractSyntaxTree.Expression.FunctionCallExpression;
+import FrontEnd.AbstractSyntaxTree.Expression.NewExpression;
+import FrontEnd.AbstractSyntaxTree.Expression.UnaryExpression.*;
 import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.FieldExpression;
 import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.IdentifierExpression;
 import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.SubscriptExpression;
@@ -17,7 +20,9 @@ import FrontEnd.ConcreteSyntaxTree.MehParser;
 import Environment.Symbol;
 import Utility.CompilationError;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -250,5 +255,64 @@ public class TreeBuilderListener extends BaseListener {
         returnNode.put(ctx, returnNode.get(ctx.expression()));
     }
 
+    @Override
+    public void exitPostfixExpression(MehParser.PostfixExpressionContext ctx) {
+        Expression expression = (Expression)returnNode.get(ctx.expression());
+        if (ctx.operator.getText().equals("++")) {
+            returnNode.put(ctx, PostfixIncrementExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("--")) {
+            returnNode.put(ctx, PostfixDecrementExpression.getExpression(expression));
+        } else {
+            throw new CompilationError("Internal Error!!");
+        }
+    }
 
+    @Override
+    public void exitUnaryExpression(MehParser.UnaryExpressionContext ctx) {
+        Expression expression = (Expression)returnNode.get(ctx.expression());
+        if (ctx.operator.getText().equals("+")) {
+            returnNode.put(ctx, UnaryPlusExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("-")) {
+            returnNode.put(ctx, UnaryMinusExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("!")) {
+            returnNode.put(ctx, LogicalNotExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("~")) {
+            returnNode.put(ctx, BitwiseNotExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("++")) {
+            returnNode.put(ctx, PrefixIncrementExpression.getExpression(expression));
+        } else if (ctx.operator.getText().equals("--")) {
+            returnNode.put(ctx, PrefixDecrementExpression.getExpression(expression));
+        } else {
+            throw new CompilationError("Internal Error!!");
+        }
+    }
+
+    @Override
+    public void exitFunctionCallExpression(MehParser.FunctionCallExpressionContext ctx) {
+        Expression function = (Expression)returnNode.get(ctx.expression(0));
+        List<Expression> parameters = new ArrayList<>();
+        for (int i = 1; i < parameters.size(); i++) {
+            Expression parameter = (Expression)returnNode.get(ctx.expression(i));
+            parameters.add(parameter);
+        }
+        returnNode.put(ctx, FunctionCallExpression.getExpression(function, parameters));
+    }
+
+    @Override
+    public void exitNewExpression(MehParser.NewExpressionContext ctx) {
+        List<Expression> list = new ArrayList<>();
+        ctx.expression().forEach(expressionCtx -> {
+            Expression cur = (Expression)returnNode.get(expressionCtx);
+            list.add(cur);
+        });
+        ctx.children.forEach(node -> {
+            if (node instanceof TerminalNode) {
+                if (node.getText().equals("[]")) {
+                    list.add(null);
+                }
+            }
+        });
+        Type baseType = (Type)returnNode.get(ctx.type());
+        returnNode.put(ctx, NewExpression.getExpression(baseType, list));
+    }
 }

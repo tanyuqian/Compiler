@@ -1,7 +1,9 @@
 package FrontEnd.AbstractSyntaxTree.Expression;
 
+import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.FieldExpression;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
+import Utility.CompilationError;
 import jdk.nashorn.internal.ir.FunctionCall;
 
 import java.util.List;
@@ -21,5 +23,27 @@ public class FunctionCallExpression extends Expression {
 
     public static FunctionCallExpression getExpression(Function function, List<Expression> parameters) {
         return new FunctionCallExpression(function.type, false, function, parameters);
+    }
+
+    public static Expression getExpression(Expression expression, List<Expression> parameters) {
+        if (expression.type instanceof Function) {
+            Function function = (Function)expression.type;
+            if (expression instanceof FieldExpression) {
+                parameters.add(0, ((FieldExpression) expression).expression);
+            }
+            if (parameters.size() != function.parameters.size()) {
+                throw new CompilationError("the number of parameters error.");
+            }
+            for (int i = 0; i < parameters.size(); i++) {
+                if (i == 0 && (expression instanceof FieldExpression)) {
+                    continue;
+                }
+                if (!parameters.get(i).type.compatibleWith(function.parameters.get(i).type)) {
+                    throw new CompilationError("type of parameter Error!");
+                }
+                return new FunctionCallExpression(function.type, false, function, parameters);
+            }
+        }
+        throw new CompilationError("function-call need a function");
     }
 }

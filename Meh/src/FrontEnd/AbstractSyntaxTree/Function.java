@@ -2,6 +2,7 @@ package FrontEnd.AbstractSyntaxTree;
 
 import Environment.Scope;
 import Environment.Symbol;
+import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Statement.BlockStatement;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 

@@ -1,15 +1,32 @@
 package FrontEnd.AbstractSyntaxTree.Expression;
 
+import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
+import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
+import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
  */
 public class NewExpression extends Expression {
-    public Expression expression;
+    public List<Expression> subscripts;
 
-    public NewExpression(Type type, boolean isLeftValue, Expression expression) {
+    public NewExpression(Type type, boolean isLeftValue, List<Expression> subscripts) {
         super(type, isLeftValue);
-        this.expression = expression;
+        this.subscripts = subscripts;
+    }
+
+    public static Expression getExpression(Type baseType, List<Expression> subscriptList) {
+        if (subscriptList.isEmpty()) {
+            if (baseType instanceof ClassType) {
+                return new NewExpression(baseType, false, subscriptList);
+            }
+            throw new CompilationError("type error in new expression");
+        } else {
+            Type arrayType = ArrayType.getType(baseType, subscriptList.size());
+            return new NewExpression(arrayType, false, subscriptList);
+        }
     }
 }
