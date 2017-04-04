@@ -9,8 +9,8 @@ import Utility.CompilationError;
 /**
  * Created by tan on 4/4/17.
  */
-public class BitwiseAndExpression extends BinaryExpression {
-    public BitwiseAndExpression(Type type, boolean isLeftValue, Expression left, Expression right) {
+public class BitwiseLeftShiftExpression extends BinaryExpression {
+    public BitwiseLeftShiftExpression(Type type, boolean isLeftValue, Expression left, Expression right) {
         super(type, isLeftValue, left, right);
     }
 
@@ -18,11 +18,10 @@ public class BitwiseAndExpression extends BinaryExpression {
         if ((left.type instanceof IntType) && (right.type instanceof IntType)) {
             if ((left instanceof IntConstant) && (right instanceof IntConstant)) {
                 int a = ((IntConstant) left).number, b = ((IntConstant) right).number;
-                return new IntConstant(a & b);
+                return new IntConstant(a << b);
             }
-            return new BitwiseAndExpression(new IntType(), false, left, right);
+            return new BitwiseLeftShiftExpression(new IntType(), false, left, right);
         }
-        throw new CompilationError("bitwise and needs two number of IntType.");
+        throw new CompilationError("TypeError in bitwise-left-shift Expression.");
     }
-
 }
