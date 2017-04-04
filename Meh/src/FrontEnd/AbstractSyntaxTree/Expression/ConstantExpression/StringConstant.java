@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression;
 
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.StringType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
@@ -8,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class StringConstant extends Constant {
     public String str;
 
-    public StringConstant(Type type, boolean isLeftValue, String str) {
-        super(type, isLeftValue);
+    public StringConstant(String str) {
+        super(new StringType());
         this.str = str;
     }
 

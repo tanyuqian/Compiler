@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression;
 
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
@@ -8,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class BoolConstant extends Constant {
     public boolean tag;
 
-    public BoolConstant(Type type, boolean isLeftValue, boolean tag) {
-        super(type, isLeftValue);
+    public BoolConstant(boolean tag) {
+        super(new BoolType());
         this.tag = tag;
     }
 

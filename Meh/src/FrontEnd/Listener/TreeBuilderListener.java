@@ -244,5 +244,11 @@ public class TreeBuilderListener extends BaseListener {
                 (Expression)returnNode.get(ctx.expression(1))
         ));
     }
-    
+
+    @Override
+    public void exitSubExpression(MehParser.SubExpressionContext ctx) {
+        returnNode.put(ctx, returnNode.get(ctx.expression()));
+    }
+
+
 }

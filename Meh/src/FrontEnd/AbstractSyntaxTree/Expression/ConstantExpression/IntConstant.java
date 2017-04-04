@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression;
 
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
@@ -8,8 +9,8 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class IntConstant extends Constant {
     public int number;
 
-    public IntConstant(Type type, boolean isLeftValue, int number) {
-        super(type, isLeftValue);
+    public IntConstant(int number) {
+        super(new IntType());
         this.number = number;
     }
 

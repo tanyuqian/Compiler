@@ -2,6 +2,7 @@ package FrontEnd.AbstractSyntaxTree.Expression;
 
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
+import jdk.nashorn.internal.ir.FunctionCall;
 
 import java.util.List;
 
@@ -16,5 +17,9 @@ public class FunctionCallExpression extends Expression {
         super(type, isLeftValue);
         this.function = function;
         this.parameters = parameters;
+    }
+
+    public static FunctionCallExpression getExpression(Function function, List<Expression> parameters) {
+        return new FunctionCallExpression(function.type, false, function, parameters);
     }
 }
