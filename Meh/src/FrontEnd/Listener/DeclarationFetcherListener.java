@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class DeclarationFetcherListener extends BaseListener {
     @Override
-    public void enterNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx) {
+    public void exitNormalFunctionDeclaration(MehParser.NormalFunctionDeclarationContext ctx) {
         String name = ctx.IDENTIFIER(0).getText();
         Type type = (Type)returnNode.get(ctx.type(0));
         ClassType classType = Environment.scopeTable.getClassScope();
@@ -88,6 +88,7 @@ public class DeclarationFetcherListener extends BaseListener {
 
     @Override
     public void exitIntType(MehParser.IntTypeContext ctx) {
+
         returnNode.put(ctx, new IntType());
     }
 
@@ -104,7 +105,7 @@ public class DeclarationFetcherListener extends BaseListener {
     @Override
     public void exitClassType(MehParser.ClassTypeContext ctx) {
         String name = ctx.getText();
-        if (Environment.classNameSet.contains(name) == false) {
+        if (!Environment.classNameSet.contains(name)) {
             throw new CompilationError("There is no class named " + name);
         }
         returnNode.put(ctx, new ClassType(name));

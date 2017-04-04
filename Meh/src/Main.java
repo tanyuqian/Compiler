@@ -3,6 +3,8 @@ import FrontEnd.ConcreteSyntaxTree.MehLexer;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import FrontEnd.Listener.ClassFetcherListener;
 import FrontEnd.Listener.DeclarationFetcherListener;
+import FrontEnd.Listener.SyntaxErrorListener;
+import FrontEnd.Listener.TreeBuilderListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -19,11 +21,16 @@ public class Main {
         MehLexer lexer = new MehLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MehParser parser = new MehParser(tokens);
-        ParseTree tree = parser.program();
 
         Environment.initialize();
+
+        parser.removeErrorListeners();
+        parser.addErrorListener(new SyntaxErrorListener());
+        ParseTree tree = parser.program();
+
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(new ClassFetcherListener(), tree);
         walker.walk(new DeclarationFetcherListener(), tree);
+        walker.walk(new TreeBuilderListener(), tree);
     }
 }

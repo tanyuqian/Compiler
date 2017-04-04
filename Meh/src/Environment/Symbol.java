@@ -15,4 +15,8 @@ public class Symbol {
         this.name = name;
         this.scope = Environment.scopeTable.getScope();
     }
+
+    public String toString() {
+        return "name = " + name + ", type: " + type.toString();
+    }
 }

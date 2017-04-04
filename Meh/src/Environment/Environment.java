@@ -16,10 +16,10 @@ public class Environment {
     public static Set<String> classNameSet;
 
     public static void initialize() {
-        program = new Program();
         symbolTable = new SymbolTable();
         scopeTable = new ScopeTable();
         classNameSet = new HashSet<>();
+        enterScope(program = new Program());
     }
 
     public static void enterScope(Scope scope) {

@@ -58,7 +58,7 @@ expression
     | expression '[' expression ']'                             #subscriptExpression
     | expression '.' IDENTIFIER                                 #fieldExpression
     | operator=('++'|'--'|'+'|'-'|'!'|'~') expression           #unaryExpression
-    | 'new' type ('[' expression ']')* ('[' ']')*               #newExpression
+    | 'new' type ('[' expression ']')* ('[]')*                  #newExpression
     | expression operator=('*'|'/'|'%') expression              #multiplicativeExpression
     | expression operator=('+'|'-') expression                  #additiveExpression
     | expression operator=('<<'|'>>') expression                #shiftExpression
@@ -78,7 +78,7 @@ type
     | 'int'         #intType
     | 'string'      #stringType
     | IDENTIFIER    #classType
-    | type '[' ']'     #arrayType
+    | type '[]'     #arrayType
 ;
 
 constant

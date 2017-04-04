@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by tan on 3/30/17.
  */
-public class Program {
+public class Program implements Scope {
     public List<Function> functions;
     public List<VariableDeclarationStatement> globalVariables;
     public List<ClassType> classTypes;

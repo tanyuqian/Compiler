@@ -14,7 +14,7 @@ public class ForStatement extends LoopStatement {
     public Statement statement;
 
     public ForStatement() {
-        this.condition = new BoolConstant(new BoolType(), true);
+        this.condition = new BoolConstant(true);
     }
 
     public ForStatement(Expression initialization, Expression condition, Expression increment, Statement statement) {
@@ -30,7 +30,7 @@ public class ForStatement extends LoopStatement {
 
     public void addCondition(Expression expression) {
         if (expression == null) {
-            this.condition = new BoolConstant(new BoolType(), true);
+            this.condition = new BoolConstant(true);
             return ;
         }
         if (expression.type instanceof BoolType) {
