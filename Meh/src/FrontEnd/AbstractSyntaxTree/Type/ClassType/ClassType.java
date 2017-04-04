@@ -2,6 +2,7 @@ package FrontEnd.AbstractSyntaxTree.Type.ClassType;
 
 import Environment.Scope;
 import FrontEnd.AbstractSyntaxTree.Function;
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.NullType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.Member;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberFunction;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
@@ -27,6 +28,14 @@ public class ClassType extends Type implements Scope {
     }
 
     public boolean compatibleWith(Type other) {
+        if (other instanceof NullType) {
+            return true;
+        }
+        if (other instanceof ClassType) {
+            if (((ClassType) other).name.equals(this.name)) {
+                return true;
+            }
+        }
         return false;
     }
 

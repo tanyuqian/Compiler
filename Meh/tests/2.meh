@@ -1,1 +1,3 @@
-int a = getInt();
+class experience {}
+
+experience[][] exp = new experience[5][6];
