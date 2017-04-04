@@ -1,13 +1,11 @@
 package FrontEnd.AbstractSyntaxTree.Expression.UnaryExpression;
 
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
-import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 /**
  * Created by tan on 4/4/17.
