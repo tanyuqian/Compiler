@@ -20,6 +20,7 @@ public class IdentifierExpression extends Expression {
     }
 
     public static Expression getExpression(String name) {
+        //System.out.println("name is " + name);
         if (!Environment.symbolTable.contains(name)) {
             throw new CompilationError("\"" + name + "\" is not a symbol name");
         }

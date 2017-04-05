@@ -61,6 +61,7 @@ public class Main {
 		walker.walk(new ClassFetcherListener(), tree);
 		walker.walk(new DeclarationFetcherListener(), tree);
 		Environment.classTable.analysis();
+
 		walker.walk(new TreeBuilderListener(), tree);
 	}
 

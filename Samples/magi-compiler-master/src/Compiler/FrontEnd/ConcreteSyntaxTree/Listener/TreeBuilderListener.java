@@ -102,6 +102,7 @@ public class TreeBuilderListener extends BaseListener {
 			Function function = (Function)returnNode.get(ctx.parent);
 			for (int i = 0; i < function.parameters.size(); ++i) {
 				Symbol parameter = function.parameters.get(i);
+				System.out.println(parameter.name);
 				function.parameters.set(i, Environment.symbolTable.addParameterVariable(parameter.name, parameter.type));
 			}
 		}

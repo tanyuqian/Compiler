@@ -35,7 +35,7 @@ public class SymbolTable {
         if (symbolTables.peek().containsKey(name)) {
             throw new CompilationError("this scope have two symbol named \"" + name + "\"");
         }
-        if (currentSymbols.containsKey(name) == false) {
+        if (!currentSymbols.containsKey(name)) {
             currentSymbols.put(name, new Stack<>());
         }
         Symbol symbol = new Symbol(type, name);

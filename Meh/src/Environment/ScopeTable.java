@@ -1,7 +1,6 @@
 package Environment;
 
 import FrontEnd.AbstractSyntaxTree.Function;
-import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.ForStatement;
 import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.LoopStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import Utility.CompilationError;
@@ -35,7 +34,6 @@ public class ScopeTable {
         if (scope instanceof LoopStatement) {
             loopScopes.push((LoopStatement)scope);
         }
-
     }
 
     public void exitScope() {

@@ -1,17 +1,9 @@
-int i;
-int j;
-int[][] step;
-
-void origin(int N)
-{
-	step = new int[N][];
-    for (i = 0; i < N; i =  i ++ ) {
-		step[i] = new int[N];
-        for (j = 0; j < N; j = j ++ )
-        step[i][j] = 0;
-    }
+class point {
+	int x;
+	point() {
+		x = 0;
+	}
 }
 
 int main() {
 }
-

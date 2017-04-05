@@ -120,7 +120,7 @@ public class TreeBuilderListener extends BaseListener {
     public void enterBlockStatement(MehParser.BlockStatementContext ctx) {
         BlockStatement node = new BlockStatement();
         Environment.enterScope(node);
-        if (ctx.parent instanceof MehParser.NormalFunctionDeclarationContext) {
+        if (ctx.parent instanceof MehParser.FunctionDeclarationContext) {
             Function function = (Function)returnNode.get(ctx.parent);
             for (int i = 0; i < function.parameters.size(); i++) {
                 Symbol symbol = function.parameters.get(i);

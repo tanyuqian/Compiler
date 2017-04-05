@@ -56,7 +56,7 @@ public class DeclarationFetcherListener extends BaseListener {
             throw new CompilationError("[className: " + classType.name + "]" + ": constructor must have same name with class");
         }
         List<Symbol> parameters = new ArrayList<>();
-        parameters.add(new Symbol(new VoidType(), "this"));
+        parameters.add(new Symbol(classType, "this"));
         Function function = new Function(new VoidType(), name, parameters);
         classType.addConstructor(function);
         Environment.program.addFunction(function);
