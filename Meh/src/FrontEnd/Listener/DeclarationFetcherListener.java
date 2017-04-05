@@ -88,7 +88,6 @@ public class DeclarationFetcherListener extends BaseListener {
 
     @Override
     public void exitIntType(MehParser.IntTypeContext ctx) {
-
         returnNode.put(ctx, new IntType());
     }
 
@@ -105,10 +104,10 @@ public class DeclarationFetcherListener extends BaseListener {
     @Override
     public void exitClassType(MehParser.ClassTypeContext ctx) {
         String name = ctx.getText();
-        if (!Environment.classNameSet.contains(name)) {
+        if (!Environment.classTable.containsKey(name)) {
             throw new CompilationError("There is no class named " + name);
         }
-        returnNode.put(ctx, new ClassType(name));
+        returnNode.put(ctx, Environment.classTable.get(name));
     }
 
     @Override

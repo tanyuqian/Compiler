@@ -6,11 +6,9 @@ import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.StringType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
+import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by tan on 4/2/17.
@@ -19,13 +17,13 @@ public class Environment {
     public static Program program;
     public static SymbolTable symbolTable;
     public static ScopeTable scopeTable;
-    public static Set<String> classNameSet;
+    public static Map<String, ClassType> classTable;
     public static boolean hasMain;
 
     public static void initialize() {
         symbolTable = new SymbolTable();
         scopeTable = new ScopeTable();
-        classNameSet = new HashSet<>();
+        classTable = new HashMap<>();
         enterScope(program = new Program());
         hasMain = false;
         loadLibraryFunctions();

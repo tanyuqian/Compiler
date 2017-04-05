@@ -16,10 +16,10 @@ public class ClassFetcherListener extends BaseListener {
         String name = ctx.IDENTIFIER().getText();
         ClassType node = new ClassType(name);
 
-        if (Environment.classNameSet.contains(name)) {
+        if (Environment.classTable.containsKey(name)) {
             throw new CompilationError("classes cannot have same name.");
         }
-        Environment.classNameSet.add(name);
+        Environment.classTable.put(name, node);
 
         Environment.program.addClassType(node);
         returnNode.put(ctx, node);

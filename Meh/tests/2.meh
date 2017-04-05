@@ -1,5 +1,9 @@
-int f()
-{
-	println("No main function.");
-	return 0;
+class Fibonacci{
+	void set_problem(int x_in) {}
+}
+
+int main(){
+	Fibonacci teacher;
+
+	teacher.set_problem(2);
 }

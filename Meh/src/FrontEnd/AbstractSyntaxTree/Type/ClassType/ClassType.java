@@ -60,6 +60,7 @@ public class ClassType extends Type implements Scope {
     }
 
     public Member getMember(String name) {
+
         Member result = null;
         if (memberFunctions.containsKey(name)) {
             result = memberFunctions.get(name);

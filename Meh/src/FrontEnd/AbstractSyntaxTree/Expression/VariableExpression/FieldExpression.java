@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression.VariableExpression;
 
+import Environment.Symbol;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.Member;
