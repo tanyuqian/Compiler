@@ -109,6 +109,6 @@ public class Environment {
                     add(new Symbol(new StringType(), "this"));
                     add(new Symbol(new IntType(), "pos"));
                 }}
-        ), "__builtin_Ord");
+        ), "__builtin_ord");
     }
 }

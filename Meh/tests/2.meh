@@ -1,8 +1,4 @@
-int main()
-{
-    int[][] array = new int[3][3];
-
-	int a = array[0].size();
-
-	return 0;
+int main(){
+	return "45 best songs".ord(5);
 }
+

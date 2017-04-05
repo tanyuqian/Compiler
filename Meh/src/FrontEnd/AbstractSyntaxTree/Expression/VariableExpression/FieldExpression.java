@@ -55,7 +55,7 @@ public class FieldExpression extends Expression {
                 );
             } else if (name.equals("parseInt")) {
                 return new FieldExpression(
-                        Environment.symbolTable.get("__builin_parseInt").type,
+                        Environment.symbolTable.get("__builtin_parseInt").type,
                         expression.isLeftValue, name, expression
                 );
             } else if (name.equals("ord")) {
