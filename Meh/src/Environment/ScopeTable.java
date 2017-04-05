@@ -1,6 +1,7 @@
 package Environment;
 
 import FrontEnd.AbstractSyntaxTree.Function;
+import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.ForStatement;
 import FrontEnd.AbstractSyntaxTree.Statement.LoopStatement.LoopStatement;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import Utility.CompilationError;
@@ -34,6 +35,7 @@ public class ScopeTable {
         if (scope instanceof LoopStatement) {
             loopScopes.push((LoopStatement)scope);
         }
+
     }
 
     public void exitScope() {
@@ -41,6 +43,7 @@ public class ScopeTable {
             throw new CompilationError("Internal Error!!");
         }
         Scope scope = scopes.peek();
+        scopes.pop();
         if (scope instanceof ClassType) {
             if (classScopes.empty()) {
                 throw new CompilationError("Internal Error!!");

@@ -1,13 +1,17 @@
-//
-// Naive vector class for Mx*.
-// Without any guarantee for robustness.
-//
-class vector{
-	int[] data;
+int i;
+int j;
+int[][] step;
 
-	vector scalarInPlaceMultiply(int c){
-		return null;
-	}
+void origin(int N)
+{
+	step = new int[N][];
+    for (i = 0; i < N; i =  i ++ ) {
+		step[i] = new int[N];
+        for (j = 0; j < N; j = j ++ )
+        step[i][j] = 0;
+    }
 }
 
-int main(){}
+int main() {
+}
+
