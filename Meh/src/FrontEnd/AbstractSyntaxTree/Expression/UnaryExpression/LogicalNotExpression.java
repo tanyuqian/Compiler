@@ -16,7 +16,7 @@ public class LogicalNotExpression extends UnaryExpression {
     }
 
     public static Expression getExpression(Expression expression) {
-        if (expression.type instanceof IntType) {
+        if (expression.type instanceof BoolType) {
             if (expression instanceof BoolConstant) {
                 return new BoolConstant(!(((BoolConstant) expression).tag));
             }

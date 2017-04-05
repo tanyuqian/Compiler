@@ -40,7 +40,7 @@ selectionStatement
 
 iterationStatement
     : 'while' '(' expression ')' statement                                      #whileStatement
-    | 'for' '(' expression? ';' expression? ';' expression ')' statement        #forStatement
+    | 'for' '(' expression? ';' expression? ';' expression? ')' statement        #forStatement
 ;
 
 jumpStatement

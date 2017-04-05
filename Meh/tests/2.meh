@@ -1,9 +1,10 @@
-class point {
-	int x;
-	point() {
-		x = 0;
-	}
+
+bool pd() {
 }
 
 int main() {
+    if (!pd()) {
+    }
+    return 0;
 }
+
