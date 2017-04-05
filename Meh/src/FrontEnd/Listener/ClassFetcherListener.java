@@ -23,5 +23,8 @@ public class ClassFetcherListener extends BaseListener {
 
         Environment.program.addClassType(node);
         returnNode.put(ctx, node);
+        if (name.equals("this")) {
+            throw new CompilationError("this is a reserved word.");
+        }
     }
 }

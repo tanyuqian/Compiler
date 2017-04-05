@@ -43,6 +43,9 @@ public class DeclarationFetcherListener extends BaseListener {
         }
         Environment.program.addFunction(function);
         returnNode.put(ctx, function);
+        if (ctx.IDENTIFIER(0).getText().equals("this")) {
+            throw new CompilationError("this is a reserved word.");
+        }
     }
 
     @Override

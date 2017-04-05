@@ -231,6 +231,9 @@ public class TreeBuilderListener extends BaseListener {
             Expression expression = (Expression)returnNode.get(ctx.expression());
             returnNode.put(ctx, VariableDeclarationStatement.getStatement(symbol, expression));
         }
+        if (ctx.IDENTIFIER().getText().equals("this")) {
+            throw new CompilationError("this is a reserved word.");
+        }
     }
 
     @Override
@@ -253,6 +256,9 @@ public class TreeBuilderListener extends BaseListener {
 
     @Override
     public void exitSubscriptExpression(MehParser.SubscriptExpressionContext ctx) {
+        if (returnNode.get(ctx.expression(0)) instanceof NewExpression) {
+            throw new CompilationError("how can you write this???");
+        }
         returnNode.put(ctx, SubscriptExpression.getExpression(
                 (Expression)returnNode.get(ctx.expression(0)),
                 (Expression)returnNode.get(ctx.expression(1))
@@ -301,10 +307,6 @@ public class TreeBuilderListener extends BaseListener {
         Expression function = (Expression)returnNode.get(ctx.expression(0));
         List<Expression> parameters = new ArrayList<>();
         for (int i = 1; i < ctx.expression().size(); i++) {
-            if (row == 100) {
-                row++;
-                row--;
-            }
             Expression parameter = (Expression)returnNode.get(ctx.expression(i));
             parameters.add(parameter);
         }
@@ -319,13 +321,15 @@ public class TreeBuilderListener extends BaseListener {
             Expression cur = (Expression)returnNode.get(expressionCtx);
             list.add(cur);
         });
-        ctx.children.forEach(node -> {
+        String last = null;
+        for (ParseTree node : ctx.children) {
             if (node instanceof TerminalNode) {
-                if (node.getText().equals("[]")) {
+                if (node.getText().equals("]") && last.equals("[")) {
                     list.add(null);
                 }
             }
-        });
+            last = node.getText();
+        }
         Type baseType = (Type)returnNode.get(ctx.type());
         returnNode.put(ctx, NewExpression.getExpression(baseType, list));
     }
