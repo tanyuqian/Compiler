@@ -1,3 +1,5 @@
-class experience {}
-
-experience[][] exp = new experience[5][6];
+int f()
+{
+	println("No main function.");
+	return 0;
+}

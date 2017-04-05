@@ -20,12 +20,14 @@ public class Environment {
     public static SymbolTable symbolTable;
     public static ScopeTable scopeTable;
     public static Set<String> classNameSet;
+    public static boolean hasMain;
 
     public static void initialize() {
         symbolTable = new SymbolTable();
         scopeTable = new ScopeTable();
         classNameSet = new HashSet<>();
         enterScope(program = new Program());
+        hasMain = false;
         loadLibraryFunctions();
     }
 

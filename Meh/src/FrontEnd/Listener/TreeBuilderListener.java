@@ -42,6 +42,9 @@ public class TreeBuilderListener extends BaseListener {
             VariableDeclarationStatement node = (VariableDeclarationStatement)returnNode.get(u);
             Environment.program.addGlobalVariable(node);
         }
+        if (!Environment.hasMain) {
+            throw new CompilationError("no main-function.");
+        }
     }
 
     @Override
@@ -301,7 +304,6 @@ public class TreeBuilderListener extends BaseListener {
             Expression parameter = (Expression)returnNode.get(ctx.expression(i));
             parameters.add(parameter);
         }
-        System.out.println(function.type instanceof Function);
         returnNode.put(ctx, FunctionCallExpression.getExpression(function, parameters));
     }
 

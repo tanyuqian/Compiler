@@ -52,6 +52,7 @@ public class Function extends Type implements Scope {
             if (!parameters.isEmpty()) {
                 throw new CompilationError("main function should have no parameter.");
             }
+            Environment.hasMain = true;
         }
         for (int i = 0; i < parameters.size(); i++) {
             for (int j = i + 1; j < parameters.size(); j++) {
