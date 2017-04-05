@@ -256,7 +256,7 @@ public class TreeBuilderListener extends BaseListener {
 
     @Override
     public void exitSubscriptExpression(MehParser.SubscriptExpressionContext ctx) {
-        if (returnNode.get(ctx.expression(0)) instanceof NewExpression) {
+        if (ctx.expression(0) instanceof MehParser.NewExpressionContext) {
             throw new CompilationError("how can you write this???");
         }
         returnNode.put(ctx, SubscriptExpression.getExpression(

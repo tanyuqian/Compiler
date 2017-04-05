@@ -2,40 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehLexer.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ArrayTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ArrayTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$BoolConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$BoolConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$BoolTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$BoolTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ClassDeclarationContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ClassDeclarationContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ClassTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ClassTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ConstructorFunctionDeclarationContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$ConstructorFunctionDeclarationContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$FieldExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$FieldExpressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$IntConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$IntConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$IntTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$IntTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$NormalFunctionDeclarationContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$NormalFunctionDeclarationContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$NullConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$NullConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$StringConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$StringConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$StringTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$StringTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$TypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$TypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VariableDeclarationStatementContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VariableDeclarationStatementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VariableExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VariableExpressionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VoidTypeContext.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser$VoidTypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/ClassFetcherListener.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/ClassFetcherListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/DeclarationFetcherListener.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/DeclarationFetcherListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/TreeBuilderListener.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/TreeBuilderListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/Meh.g4" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/Meh.tokens" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/Meh.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehLexer.tokens" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/ConcreteSyntaxTree/MehLexer.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" afterPath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.tokens" afterPath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehLexer.java" afterPath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehLexer.tokens" afterPath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehLexer.tokens" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java" afterPath="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/Listener/ClassFetcherListener.java" afterPath="$PROJECT_DIR$/src/FrontEnd/Listener/ClassFetcherListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java" afterPath="$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" afterPath="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
     </list>
@@ -67,8 +33,8 @@
       <file leaf-file-name="TreeBuilderListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="249" column="50" lean-forward="true" selection-start-line="249" selection-start-column="50" selection-end-line="249" selection-end-column="50" />
+            <state relative-caret-position="129">
+              <caret line="258" column="71" lean-forward="false" selection-start-line="258" selection-start-column="71" selection-end-line="258" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -107,8 +73,18 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state relative-caret-position="80">
+              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/LoopStatement/ForStatement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -117,8 +93,8 @@
       <file leaf-file-name="2.meh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/2.meh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="254">
+              <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -139,16 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="402">
               <caret line="28" column="70" lean-forward="true" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MehParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="829">
-              <caret line="475" column="0" lean-forward="false" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,7 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>function</find>
       <find>constructor</find>
       <find>enterfunctionDeclaration</find>
       <find>expression</find>
@@ -206,6 +171,7 @@
       <find>exitvariable</find>
       <find>newexpre</find>
       <find>subscriptexpression</find>
+      <find>subscri</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,9 +232,9 @@
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/Listener/ClassFetcherListener.java" />
-        <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
         <option value="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" />
+        <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
@@ -338,24 +304,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Meh" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Meh" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1223,7 +1171,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187598000" />
+    <option name="totallyTimeSpent" value="188039000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1431,14 +1379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/LoopStatement/ForStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1686,22 +1626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/2.meh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utility/CompilationError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1718,18 +1642,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/LoopStatement/ForStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utility/CompilationError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="249" column="50" lean-forward="true" selection-start-line="249" selection-start-column="50" selection-end-line="249" selection-end-column="50" />
+        <state relative-caret-position="129">
+          <caret line="258" column="71" lean-forward="false" selection-start-line="258" selection-start-column="71" selection-end-line="258" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/2.meh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="80">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding />
         </state>
       </provider>
