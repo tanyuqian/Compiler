@@ -1,4 +1,4 @@
-// Generated from /home/tan/Compiler/Samples/magi-compiler-master/src/Compiler/FrontEnd/ConcreteSyntaxTree/Parser/Magi.g4 by ANTLR 4.6
+// Generated from /Users/liuzhijian/Desktop/Compiler/src/Compiler/FrontEnd/ConcreteSyntaxTree/Parser/Magi.g4 by ANTLR 4.5.1
 package Compiler.FrontEnd.ConcreteSyntaxTree.Parser;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -225,12 +225,15 @@ public interface MagiListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void enterNewExpression(MagiParser.NewExpressionContext ctx);
+
 	/**
 	 * Exit a parse tree produced by the {@code newExpression}
 	 * labeled alternative in {@link MagiParser#expression}.
+	 *
 	 * @param ctx the parse tree
 	 */
 	void exitNewExpression(MagiParser.NewExpressionContext ctx);
+
 	/**
 	 * Enter a parse tree produced by the {@code assignmentExpression}
 	 * labeled alternative in {@link MagiParser#expression}.

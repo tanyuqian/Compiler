@@ -229,7 +229,8 @@ public class TreeBuilderListener extends BaseListener {
 	public void exitFieldExpression(MagiParser.FieldExpressionContext ctx) {
 		returnNode.put(ctx, FieldExpression.getExpression(
 				(Expression)returnNode.get(ctx.expression()),
-				ctx.IDENTIFIER().getText()));
+				ctx.IDENTIFIER().getText()
+		));
 	}
 
 	@Override

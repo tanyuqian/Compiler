@@ -19,7 +19,6 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -27,9 +26,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class Main {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		Utility.arguments = new HashSet<>(Arrays.asList(args));
-		/*
 		try {
 			new Main().compile(System.in, System.out);
 		} catch (CompilationError e) {
@@ -42,22 +40,17 @@ public class Main {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		*/
-		InputStream iStream = new FileInputStream("tests/2.meh");
-		load(iStream);
 	}
 
-	public static void load(InputStream file) throws Exception {
+	public void load(InputStream file) throws Exception {
 		ANTLRInputStream input = new ANTLRInputStream(file);
 		MagiLexer lexer = new MagiLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		MagiParser parser = new MagiParser(tokens);
-
 		parser.removeErrorListeners();
 		parser.addErrorListener(new SyntaxErrorListener());
 		ParseTree tree = parser.program();
 		ParseTreeWalker walker = new ParseTreeWalker();
-
 		walker.walk(new ClassFetcherListener(), tree);
 		walker.walk(new DeclarationFetcherListener(), tree);
 		Environment.classTable.analysis();

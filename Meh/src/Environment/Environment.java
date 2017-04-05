@@ -40,6 +40,7 @@ public class Environment {
     }
 
     public static void loadLibraryFunctions() {
+        symbolTable.add(Function.getFunction(), "")
         symbolTable.add(Function.getFunction(
                 "__builtin_print",
                 new VoidType(),

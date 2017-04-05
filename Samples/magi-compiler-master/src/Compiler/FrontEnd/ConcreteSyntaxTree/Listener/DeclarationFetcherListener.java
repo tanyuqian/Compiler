@@ -117,7 +117,6 @@ public class DeclarationFetcherListener extends BaseListener {
 		Environment.enterScope(classType);
 	}
 
-
 	@Override
 	public void exitClassDeclaration(MagiParser.ClassDeclarationContext ctx) {
 		ClassType classType = (ClassType)returnNode.get(ctx);

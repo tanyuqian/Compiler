@@ -1,9 +1,8 @@
-class Fibonacci{
-	void set_problem(int x_in) {}
-}
+int main()
+{
+    int[][] array = new int[3][3];
 
-int main(){
-	Fibonacci teacher;
+	int a = array[0].size();
 
-	teacher.set_problem(2);
+	return 0;
 }
