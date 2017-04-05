@@ -43,7 +43,8 @@ public class FunctionCallExpression extends Expression {
                 if (i == 0 && (expression instanceof FieldExpression)) {
                     continue;
                 }
-                if (!parameters.get(i).type.compatibleWith(function.parameters.get(i).type)) {
+                if (!function.parameters.get(i).type.compatibleWith(parameters.get(i).type)) {
+                    System.out.println(function.name);
                     throw new CompilationError("type of parameter Error!");
                 }
             }

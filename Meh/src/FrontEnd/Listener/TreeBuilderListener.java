@@ -301,9 +301,14 @@ public class TreeBuilderListener extends BaseListener {
         Expression function = (Expression)returnNode.get(ctx.expression(0));
         List<Expression> parameters = new ArrayList<>();
         for (int i = 1; i < ctx.expression().size(); i++) {
+            if (row == 100) {
+                row++;
+                row--;
+            }
             Expression parameter = (Expression)returnNode.get(ctx.expression(i));
             parameters.add(parameter);
         }
+
         returnNode.put(ctx, FunctionCallExpression.getExpression(function, parameters));
     }
 
