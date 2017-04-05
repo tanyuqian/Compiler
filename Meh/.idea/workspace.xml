@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/TreeBuilderListener.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/Listener/TreeBuilderListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" afterPath="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,11 +109,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionCallExpression.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FunctionCallExpression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
               <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -227,10 +231,10 @@
         <option value="$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/LogicalNotExpression.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/FunctionCallExpression.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -1184,7 +1188,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185879000" />
+    <option name="totallyTimeSpent" value="185947000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1220,7 +1224,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3529412" sideWeight="0.49722442" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3529412" sideWeight="0.49722442" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30134815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1671,14 +1675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/antlr-4.6-complete.jar!/org/antlr/v4/runtime/tree/ParseTreeWalker.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -1699,6 +1695,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding />
         </state>
       </provider>
