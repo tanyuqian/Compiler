@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Type.BasicType;
 
+import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 
 /**
@@ -7,7 +8,7 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
  */
 public class NullType extends Type {
     public boolean compatibleWith(Type other) {
-        return false;
+        return (other instanceof NullType) || (other instanceof ArrayType);
     }
 
     @Override

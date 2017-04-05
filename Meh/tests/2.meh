@@ -1,4 +1,13 @@
-int main(){
-	return "45 best songs".ord(5);
+//
+// Naive vector class for Mx*.
+// Without any guarantee for robustness.
+//
+class vector{
+	int[] data;
+
+	vector scalarInPlaceMultiply(int c){
+		return null;
+	}
 }
 
+int main(){}

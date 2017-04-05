@@ -28,7 +28,7 @@ public class ReturnStatement extends Statement {
                 return new ReturnStatement(function, expression);
             }
         } else {
-            if (expression.type.compatibleWith(function.type)) {
+            if (function.type.compatibleWith(expression.type)) {
                 return new ReturnStatement(function, expression);
             }
         }
