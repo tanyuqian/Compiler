@@ -40,7 +40,6 @@ public class Environment {
     }
 
     public static void loadLibraryFunctions() {
-        symbolTable.add(Function.getFunction(), "")
         symbolTable.add(Function.getFunction(
                 "__builtin_print",
                 new VoidType(),
@@ -72,5 +71,44 @@ public class Environment {
                     add(new Symbol(new IntType(), "i"));
                 }}
         ), "toString");
+
+        symbolTable.add(Function.getFunction(
+                "__builtin_getArraySize",
+                new IntType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new VoidType(), "this"));
+                }}
+        ), "__builtin_getArraySize");
+        symbolTable.add(Function.getFunction(
+                "__builtin_getStringLength",
+                new IntType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "this"));
+                }}
+        ), "__builtin_getStringLength");
+        symbolTable.add(Function.getFunction(
+                "__builtin_getSubstring",
+                new StringType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "this"));
+                    add(new Symbol(new IntType(), "left"));
+                    add(new Symbol(new IntType(), "right"));
+                }}
+        ), "__builtin_getSubstring");
+        symbolTable.add(Function.getFunction(
+                "__builtin_parseInt",
+                new IntType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "this"));
+                }}
+        ), "__builtin_parseInt");
+        symbolTable.add(Function.getFunction(
+                "__builtin_ord",
+                new IntType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "this"));
+                    add(new Symbol(new IntType(), "pos"));
+                }}
+        ), "__builtin_Ord");
     }
 }
