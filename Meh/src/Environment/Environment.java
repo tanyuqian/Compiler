@@ -19,6 +19,7 @@ public class Environment {
     public static ScopeTable scopeTable;
     public static Map<String, ClassType> classTable;
     public static boolean hasMain;
+    public static RegisterTable registerTable;
 
     public static void initialize() {
         symbolTable = new SymbolTable();
