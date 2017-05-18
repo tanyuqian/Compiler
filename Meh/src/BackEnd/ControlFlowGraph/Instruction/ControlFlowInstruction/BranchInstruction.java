@@ -20,6 +20,6 @@ public class BranchInstruction extends ControlFlowInstruction {
 
     @Override
     public String toString() {
-        return "br " + condition + " " + trueTo + " " falseTo;
+        return "br " + condition + " " + trueTo + " " +  falseTo;
     }
 }

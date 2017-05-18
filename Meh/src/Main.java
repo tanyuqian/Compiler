@@ -16,8 +16,8 @@ import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        InputStream iStream = System.in;
-        //InputStream iStream = new FileInputStream("tests/2.meh");
+        //InputStream iStream = System.in;
+        InputStream iStream = new FileInputStream("tests/test.meh");
         ANTLRInputStream input = new ANTLRInputStream(iStream);
         MehLexer lexer = new MehLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
