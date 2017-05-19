@@ -12,6 +12,10 @@ public class JumpInstruction extends ControlFlowInstruction {
         this.to = to;
     }
 
+    public static JumpInstruction getInstruction(LabelInstruction label) {
+        return new JumpInstruction(label);
+    }
+
     @Override
     public String toString() {
         return "jump " + to;

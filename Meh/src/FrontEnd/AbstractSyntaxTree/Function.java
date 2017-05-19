@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import Environment.Environment;
 import Environment.Scope;
 import Environment.Symbol;
@@ -19,6 +20,7 @@ public class Function extends Type implements Scope {
     public String name;
     public List<Symbol> parameters;
     public BlockStatement statements;
+    public Instruction entry, enter, exit;
 
     public Function(Type type, String name, List<Symbol> parameters) {
         this.type = type;

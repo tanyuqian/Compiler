@@ -19,19 +19,19 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		/*
+		InputStream iStream = new FileInputStream("../../Meh/tests/2.meh");
+
+
 		Utility.arguments = new HashSet<>(Arrays.asList(args));
 		try {
-			new Main().compile(System.in, System.out);
+			//new Main().compile(System.in, System.out);
+			new Main().compile(iStream, System.out);
 		} catch (CompilationError e) {
 			System.err.println(e.getMessage());
 			System.exit(1);
@@ -42,9 +42,6 @@ public class Main {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		*/
-		InputStream iStream = new FileInputStream("../../Meh/tests/2.meh");
-		load(iStream);
 	}
 
 	public static void load(InputStream file) throws Exception {
@@ -68,17 +65,20 @@ public class Main {
 	void compile(InputStream input, OutputStream output) throws Exception {
 		Environment.initialize();
 		load(input);
-		if (Utility.arguments.contains("-ast")) {
+		if (false && Utility.arguments.contains("-ast")) {
 			System.err.println(Environment.program.toString(0));
 		}
 		for (Function function : Environment.program.functions) {
 			function.graph = new Graph(function);
 			function.allocator = new GlobalRegisterAllocator(function);
 		}
-		if (Utility.arguments.contains("-ir")) {
+		if (true || Utility.arguments.contains("-ir")) {
+			FileWriter ir = new FileWriter("../../Meh/tests/lzj.ir");
 			for (Function function : Environment.program.functions) {
-				System.err.println(function.graph.toString(0));
+				//System.err.println(function.graph.toString(0));
+				ir.write(function.graph.toString(0));
 			}
+			ir.close();
 		}
 		new MIPSBasicTranslator(new PrintStream(output)).translate();
 	}

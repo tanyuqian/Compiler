@@ -1,0 +1,11 @@
+func main {
+	%main.0.enter:
+		jump %main.1.entry
+
+	%main.1.entry:
+		call ____builtin____print_int 15
+		ret 0
+		jump %main.2.exit
+
+	%main.2.exit:
+}
