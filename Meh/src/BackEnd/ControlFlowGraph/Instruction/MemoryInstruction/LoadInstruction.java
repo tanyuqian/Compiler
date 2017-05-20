@@ -1,7 +1,10 @@
 package BackEnd.ControlFlowGraph.Instruction.MemoryInstruction;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Operand.Address;
+import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
+import Utility.CompilationError;
 
 /**
  * Created by tan on 5/18/17.
@@ -13,6 +16,13 @@ public class LoadInstruction extends MemoryInstruction {
     public LoadInstruction(VirtualRegister destination, Address address) {
         this.destination = destination;
         this.address = address;
+    }
+
+    public static Instruction getInstruction(Operand destination, Operand address) {
+        if (destination instanceof VirtualRegister && address instanceof Address) {
+            return new LoadInstruction((VirtualRegister)destination, (Address)address);
+        }
+        throw new CompilationError("Internal Error!");
     }
 
     @Override

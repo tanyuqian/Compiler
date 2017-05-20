@@ -21,7 +21,10 @@ public abstract class Expression extends Node {
         this.operand = null;
     }
 
-    public abstract void emit(List<Instruction> instructions);
+    //public abstract void emit(List<Instruction> instructions);
+    public void emit(List<Instruction> instructions) {
+
+    }
 
     public void load(List<Instruction> instructions) {
     }

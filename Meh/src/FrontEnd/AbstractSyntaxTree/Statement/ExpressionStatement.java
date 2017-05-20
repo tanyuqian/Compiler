@@ -19,4 +19,10 @@ public class ExpressionStatement extends Statement {
         return new ExpressionStatement(expression);
     }
 
+    @Override
+    public void emit(List<Instruction> instructions) {
+        if (expression != null) {
+            expression.emit(instructions);
+        }
+    }
 }

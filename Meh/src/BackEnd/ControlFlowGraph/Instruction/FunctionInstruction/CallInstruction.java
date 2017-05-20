@@ -1,8 +1,10 @@
 package BackEnd.ControlFlowGraph.Instruction.FunctionInstruction;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import FrontEnd.AbstractSyntaxTree.Function;
+import Utility.CompilationError;
 
 import java.util.List;
 
@@ -18,6 +20,15 @@ public class CallInstruction extends FunctionInstruction {
         this.destination = destination;
         this.function = function;
         this.parameters = parameters;
+    }
+
+    public static Instruction getInstruction(Operand destination, Function function, List<Operand> parameters) {
+        if (destination == null) {
+            return new CallInstruction(null, function, parameters);
+        } else if (destination instanceof VirtualRegister) {
+            return new CallInstruction((VirtualRegister)destination, function, parameters);
+        }
+        throw new CompilationError("Internal Error!");
     }
 
     @Override

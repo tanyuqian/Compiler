@@ -1,9 +1,13 @@
 package FrontEnd.AbstractSyntaxTree.Statement;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.MoveInstruction;
 import Environment.Symbol;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
@@ -25,5 +29,14 @@ public class VariableDeclarationStatement extends Statement {
             return new VariableDeclarationStatement(symbol, expression);
         }
         throw new CompilationError("variable declaration: the types is not match. name is \"" + symbol.name + "\"");
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        if (expression != null) {
+            expression.emit(instructions);
+            expression.load(instructions);
+            instructions.add(MoveInstruction.getInstruction(symbol.register, expression.operand));
+        }
     }
 }

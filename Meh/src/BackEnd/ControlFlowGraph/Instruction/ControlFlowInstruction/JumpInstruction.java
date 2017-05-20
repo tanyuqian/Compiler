@@ -1,5 +1,6 @@
 package BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Instruction.LabelInstruction;
 
 /**
@@ -12,7 +13,7 @@ public class JumpInstruction extends ControlFlowInstruction {
         this.to = to;
     }
 
-    public static JumpInstruction getInstruction(LabelInstruction label) {
+    public static Instruction getInstruction(LabelInstruction label) {
         return new JumpInstruction(label);
     }
 

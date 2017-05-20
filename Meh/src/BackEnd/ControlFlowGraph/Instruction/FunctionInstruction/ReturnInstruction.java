@@ -1,5 +1,6 @@
 package BackEnd.ControlFlowGraph.Instruction.FunctionInstruction;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 
 /**
@@ -10,6 +11,10 @@ public class ReturnInstruction extends FunctionInstruction {
 
     public ReturnInstruction(Operand operand) {
         this.operand = operand;
+    }
+
+    public static Instruction getInstruction(Operand operand) {
+        return new ReturnInstruction(operand);
     }
 
     @Override

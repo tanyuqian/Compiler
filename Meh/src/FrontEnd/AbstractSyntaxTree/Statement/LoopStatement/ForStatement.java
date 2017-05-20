@@ -1,10 +1,16 @@
 package FrontEnd.AbstractSyntaxTree.Statement.LoopStatement;
 
+import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.BranchInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.JumpInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.LabelInstruction;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Statement.Statement;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
@@ -46,5 +52,34 @@ public class ForStatement extends LoopStatement {
 
     public void addStatement(Statement statement) {
         this.statement = statement;
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        LabelInstruction conditionLabel = LabelInstruction.getInstruction("for_condition");
+        LabelInstruction bodyLabel = LabelInstruction.getInstruction("for_body");
+        loop = LabelInstruction.getInstruction("for_loop");
+        after = LabelInstruction.getInstruction("for_after");
+        if (initialization != null) {
+            initialization.emit(instructions);
+        }
+        instructions.add(JumpInstruction.getInstruction(conditionLabel));
+        instructions.add(conditionLabel);
+        if (condition == null) {
+            addCondition(null);
+        }
+        condition.emit(instructions);
+        instructions.add(BranchInstruction.getInstruction(condition.operand, bodyLabel, after));
+        instructions.add(bodyLabel);
+        if (statement != null) {
+            statement.emit(instructions);
+        }
+        instructions.add(JumpInstruction.getInstruction(loop));
+        instructions.add(loop);
+        if (increment != null) {
+            increment.emit(instructions);
+        }
+        instructions.add(JumpInstruction.getInstruction(conditionLabel));
+        instructions.add(after);
     }
 }

@@ -1,10 +1,15 @@
 package FrontEnd.AbstractSyntaxTree.Expression.UnaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.UnaryInstruction.BitwiseNotInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/4/17.
@@ -22,5 +27,13 @@ public class BitwiseNotExpression extends UnaryExpression {
             return new BitwiseNotExpression(new IntType(), false, expression);
         }
         throw new CompilationError("bitwise-not needs int.");
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        expression.emit(instructions);
+        expression.load(instructions);
+        operand = Environment.registerTable.addTemporaryRegister();
+        instructions.add(BitwiseNotInstruction.getInstruction(operand, expression.operand));
     }
 }
