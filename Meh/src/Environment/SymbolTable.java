@@ -45,15 +45,21 @@ public class SymbolTable {
     }
 
     public Symbol addParameterVariable(Type type, String name) {
-        return add(type, name);
+        Symbol symbol = add(type, name);
+        symbol.register = Environment.registerTable.addParameterRegister(symbol);
+        return symbol;
     }
 
     public Symbol addGlobalVariable(Type type, String name) {
-        return add(type, name);
+        Symbol symbol = add(type, name);
+        symbol.register = Environment.registerTable.addGlobalRegister(symbol);
+        return symbol;
     }
 
     public Symbol addTemporatyVariable(Type type, String name) {
-        return add(type, name);
+        Symbol symbol = add(type, name);
+        symbol.register = Environment.registerTable.addTemporaryRegister(symbol);
+        return symbol;
     }
 
     public boolean contains(String name) {

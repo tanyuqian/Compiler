@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression.VariableExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import Environment.Environment;
 import Environment.Symbol;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
@@ -7,6 +8,8 @@ import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
@@ -34,5 +37,10 @@ public class IdentifierExpression extends Expression {
                 return new IdentifierExpression(symbol.type, true, symbol);
             }
         }
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        operand = symbol.register;
     }
 }

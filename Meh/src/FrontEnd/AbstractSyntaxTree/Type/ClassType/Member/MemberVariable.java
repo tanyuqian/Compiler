@@ -9,9 +9,12 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 public class MemberVariable extends Member {
     public Type type;
     public Expression expression;
+    public int offset;
 
     public MemberVariable(String name, Type type) {
         super(name);
         this.type = type;
+        this.offset = origin.allocateSize;
+        origin.allocateSize += type.size();
     }
 }

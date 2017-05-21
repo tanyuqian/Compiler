@@ -19,12 +19,14 @@ public class ClassType extends Type implements Scope {
     public String name;
     public Map<String, MemberVariable> memberVariables;
     public Map<String, MemberFunction> memberFunctions;
-    Function constructor;
+    public Function constructor;
+    public int allocateSize;
 
     public ClassType(String name) {
         this.name = name;
         memberFunctions = new HashMap<>();
         memberVariables = new HashMap<>();
+        allocateSize = 0;
     }
 
     public boolean compatibleWith(Type other) {
@@ -60,7 +62,6 @@ public class ClassType extends Type implements Scope {
     }
 
     public Member getMember(String name) {
-
         Member result = null;
         if (memberFunctions.containsKey(name)) {
             result = memberFunctions.get(name);

@@ -1,4 +1,6 @@
+import BackEnd.ControlFlowGraph.Graph;
 import Environment.Environment;
+import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.ConcreteSyntaxTree.MehLexer;
 import FrontEnd.ConcreteSyntaxTree.MehParser;
 import FrontEnd.Listener.ClassFetcherListener;
@@ -15,9 +17,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         //InputStream iStream = System.in;
-        InputStream iStream = new FileInputStream("tests/test.meh");
+        InputStream iStream = new FileInputStream("tests/2.meh");
         ANTLRInputStream input = new ANTLRInputStream(iStream);
         MehLexer lexer = new MehLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -34,6 +36,8 @@ public class Main {
         walker.walk(new DeclarationFetcherListener(), tree);
         walker.walk(new TreeBuilderListener(), tree);
 
-
+        for (Function function : Environment.program.functions) {
+            function.graph = new Graph(function);
+        }
     }
 }

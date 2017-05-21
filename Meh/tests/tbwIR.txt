@@ -1,0 +1,12 @@
+%enter
+$g0(e) = move 2
+jump %entry
+%entry
+$p1 = move 5
+$p2 = move 10
+$p4 = add $p1 $p2
+$p3 = move $p4
+ret 0
+jump %exit
+jump %exit
+%exit

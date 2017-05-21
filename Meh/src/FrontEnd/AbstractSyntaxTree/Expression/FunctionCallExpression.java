@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.FieldExpression;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
@@ -51,5 +52,10 @@ public class FunctionCallExpression extends Expression {
             return new FunctionCallExpression(function.type, false, function, parameters);
         }
         throw new CompilationError("function-call need a function");
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        // waiting to be done...
     }
 }

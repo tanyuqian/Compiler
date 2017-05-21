@@ -1,3 +1,5 @@
+int e = 2;
+
 int main() {
 	
 	int a = 5;
@@ -5,7 +7,6 @@ int main() {
 
 	int c = a + b;
 
-	print(toString(c));
 
 	return 0;
 }

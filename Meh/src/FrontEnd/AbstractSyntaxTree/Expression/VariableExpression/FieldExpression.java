@@ -1,5 +1,10 @@
 package FrontEnd.AbstractSyntaxTree.Expression.VariableExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.LoadInstruction;
+import BackEnd.ControlFlowGraph.Operand.Address;
+import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
+import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import Environment.Environment;
 import Environment.Symbol;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
@@ -12,6 +17,8 @@ import FrontEnd.AbstractSyntaxTree.Type.ClassType.Member.MemberVariable;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
 import com.sun.java.accessibility.util.EventID;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
@@ -66,5 +73,30 @@ public class FieldExpression extends Expression {
             }
         }
         throw new CompilationError("Internal Error.");
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        if (expression.type instanceof ClassType) {
+            ClassType classType = (ClassType)expression.type;
+            Member member = classType.getMember(field);
+            if (member instanceof MemberVariable) {
+                MemberVariable memberVariable = (MemberVariable)member;
+                expression.emit(instructions);
+                expression.load(instructions);
+                VirtualRegister base = (VirtualRegister)expression.operand;
+                ImmediateValue offset = new ImmediateValue(memberVariable.offset);
+                operand = new Address(base, offset, memberVariable.type.size());
+            }
+        }
+    }
+
+    @Override
+    public void load(List<Instruction> instructions) {
+        if (operand instanceof Address) {
+            Address address = (Address)operand;
+            operand = Environment.registerTable.addTemporaryRegister();
+            instructions.add(LoadInstruction.getInstruction(operand, address));
+        }
     }
 }

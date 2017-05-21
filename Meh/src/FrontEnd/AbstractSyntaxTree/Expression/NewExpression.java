@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree.Expression;
 
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
 import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
@@ -28,5 +29,10 @@ public class NewExpression extends Expression {
             Type arrayType = ArrayType.getType(baseType, subscriptList.size());
             return new NewExpression(arrayType, false, subscriptList);
         }
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        // waiting to be done...
     }
 }

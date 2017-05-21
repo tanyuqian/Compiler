@@ -1,10 +1,19 @@
 package FrontEnd.AbstractSyntaxTree.Expression.VariableExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.MultiplicationInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Operand.Address;
+import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
+import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/1/17.
@@ -28,5 +37,18 @@ public class SubscriptExpression extends Expression {
         }
         ArrayType arrayType = (ArrayType)expression.type;
         return new SubscriptExpression(arrayType.reduce(), expression.isLeftValue, expression, subscript);
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        expression.emit(instructions);
+        expression.load(instructions);
+        subscript.emit(instructions);
+        subscript.load(instructions);
+        VirtualRegister address = Environment.registerTable.addTemporaryRegister();
+        VirtualRegister delta = Environment.registerTable.addTemporaryRegister();
+        instructions.add(MultiplicationInstruction.getInstruction(delta, subscript.operand, new ImmediateValue(type.size())));
+        instructions.add(AdditionInstruction.getInstruction(address, expression.operand, delta));
+        operand = new Address(address, type.size());
     }
 }

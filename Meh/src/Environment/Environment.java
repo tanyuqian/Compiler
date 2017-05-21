@@ -27,6 +27,7 @@ public class Environment {
         classTable = new HashMap<>();
         enterScope(program = new Program());
         hasMain = false;
+        registerTable = new RegisterTable();
         loadLibraryFunctions();
     }
 
