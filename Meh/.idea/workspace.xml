@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AssignmentExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AssignmentExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseAndExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseAndExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseLeftShiftExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseLeftShiftExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseOrExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseOrExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseRightShiftExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseRightShiftExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseXorExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/BitwiseXorExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/DivisionExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/DivisionExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalAndExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalAndExpression.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalOrExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalOrExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/ModuloExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/ModuloExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/MultiplicationExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/MultiplicationExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/NotEqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/NotEqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/SubtractionExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/SubtractionExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/Expression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/Expression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixDecrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixDecrementExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixIncrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixIncrementExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/UnaryMinusExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/UnaryMinusExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/UnaryPlusExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/UnaryPlusExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tbw.meh" afterPath="$PROJECT_DIR$/tests/tbw.meh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,8 +42,8 @@
       <file leaf-file-name="LogicalOrExpression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalOrExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="54" column="37" lean-forward="false" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+            <state relative-caret-position="433">
+              <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -79,8 +52,8 @@
       <file leaf-file-name="FieldExpression.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/VariableExpression/FieldExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-407">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -1141,12 +1114,12 @@
       <workItem from="1495204021521" duration="3735000" />
       <workItem from="1495257333357" duration="16461000" />
       <workItem from="1495342786331" duration="859000" />
-      <workItem from="1495346443624" duration="6119000" />
+      <workItem from="1495346443624" duration="6765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234272000" />
+    <option name="totallyTimeSpent" value="234918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1642,16 +1615,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LogicalOrExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="54" column="37" lean-forward="false" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+        <state relative-caret-position="433">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/VariableExpression/FieldExpression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="160">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>

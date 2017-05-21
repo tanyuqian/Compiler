@@ -40,11 +40,11 @@ public class LogicalOrExpression extends BinaryExpression {
 
         left.emit(instructions);
         left.load(instructions);
-        instructions.add(BranchInstruction(left.operand, trueLabel, falseLabel));
+        instructions.add(BranchInstruction.getInstruction(left.operand, trueLabel, falseLabel));
         // logical_false
         instructions.add(falseLabel);
-        right.emit();
-        right.load();
+        right.emit(instructions);
+        right.load(instructions);
         operand = right.operand;
         instructions.add(JumpInstruction.getInstruction(mergeLabel));
         // logical_true
