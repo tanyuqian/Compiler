@@ -1,10 +1,18 @@
 package FrontEnd.AbstractSyntaxTree.Expression.BinaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.BranchInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.JumpInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.LabelInstruction;
+import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.MoveInstruction;
+import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/4/17.
@@ -24,4 +32,26 @@ public class LogicalOrExpression extends BinaryExpression {
         throw new CompilationError("Type Error occur in \"||\"");
     }
 
+    @Override
+    public void emit(List<Instruction> instructions) {
+        LabelInstruction trueLabel = LabelInstruction.getInstruction("logical_true");
+        LabelInstruction falseLabel = LabelInstruction.getInstruction("logical_false");
+        LabelInstruction mergeLabel = LabelInstruction.getInstruction("logical_merge");
+
+        left.emit(instructions);
+        left.load(instructions);
+        instructions.add(BranchInstruction(left.operand, trueLabel, falseLabel));
+        // logical_false
+        instructions.add(falseLabel);
+        right.emit();
+        right.load();
+        operand = right.operand;
+        instructions.add(JumpInstruction.getInstruction(mergeLabel));
+        // logical_true
+        instructions.add(trueLabel);
+        instructions.add(MoveInstruction.getInstruction(operand, new ImmediateValue(1)));
+        instructions.add(JumpInstruction.getInstruction(mergeLabel));
+        // logical_merge
+        instructions.add(mergeLabel);
+    }
 }

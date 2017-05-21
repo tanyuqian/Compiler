@@ -1,5 +1,9 @@
 package FrontEnd.AbstractSyntaxTree.Expression.BinaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.BitwiseAndInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.EqualToInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.NullConstant;
@@ -9,6 +13,8 @@ import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.NullType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/4/17.
@@ -32,5 +38,15 @@ public class EqualToExpression extends BinaryExpression {
             return new BoolConstant(((StringConstant) left).str.equals(((StringConstant) right).str));
         }
         return new EqualToExpression(new BoolType(), false, left, right);
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        left.emit(instructions);
+        left.load(instructions);
+        right.emit(instructions);
+        right.load(instructions);
+        operand = Environment.registerTable.addTemporaryRegister();
+        instructions.add(EqualToInstruction.getInstruction(operand, left.operand, right.operand));
     }
 }

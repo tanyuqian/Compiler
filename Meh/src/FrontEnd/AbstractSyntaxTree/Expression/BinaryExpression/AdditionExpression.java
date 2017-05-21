@@ -1,5 +1,7 @@
 package FrontEnd.AbstractSyntaxTree.Expression.BinaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.StringConstant;
@@ -12,6 +14,7 @@ import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by tan on 4/3/17.
@@ -37,5 +40,15 @@ public class AdditionExpression extends BinaryExpression {
             return new AdditionExpression(new StringType(), false, left, right);
         }
         throw new CompilationError("type Error beside an \"+\"");
+    }
+
+    @Override
+    public void emit(List<Instruction> instructions) {
+        left.emit(instructions);
+        left.load(instructions);
+        right.emit(instructions);
+        right.load(instructions);
+        operand = Environment.registerTable.addTemporaryRegister();
+        instructions.add(AdditionInstruction.getInstruction(operand, left.operand, right.operand));
     }
 }

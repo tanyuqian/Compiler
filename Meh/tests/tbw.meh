@@ -63,3 +63,23 @@ int main() {
     
     return 0;
 }
+
+/*!! metadata:
+=== comment ===
+
+=== input ===
+989898987
+=== assert ===
+output
+=== timeout ===
+1
+=== output ===
+3
+989898983 2 2
+=== phase ===
+codegen pretest
+=== is_public ===
+True
+
+!!*/
+

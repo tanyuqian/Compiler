@@ -1,5 +1,9 @@
 package FrontEnd.AbstractSyntaxTree.Expression.BinaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.BitwiseAndInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.LessThanInstruction;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.StringConstant;
@@ -9,6 +13,8 @@ import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.StringType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
+
+import java.util.List;
 
 /**
  * Created by tan on 4/4/17.
@@ -33,4 +39,13 @@ public class LessThanExpression extends BinaryExpression {
         throw new CompilationError("type error occurs in \"<\"");
     }
 
+    @Override
+    public void emit(List<Instruction> instructions) {
+        left.emit(instructions);
+        left.load(instructions);
+        right.emit(instructions);
+        right.load(instructions);
+        operand = Environment.registerTable.addTemporaryRegister();
+        instructions.add(LessThanInstruction.getInstruction(operand, left.operand, right.operand));
+    }
 }
