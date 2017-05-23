@@ -1,11 +1,34 @@
+func max $p1 $p2 {
+	%max.0.enter:
+		$t8 = move $p2
+		$t9 = move $p1
+		jump %max.1.entry
+
+	%max.1.entry:
+		$t7 = sgt $t9 $t8
+		br $t7 %max.2.if_true %max.3.if_false
+
+	%max.2.if_true:
+		ret $t9
+		jump %max.5.exit
+
+	%max.3.if_false:
+		ret $t8
+		jump %max.5.exit
+
+	%max.5.exit:
+}
 func main {
 	%main.0.enter:
+		$g0(e) = move 2
 		jump %main.1.entry
 
 	%main.1.entry:
-		call ____builtin____print_int 15
-		ret 0
-		jump %main.2.exit
+		jump %main.4.if_merge
 
-	%main.2.exit:
+	%main.4.if_merge:
+		ret 0
+		jump %main.5.exit
+
+	%main.5.exit:
 }

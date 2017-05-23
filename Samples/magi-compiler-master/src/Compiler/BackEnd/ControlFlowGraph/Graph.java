@@ -25,6 +25,7 @@ import Compiler.FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
 import Compiler.Utility.Error.InternalError;
 import Compiler.Utility.Utility;
 
+import java.io.FileWriter;
 import java.util.*;
 
 public class Graph {
@@ -33,13 +34,13 @@ public class Graph {
 	public Block enter, entry, exit;
 	public Frame frame;
 
-	public Graph(Function function) {
+	public Graph(Function function) throws Exception {
 		this.function = function;
 		this.buildGraph();
 		this.optimize();
 	}
 
-	private void buildGraph() {
+	private void buildGraph() throws Exception {
 		List<Instruction> instructions = new ArrayList<>();
 		function.enter = LabelInstruction.getInstruction("enter");
 		function.entry = LabelInstruction.getInstruction("entry");
@@ -55,6 +56,14 @@ public class Graph {
 		function.statements.emit(instructions);
 		instructions.add(JumpInstruction.getInstruction(function.exit));
 		instructions.add(function.exit);
+
+		FileWriter fw = new FileWriter("../../Meh/tests/lzjIR.txt");
+		for (Instruction instruction : instructions) {
+			fw.write(instruction.toString());
+			fw.write("\n");
+		}
+		fw.close();
+
 		blocks = new ArrayList<>();
 		for (int i = 0, j; i < instructions.size(); i = j) {
 			if (!(instructions.get(i) instanceof LabelInstruction)) {

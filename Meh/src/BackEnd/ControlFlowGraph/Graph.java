@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class Graph {
     public Function function;
+    public List<Instruction> instructions;
 
     public Graph(Function function) throws Exception {
         this.function = function;
@@ -38,6 +39,8 @@ public class Graph {
         function.statements.emit(instructions);
         instructions.add(JumpInstruction.getInstruction(function.exit));
         instructions.add(function.exit);
+
+        this.instructions = instructions;
 
         FileWriter fw = new FileWriter("tests/tbwIR.txt");
         for (Instruction instruction : instructions) {

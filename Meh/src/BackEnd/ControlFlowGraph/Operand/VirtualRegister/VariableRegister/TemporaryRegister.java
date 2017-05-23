@@ -12,6 +12,6 @@ public class TemporaryRegister extends VariableRegister {
 
     @Override
     public String toString() {
-        return String.format("$p%s", identity);
+        return String.format("$t%s", identity);
     }
 }
