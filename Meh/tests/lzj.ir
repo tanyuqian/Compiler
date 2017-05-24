@@ -1,18 +1,9 @@
-void printff $p0 $p1 $p2 $p3 $p4 $p5 $p6 $p7 {
-	%printff.0.enter:
-		jump %printff.1.entry
-
-	%printff.1.entry:
-		jump %printff.2.exit
-
-	%printff.2.exit:
-}
 func main {
 	%main.0.enter:
+		$g0(d) = move 2
 		jump %main.1.entry
 
 	%main.1.entry:
-		call printff 1 2 3 4 5 6 7 8
 		ret 0
 		jump %main.2.exit
 

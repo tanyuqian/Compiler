@@ -32,5 +32,11 @@ public abstract class NASMTranslator extends Translator {
         for (Function function : Environment.program.functions) {
             translate(function.graph);
         }
+        output.println("SECTION .data");
+        for (VirtualRegister register : Environment.registerTable.registers) {
+            if (register instanceof GlobalRegister) {
+                output.printf("%s: dd 0\n", ((GlobalRegister)register).symbol.name);
+            }
+        }
     }
 }

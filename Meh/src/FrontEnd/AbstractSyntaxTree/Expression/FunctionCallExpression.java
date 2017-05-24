@@ -1,12 +1,17 @@
 package FrontEnd.AbstractSyntaxTree.Expression;
 
+import BackEnd.ControlFlowGraph.Instruction.FunctionInstruction.CallInstruction;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Operand.Operand;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.VariableExpression.FieldExpression;
 import FrontEnd.AbstractSyntaxTree.Function;
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
 import jdk.nashorn.internal.ir.FunctionCall;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -56,6 +61,24 @@ public class FunctionCallExpression extends Expression {
 
     @Override
     public void emit(List<Instruction> instructions) {
-        // waiting to be done...
+        if (!peephole(instructions)) {
+            List<Operand> operands = new ArrayList<>();
+            for (Expression parameter : parameters) {
+                parameter.emit(instructions);
+                parameter.load(instructions);
+                operands.add(parameter.operand);
+            }
+            if (function.type instanceof VoidType) {
+                instructions.add(CallInstruction.getInstruction(null, function, operands));
+            } else {
+                operand = Environment.registerTable.addTemporaryRegister();
+                instructions.add(CallInstruction.getInstruction(operand, function, operands));
+            }
+        }
+    }
+
+    public boolean peephole(List<Instruction> instructions) {
+        // waiting to be finished...
+        return false;
     }
 }

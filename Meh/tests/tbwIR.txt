@@ -1,12 +1,14 @@
 %enter
+$g0(d) = move 2
 jump %entry
 %entry
-$t0 = move 3
 $t1 = move 5
-$t2 = move 2
-$t4 = add $t0 $t1
-$t5 = add $t4 $t2
-$t3 = move $t5
+$t2 = move 1
+$t3 = move 2
+$t5 = div $t1 $t2
+$t6 = div $t3 $g0(d)
+$t7 = add $t5 $t6
+$t4 = move $t7
 ret 0
 jump %exit
 jump %exit

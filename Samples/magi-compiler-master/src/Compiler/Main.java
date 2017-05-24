@@ -25,7 +25,7 @@ import java.util.HashSet;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		InputStream iStream = new FileInputStream("../../Meh/tests/a.c");
+		InputStream iStream = new FileInputStream("../../Meh/tests/2.meh");
 
 
 		Utility.arguments = new HashSet<>(Arrays.asList(args));

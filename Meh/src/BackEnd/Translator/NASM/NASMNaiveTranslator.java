@@ -3,8 +3,10 @@ package BackEnd.Translator.NASM;
 import BackEnd.ControlFlowGraph.Block;
 import BackEnd.ControlFlowGraph.Graph;
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.ArithmeticInstruction;
-import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
-import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.BinaryInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.*;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.UnaryInstruction.BitwiseNotInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.UnaryInstruction.UnaryInstruction;
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.UnaryInstruction.UnaryMinusInstruction;
 import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.ControlFlowInstruction;
 import BackEnd.ControlFlowGraph.Instruction.ControlFlowInstruction.JumpInstruction;
 import BackEnd.ControlFlowGraph.Instruction.FunctionInstruction.FunctionInstruction;
@@ -46,7 +48,7 @@ public class NASMNaiveTranslator extends NASMTranslator {
 
     public String getPhisicalMemoryName(Operand register) {
         if (register instanceof GlobalRegister) {
-            return ((GlobalRegister) register).symbol.name;
+            return "dword [rel " + ((GlobalRegister) register).symbol.name + "]";
         }
         if (register instanceof TemporaryRegister) {
             int offset = graph.frame.temporaryMap.get(register);
@@ -100,13 +102,39 @@ public class NASMNaiveTranslator extends NASMTranslator {
                 }
             } else if (instruction instanceof ArithmeticInstruction) {
                 if (instruction instanceof BinaryInstruction) {
-                    VirtualRegister destination = ((BinaryInstruction)instruction).destination;
-                    Operand operand1 = ((BinaryInstruction)instruction).operand1;
-                    Operand operand2 = ((BinaryInstruction)instruction).operand2;
+                    VirtualRegister destination = ((BinaryInstruction) instruction).destination;
+                    Operand operand1 = ((BinaryInstruction) instruction).operand1;
+                    Operand operand2 = ((BinaryInstruction) instruction).operand2;
+                    output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand1));
                     if (instruction instanceof AdditionInstruction) {
-                        output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand1));
                         output.printf("\tadd    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
-                        output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r11);
+                    } else if (instruction instanceof BitwiseAndInstruction) {
+                        output.printf("\tand    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
+                    } else if (instruction instanceof BitwiseLeftShiftInstruction) {
+                        output.printf("\tmov    %s, %s\n", NASMRegister.rcx, getPhisicalMemoryName(operand2));
+                        output.printf("\tsal    %s, cl\n", NASMRegister.r11);
+                    } else if (instruction instanceof BitwiseOrInstruction) {
+                        output.printf("\tor    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
+                    } else if (instruction instanceof BitwiseRightShiftInstruction) {
+                        output.printf("\tmov    %s, %s\n", NASMRegister.rcx, getPhisicalMemoryName(operand2));
+                        output.printf("\tsar    %s, cl\n", NASMRegister.r11);
+                    } else if (instruction instanceof BitwiseXorInstruction) {
+                        output.printf("\txor    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
+                    } else if (instruction instanceof DivisionInstruction) {
+                        output.printf("\tmov    %s, %s\n", NASMRegister.rax, getPhisicalMemoryName(operand1));
+                        output.printf("\tcdq\n");
+                        output.printf("\tidiv   %s\n", getPhisicalMemoryName(operand2));
+                        output.printf("\tmov    %s, %s\n", NASMRegister.r11, NASMRegister.rax);
+                    } else if (instruction instanceof EqualToInstruction) {
+
+                    }
+                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r11);
+                } else if (instruction instanceof UnaryInstruction) {
+                    Operand operand = ((UnaryInstruction)instruction).operand;
+                    if (instruction instanceof BitwiseNotInstruction) {
+                        output.printf("\tnot    %s\n", getPhisicalMemoryName(operand));
+                    } else if (instruction instanceof UnaryMinusInstruction) {
+                        output.printf("\tneg    %s\n", getPhisicalMemoryName(operand));
                     }
                 }
             } else if (instruction instanceof ControlFlowInstruction) {

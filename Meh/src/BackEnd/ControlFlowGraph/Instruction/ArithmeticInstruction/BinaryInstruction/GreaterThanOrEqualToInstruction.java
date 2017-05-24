@@ -16,7 +16,7 @@ public class GreaterThanOrEqualToInstruction extends BinaryInstruction {
     }
     public static Instruction getInstruction(Operand destination, Operand operand1, Operand operand2) {
         if (destination instanceof VirtualRegister) {
-            return new BitwiseAndInstruction((VirtualRegister)destination, operand1, operand2).rebuild();
+            return new GreaterThanOrEqualToInstruction((VirtualRegister)destination, operand1, operand2).rebuild();
         }
         throw new CompilationError("Internal Error!");
     }
