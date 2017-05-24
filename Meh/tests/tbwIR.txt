@@ -1,21 +1,12 @@
 %enter
-$g0(e) = move 2
 jump %entry
 %entry
-$t3 = move 5
-$t4 = move 10
-$t8 = add $t3 $t4
-$t5 = move $t8
-$t6 = move $t4
-$t9 = and $t5 $t6
-br $t9 %if_true %if_false
-%if_true
-$t5 = move $t6
-jump %if_merge
-%if_false
-$t6 = move $t5
-jump %if_merge
-%if_merge
+$t0 = move 3
+$t1 = move 5
+$t2 = move 2
+$t4 = add $t0 $t1
+$t5 = add $t4 $t2
+$t3 = move $t5
 ret 0
 jump %exit
 jump %exit

@@ -1,0 +1,7 @@
+	global main
+	extern malloc
+	extern printf
+	extern puts
+
+	SECTION .text
+END

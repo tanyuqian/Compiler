@@ -5,6 +5,9 @@ import BackEnd.ControlFlowGraph.Operand.Address;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import Utility.CompilationError;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tan on 5/18/17.
  */
@@ -23,6 +26,20 @@ public class StoreInstruction extends MemoryInstruction {
         }
         throw new CompilationError("Internal Error!");
     }
+
+    @Override
+    public List<Operand> getDefinedOperands() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public List<Operand> getUsedOperands() {
+        return new ArrayList<Operand>() {{
+            add(operand);
+            add(address.base);
+        }};
+    }
+
 
     @Override
     public String toString() {

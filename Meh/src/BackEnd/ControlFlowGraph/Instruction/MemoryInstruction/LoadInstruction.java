@@ -6,6 +6,9 @@ import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import Utility.CompilationError;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tan on 5/18/17.
  */
@@ -23,6 +26,20 @@ public class LoadInstruction extends MemoryInstruction {
             return new LoadInstruction((VirtualRegister)destination, (Address)address);
         }
         throw new CompilationError("Internal Error!");
+    }
+
+    @Override
+    public List<Operand> getDefinedOperands() {
+        return new ArrayList<Operand>() {{
+            add(destination);
+        }};
+    }
+
+    @Override
+    public List<Operand> getUsedOperands() {
+        return new ArrayList<Operand>() {{
+            add(address.base);
+        }};
     }
 
     @Override

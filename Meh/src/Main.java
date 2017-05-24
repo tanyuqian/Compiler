@@ -1,4 +1,5 @@
 import BackEnd.ControlFlowGraph.Graph;
+import BackEnd.Translator.NASM.NASMNaiveTranslator;
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.ConcreteSyntaxTree.MehLexer;
@@ -39,5 +40,6 @@ public class Main {
         for (Function function : Environment.program.functions) {
             function.graph = new Graph(function);
         }
+        new NASMNaiveTranslator(System.out).translate();
     }
 }

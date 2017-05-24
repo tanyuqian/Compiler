@@ -1,27 +1,9 @@
-int e = 2;
-
-int max(int x, int y) {
-	if (x > y) {
-		return x;	
-	} else {
-		return y;	
-	}
-}
-
 int main() {
-	
-	int a = 5;
-	int b = 10;
+    int a = 3;
+    int b = 5;
+    int c = 2;
 
-	int c = a + b;
-	int d = b;
+    int answer = a + b + c;
 
-	if (c > d) {
-	    c = d;
-	} else {
-	    d = c;
-	}
-
-
-	return 0;
+    return 0;
 }

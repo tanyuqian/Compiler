@@ -4,6 +4,9 @@ import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.ArithmeticInst
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tan on 5/18/17.
  */
@@ -14,5 +17,19 @@ public abstract class UnaryInstruction extends ArithmeticInstruction {
     public UnaryInstruction(VirtualRegister destination, Operand operand) {
         this.destination = destination;
         this.operand = operand;
+    }
+
+    @Override
+    public List<Operand> getDefinedOperands() {
+        return new ArrayList<Operand>() {{
+            add(destination);
+        }};
+    }
+
+    @Override
+    public List<Operand> getUsedOperands() {
+        return new ArrayList<Operand>() {{
+            add(operand);
+        }};
     }
 }

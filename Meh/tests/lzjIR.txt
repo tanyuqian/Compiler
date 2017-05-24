@@ -1,21 +1,7 @@
 %enter
-$g0(e) = move 2
 jump null
 %entry
-$t3 = move 5
-$t4 = move 10
-$t10 = add $t3 $t4
-$t5 = move $t10
-$t6 = move $t4
-$t11 = sgt $t5 $t6
-br $t11 null null
-%if_true
-$t5 = move $t6
-jump null
-%if_false
-$t6 = move $t5
-jump null
-%if_merge
+call printff 1 2 3 4 5 6 7 8
 ret 0
 jump null
 jump null

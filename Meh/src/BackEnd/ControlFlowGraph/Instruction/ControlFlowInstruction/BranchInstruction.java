@@ -6,6 +6,8 @@ import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by tan on 5/18/17.
@@ -35,6 +37,18 @@ public class BranchInstruction extends ControlFlowInstruction {
             }
         }
         return this;
+    }
+
+    @Override
+    public List<Operand> getDefinedOperands() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public List<Operand> getUsedOperands() {
+        return new ArrayList<Operand>() {{
+            add(condition);
+        }};
     }
 
     @Override

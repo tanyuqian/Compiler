@@ -1,34 +1,20 @@
-func max $p1 $p2 {
-	%max.0.enter:
-		$t8 = move $p2
-		$t9 = move $p1
-		jump %max.1.entry
+void printff $p0 $p1 $p2 $p3 $p4 $p5 $p6 $p7 {
+	%printff.0.enter:
+		jump %printff.1.entry
 
-	%max.1.entry:
-		$t7 = sgt $t9 $t8
-		br $t7 %max.2.if_true %max.3.if_false
+	%printff.1.entry:
+		jump %printff.2.exit
 
-	%max.2.if_true:
-		ret $t9
-		jump %max.5.exit
-
-	%max.3.if_false:
-		ret $t8
-		jump %max.5.exit
-
-	%max.5.exit:
+	%printff.2.exit:
 }
 func main {
 	%main.0.enter:
-		$g0(e) = move 2
 		jump %main.1.entry
 
 	%main.1.entry:
-		jump %main.4.if_merge
-
-	%main.4.if_merge:
+		call printff 1 2 3 4 5 6 7 8
 		ret 0
-		jump %main.5.exit
+		jump %main.2.exit
 
-	%main.5.exit:
+	%main.2.exit:
 }

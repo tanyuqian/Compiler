@@ -3,9 +3,12 @@ package BackEnd.ControlFlowGraph.Instruction.FunctionInstruction;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Function;
+import FrontEnd.AbstractSyntaxTree.Statement.VariableDeclarationStatement;
 import Utility.CompilationError;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,6 +32,32 @@ public class CallInstruction extends FunctionInstruction {
             return new CallInstruction((VirtualRegister)destination, function, parameters);
         }
         throw new CompilationError("Internal Error!");
+    }
+
+    @Override
+    public List<Operand> getDefinedOperands() {
+        return new ArrayList<Operand>() {{
+           if (destination != null) {
+               add(destination);
+           }
+           if (!function.name.startsWith("__builtin")) {
+               for (VariableDeclarationStatement variable : Environment.program.globalVariables) {
+                   add(variable.symbol.register);
+               }
+           }
+        }};
+    }
+
+    @Override
+    public List<Operand> getUsedOperands() {
+        return new ArrayList<Operand>() {{
+            addAll(parameters);
+            if (!function.name.startsWith("__builtin")) {
+                for (VariableDeclarationStatement variable : Environment.program.globalVariables) {
+                    add(variable.symbol.register);
+                }
+            }
+        }};
     }
 
     @Override

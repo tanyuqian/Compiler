@@ -1,16 +1,13 @@
 #include <stdio.h>
 
-void printff(int x) {
-    printf("%d\n", x);
+void printff(int aa, int bb, int cc, int dd, int ee, int ff, int gg, int hh) {
+    printf("%d\n", ff);
+    //hh = 5;
 }
 
+
 int main() {
-    int a = 5;
-    int b = 3;
-
-    int c = a + b;
-
-    printff(c);
+    printff(1, 2, 3, 4, 5, 6, 7, 8);
 
     return 0;
 }
