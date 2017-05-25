@@ -1,9 +1,14 @@
 func main {
 	%main.0.enter:
-		$g0(d) = move 2
 		jump %main.1.entry
 
 	%main.1.entry:
+		$t1 = alloc 404
+		store 4 $t1 100 0
+		$t1 = add $t1 4
+		$t0 = move $t1
+		$t3 = add $t0 396
+		store 4 $t3 5 0
 		ret 0
 		jump %main.2.exit
 

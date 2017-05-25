@@ -1,14 +1,15 @@
 %enter
-$g0(d) = move 2
 jump null
 %entry
-$t1 = move 5
-$t2 = move 1
-$t3 = move 2
-$t5 = div $t1 $t2
-$t6 = div $t3 $g0(d)
-$t7 = add $t5 $t6
-$t4 = move $t7
+$t2 = move 400
+$t2 = add $t2 4
+$t1 = alloc $t2
+store 4 $t1 100 0
+$t1 = add $t1 4
+$t0 = move $t1
+$t4 = move 396
+$t3 = add $t0 $t4
+store 4 $t3 5 0
 ret 0
 jump null
 jump null

@@ -7,7 +7,7 @@ SECTION .text
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 60
+	sub    rsp, 48
 	mov    dword [rbp-4H], edi
 	mov    dword [rbp-8H], esi
 	mov    dword [rbp-0CH], edx
@@ -20,41 +20,42 @@ main_enter_0:
 	jmp    main_entry_1
 main_entry_1:
 	mov    r11d, 5
-	mov    dword [rbp+(-44)], r11d
-	mov    r11d, 1
 	mov    dword [rbp+(-40)], r11d
-	mov    r11d, 2
+	mov    r11d, 1
 	mov    dword [rbp+(-36)], r11d
-	mov    r11d, dword [rbp+(-44)]
-	mov    eax, dword [rbp+(-44)]
-	cdq
-	idiv   dword [rbp+(-40)]
-	mov    r11d, eax
-	mov    dword [rbp+(-56)], r11d
-	mov    r11d, dword [rbp+(-36)]
-	mov    eax, dword [rbp+(-36)]
-	cdq
-	idiv   dword [rel d]
-	mov    r11d, eax
-	mov    dword [rbp+(-52)], r11d
-	mov    r11d, dword [rbp+(-56)]
-	add    r11d, dword [rbp+(-52)]
-	mov    dword [rbp+(-48)], r11d
-	mov    r11d, dword [rbp+(-48)]
+	mov    r11d, 2
 	mov    dword [rbp+(-32)], r11d
+	mov    r11d, dword [rbp+(-40)]
+	cmp    r11d, dword [rbp+(-36)]
+	setg   al
+	movzx  r11d, al
+	mov    dword [rbp+(-44)], r11d
+	cmp    dword [rbp+(-44)], 0
+	jnz    main_if_true_2
+	jz     main_if_false_3
+main_if_true_2:
+	mov    r11d, dword [rbp+(-40)]
+	mov    dword [rbp+(-32)], r11d
+	jmp    main_if_merge_4
+main_if_false_3:
+	mov    r11d, dword [rbp+(-36)]
+	mov    dword [rbp+(-32)], r11d
+	jmp    main_if_merge_4
+main_if_merge_4:
+
+        mov     eax, dword [rbp-32]
+        mov     esi, eax
+        mov     edi, L_003
+        mov     eax, 0
+        call    printf
+        mov     eax, 0
+
 	mov    eax, 0
-
-	mov     eax, dword [rbp-32]
-            mov     esi, eax
-            mov     edi, L_001
-            mov     eax, 0
-            call    printf
-
 	leave
 	ret
-	jmp    main_exit_2
-	jmp    main_exit_2
-main_exit_2:
+	jmp    main_exit_5
+	jmp    main_exit_5
+main_exit_5:
 	leave
 	ret
 
@@ -62,4 +63,7 @@ main_exit_2:
 SECTION .data
 d: dd 0
 
-L_001: db "%d", 10, 0
+L_003:
+        db 25H, 64H, 0AH, 00H
+
+

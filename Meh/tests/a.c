@@ -1,11 +1,11 @@
-int d = 2;
+#include <stdio.h>
 
 int main() {
-    int a = 5;
-    int b = 1;
-    int c = 2;
+    int *a = new int[100];
 
-    int answer = (a == b);
+    a[99] = 5;
+
+    printf("%d\n", a[99]);
 
     return 0;
 }

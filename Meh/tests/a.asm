@@ -7,7 +7,10 @@
 default rel
 
 global main
-global d
+
+extern printf
+extern _Znam
+extern malloc
 
 
 SECTION .text   
@@ -15,26 +18,36 @@ SECTION .text
 main:
         push    rbp
         mov     rbp, rsp
-        mov     dword [rbp-10H], 5
-        mov     dword [rbp-0CH], 1
-        mov     dword [rbp-8H], 2
-        mov     eax, dword [rbp-10H]
-        cmp     eax, dword [rbp-0CH]
-        sete    al
-        movzx   eax, al
-        mov     dword [rbp-4H], eax
+        sub     rsp, 16
+        mov     edi, 400
+        call    malloc
+
+        mov     qword [rbp-8H], rax
+        mov     rax, qword [rbp-8H]
+        add     rax, 396
+        mov     dword [rax], 5
+        mov     rax, qword [rbp-8H]
+        add     rax, 396
+        mov     eax, dword [rax]
+        mov     esi, eax
+        mov     edi, L_001
         mov     eax, 0
-        pop     rbp
+        call    printf
+        mov     eax, 0
+        leave
         ret
 
 
 
-SECTION .data   align=4
-
-d:
-        dd 00000002H
+SECTION .data   
 
 
 SECTION .bss    
+
+
+SECTION .rodata 
+
+L_001:
+        db 25H, 64H, 0AH, 00H
 
 
