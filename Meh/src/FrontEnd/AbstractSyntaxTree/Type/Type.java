@@ -7,7 +7,7 @@ import FrontEnd.AbstractSyntaxTree.Node;
  */
 public abstract class Type extends Node {
     public int size() {
-        return 4;
+        return 8;
     }
 
     public abstract boolean compatibleWith(Type other);

@@ -1,15 +1,10 @@
 %enter
 jump %entry
 %entry
-$t2 = move 400
-$t2 = add $t2 4
-$t1 = alloc $t2
-store 4 $t1 100 0
-$t1 = add $t1 4
-$t0 = move $t1
-$t4 = move 396
-$t3 = add $t0 $t4
-store 4 $t3 5 0
+$t2 = move 5
+$t3 = move 3
+$t7 = call func $t2 $t3
+$t4 = move $t7
 ret 0
 jump %exit
 jump %exit

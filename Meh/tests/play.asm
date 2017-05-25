@@ -4,66 +4,77 @@
 	extern puts
 
 SECTION .text
+func:
+	push   rbp
+	mov    rbp, rsp
+	sub    rsp, 80
+	mov    qword [rbp-8], rdi
+	mov    qword [rbp-16], rsi
+	mov    qword [rbp-24], rdx
+	mov    qword [rbp-32], rcx
+	mov    qword [rbp-40], r8
+	mov    qword [rbp-48], r9
+func_enter_0:
+	jmp    func_entry_1
+func_entry_1:
+	mov    r11, qword [rbp+(-8)]
+	imul   r11, 10
+	mov    qword [rbp+(-72)], r11
+	mov    r11, qword [rbp+(-72)]
+	add    r11, qword [rbp+(-16)]
+	mov    qword [rbp+(-64)], r11
+	mov    rax, qword [rbp+(-64)]
+	leave
+	ret
+	jmp    func_exit_2
+	jmp    func_exit_2
+func_exit_2:
+	leave
+	ret
+
+
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 48
-	mov    dword [rbp-4H], edi
-	mov    dword [rbp-8H], esi
-	mov    dword [rbp-0CH], edx
-	mov    dword [rbp-10H], ecx
-	mov    dword [rbp-14H], r8d
-	mov    dword [rbp-18H], r9d
+	sub    rsp, 96
+	mov    qword [rbp-8], rdi
+	mov    qword [rbp-16], rsi
+	mov    qword [rbp-24], rdx
+	mov    qword [rbp-32], rcx
+	mov    qword [rbp-40], r8
+	mov    qword [rbp-48], r9
 main_enter_0:
-	mov    r11d, 2
-	mov    dword [rel d], r11d
 	jmp    main_entry_1
 main_entry_1:
-	mov    r11d, 5
-	mov    dword [rbp+(-40)], r11d
-	mov    r11d, 1
-	mov    dword [rbp+(-36)], r11d
-	mov    r11d, 2
-	mov    dword [rbp+(-32)], r11d
-	mov    r11d, dword [rbp+(-40)]
-	cmp    r11d, dword [rbp+(-36)]
-	setg   al
-	movzx  r11d, al
-	mov    dword [rbp+(-44)], r11d
-	cmp    dword [rbp+(-44)], 0
-	jnz    main_if_true_2
-	jz     main_if_false_3
-main_if_true_2:
-	mov    r11d, dword [rbp+(-40)]
-	mov    dword [rbp+(-32)], r11d
-	jmp    main_if_merge_4
-main_if_false_3:
-	mov    r11d, dword [rbp+(-36)]
-	mov    dword [rbp+(-32)], r11d
-	jmp    main_if_merge_4
-main_if_merge_4:
+	mov    r11, 5
+	mov    qword [rbp+(-80)], r11
+	mov    r11, 3
+	mov    qword [rbp+(-88)], r11
+	mov    rdi, qword [rbp+(-80)]
+	mov    rsi, qword [rbp+(-88)]
+	call   func
+	mov    qword [rbp+(-72)], rax
+	mov    r11, qword [rbp+(-72)]
+	mov    qword [rbp+(-64)], r11
 
-        mov     eax, dword [rbp-32]
-        mov     esi, eax
-        mov     edi, L_003
-        mov     eax, 0
-        call    printf
-        mov     eax, 0
+	mov     rax, qword [rbp-64]
+            mov     rsi, rax
+            mov     rdi, L_001
+            mov     rax, 0
+            call    printf
 
-	mov    eax, 0
+	mov    rax, 0
 	leave
 	ret
-	jmp    main_exit_5
-	jmp    main_exit_5
-main_exit_5:
+	jmp    main_exit_2
+	jmp    main_exit_2
+main_exit_2:
 	leave
 	ret
 
 
 SECTION .data
-d: dd 0
-
-L_003:
+L_001:
         db 25H, 64H, 0AH, 00H
 
 

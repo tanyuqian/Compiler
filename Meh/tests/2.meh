@@ -1,7 +1,12 @@
-int main() {
-    int[] a = new int [100];
+int func(int x, int y) {
+    return 10 * x + y;
+}
 
-    a[99] = 5;
+int main() {
+    int a = 5;
+    int b = 3;
+
+    int c = func(a, b);
 
     return 0;
 }
