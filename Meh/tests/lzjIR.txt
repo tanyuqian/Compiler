@@ -1,11 +1,10 @@
 %enter
+$g0(a) = move $3
 jump null
 %entry
-$t8 = alloc 8
-call AAA.constructor.0 $t8
-$t2 = move $t8
-$t9 = call AAA.func $t2
-$t3 = move $t9
+$t1 = move $4
+$t5 = call ____builtin_string____concatenate $g0(a) $t1
+$t2 = move $t5
 ret 0
 jump null
 jump null

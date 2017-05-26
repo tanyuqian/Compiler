@@ -8,7 +8,8 @@ default rel
 
 global main
 
-extern printf
+extern strcpy
+extern _Znam
 
 
 SECTION .text   
@@ -17,12 +18,24 @@ main:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 16
-        mov     dword [rbp-4H], 5
-        mov     eax, dword [rbp-4H]
-        mov     esi, eax
-        mov     edi, L_001
-        mov     eax, 0
-        call    printf
+        mov     edi, 100
+        call    _Znam
+        mov     qword [rbp-10H], rax
+        mov     edi, 100
+        call    _Znam
+        mov     qword [rbp-8H], rax
+
+
+        mov     rax, qword [rbp-8H]
+        mov     byte [rax], 98
+        mov     rax, qword [rbp-8H]
+        add     rax, 1
+        mov     byte [rax], 0
+        mov     rdx, qword [rbp-8H]
+        mov     rax, qword [rbp-10H]
+        mov     rsi, rdx
+        mov     rdi, rax
+        call    strcpy
         mov     eax, 0
         leave
         ret
@@ -33,11 +46,5 @@ SECTION .data
 
 
 SECTION .bss    
-
-
-SECTION .rodata 
-
-L_001:
-        db 25H, 64H, 0AH, 00H
 
 

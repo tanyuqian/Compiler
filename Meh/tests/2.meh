@@ -1,22 +1,7 @@
-class AAA {
-    int x;
-    int y;
-
-    AAA() {
-        x = 5;
-        y = 3;
-    }
-
-    int func() {
-        return 10 * x + y;
-    }
-}
+string a = "aaaaaa";
 
 int main() {
-    AAA a = new AAA;
-
-    int d = a.x;
-    int c = a.func();
+    print(a);
 
     return 0;
 }

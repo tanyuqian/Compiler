@@ -1,37 +1,11 @@
-void AAA.constructor.0 $p0 {
-	%AAA.constructor.0.0.enter:
-		jump %AAA.constructor.0.1.entry
-
-	%AAA.constructor.0.1.entry:
-		store 4 $p0 5 0
-		store 4 $p0 3 4
-		jump %AAA.constructor.0.2.exit
-
-	%AAA.constructor.0.2.exit:
-}
-func AAA.func $p1 {
-	%AAA.func.0.enter:
-		jump %AAA.func.1.entry
-
-	%AAA.func.1.entry:
-		$t4 = load 4 $p1 0
-		$t5 = mul $t4 10
-		$t6 = load 4 $p1 4
-		$t7 = add $t5 $t6
-		ret $t7
-		jump %AAA.func.2.exit
-
-	%AAA.func.2.exit:
-}
 func main {
 	%main.0.enter:
+		$g0(a) = move $3
 		jump %main.1.entry
 
 	%main.1.entry:
-		$t8 = alloc 8
-		call AAA.constructor.0 $t8
-		$t2 = move $t8
-		$t9 = call AAA.func $t2
+		$t1 = move $4
+		$t5 = call ____builtin_string____concatenate $g0(a) $t1
 		ret 0
 		jump %main.2.exit
 

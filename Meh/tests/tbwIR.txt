@@ -1,13 +1,9 @@
 %enter
+$g0(a) = move $2
 jump %entry
 %entry
-$t9 = alloc 16
-call AAA $t9
-$t2 = move $t9
-$t10 = load 8 $t2 0
-$t3 = move $t10
-$t11 = call AAA.func $t2
-$t4 = move $t11
+$t3 = call __builtin_getStringLength $g0(a)
+$t1 = move $t3
 ret 0
 jump %exit
 jump %exit
