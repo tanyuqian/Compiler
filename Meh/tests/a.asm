@@ -6,7 +6,6 @@
 
 default rel
 
-global _Z4funcii
 global main
 
 extern printf
@@ -14,35 +13,11 @@ extern printf
 
 SECTION .text   
 
-_Z4funcii:
-        push    rbp
-        mov     rbp, rsp
-        mov     dword [rbp-4H], edi
-        mov     dword [rbp-8H], esi
-        mov     edx, dword [rbp-4H]
-        mov     eax, edx
-        shl     eax, 2
-        add     eax, edx
-        add     eax, eax
-        mov     edx, eax
-        mov     eax, dword [rbp-8H]
-        add     eax, edx
-        pop     rbp
-        ret
-
-
 main:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 16
-        mov     dword [rbp-0CH], 5
-        mov     dword [rbp-8H], 3
-        mov     edx, dword [rbp-8H]
-        mov     eax, dword [rbp-0CH]
-        mov     esi, edx
-        mov     edi, eax
-        call    _Z4funcii
-        mov     dword [rbp-4H], eax
+        mov     dword [rbp-4H], 5
         mov     eax, dword [rbp-4H]
         mov     esi, eax
         mov     edi, L_001

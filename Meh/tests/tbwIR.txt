@@ -1,10 +1,13 @@
 %enter
 jump %entry
 %entry
-$t2 = move 5
-$t3 = move 3
-$t7 = call func $t2 $t3
-$t4 = move $t7
+$t9 = alloc 16
+call AAA $t9
+$t2 = move $t9
+$t10 = load 8 $t2 0
+$t3 = move $t10
+$t11 = call AAA.func $t2
+$t4 = move $t11
 ret 0
 jump %exit
 jump %exit

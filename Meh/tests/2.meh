@@ -1,12 +1,22 @@
-int func(int x, int y) {
-    return 10 * x + y;
+class AAA {
+    int x;
+    int y;
+
+    AAA() {
+        x = 5;
+        y = 3;
+    }
+
+    int func() {
+        return 10 * x + y;
+    }
 }
 
 int main() {
-    int a = 5;
-    int b = 3;
+    AAA a = new AAA;
 
-    int c = func(a, b);
+    int d = a.x;
+    int c = a.func();
 
     return 0;
 }
