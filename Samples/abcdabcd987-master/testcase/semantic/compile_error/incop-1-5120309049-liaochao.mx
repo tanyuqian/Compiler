@@ -1,5 +1,0 @@
-
-int main() {
-    string str = "sjtu";
-    str++;
-}

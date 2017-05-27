@@ -1,6 +1,0 @@
-int main() {
-    return "hahaha".substring(2, 3).length();
-}
-/*! assert: exitcode
-2
-*/

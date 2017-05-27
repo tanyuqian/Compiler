@@ -1,7 +1,0 @@
-class A { int a; }
-
-int main() {
-    A a = new A;
-    if (a) {}
-    return 0;
-}
