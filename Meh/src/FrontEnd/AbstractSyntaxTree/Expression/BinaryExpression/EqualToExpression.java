@@ -9,11 +9,15 @@ import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.IntConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.NullConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.StringConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
+import FrontEnd.AbstractSyntaxTree.Expression.FunctionCallExpression;
+import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.NullType;
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.StringType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,6 +40,14 @@ public class EqualToExpression extends BinaryExpression {
             return new BoolConstant(((IntConstant) left).number == ((IntConstant) right).number);
         } else if ((left instanceof StringConstant) && (right instanceof StringConstant)) {
             return new BoolConstant(((StringConstant) left).str.equals(((StringConstant) right).str));
+        } else if ((left.type instanceof StringType) && (right.type instanceof StringType)) {
+            return FunctionCallExpression.getExpression(
+                    (Function)Environment.symbolTable.get("__builtin_string_equalTo").type,
+                    new ArrayList<Expression>() {{
+                        add(left);
+                        add(right);
+                    }}
+            );
         }
         return new EqualToExpression(new BoolType(), false, left, right);
     }

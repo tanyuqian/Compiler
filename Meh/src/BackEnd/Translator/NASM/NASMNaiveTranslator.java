@@ -20,6 +20,7 @@ import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.*;
 import BackEnd.ControlFlowGraph.Operand.Address;
 import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
 import BackEnd.ControlFlowGraph.Operand.Operand;
+import BackEnd.ControlFlowGraph.Operand.VirtualRegister.StringRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.GlobalRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.ParameterRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.TemporaryRegister;
@@ -54,19 +55,18 @@ public class NASMNaiveTranslator extends NASMTranslator {
     public String getPhisicalMemoryName(Operand register) {
         if (register instanceof GlobalRegister) {
             return "qword [rel " + ((GlobalRegister) register).symbol.name + "]";
-        }
-        if (register instanceof TemporaryRegister) {
+        } else if (register instanceof TemporaryRegister) {
             int offset = graph.frame.temporaryMap.get(register);
             return String.format("qword [rbp+(%d)]", offset);
-        }
-        if (register instanceof ParameterRegister) {
+        } else if (register instanceof ParameterRegister) {
             int offset = graph.frame.parameterMap.get(register);
             return String.format("qword [rbp+(%d)]", offset);
-        }
-        if (register instanceof ImmediateValue) {
+        } else if (register instanceof ImmediateValue) {
             return String.valueOf(((ImmediateValue) register).value);
+        } else if (register instanceof StringRegister) {
+            return String.format("CONST_STRING_%d", ((StringRegister) register).identity);
         }
-        return "Fuck";
+        return "FUCK";
     }
 
 
@@ -95,7 +95,7 @@ public class NASMNaiveTranslator extends NASMTranslator {
         output.printf("\tmov    qword [rbp-48], r9\n");
 
         for (Instruction instruction : graph.instructions) {
-            //output.printf("\t;\t%s\n", instruction);
+            output.printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t;%s\n", instruction);
             if (instruction instanceof LabelInstruction) {
                 output.printf("%s:\n", getBlockName(((LabelInstruction) instruction).block));
             } else if (instruction instanceof MemoryInstruction) {
@@ -110,7 +110,8 @@ public class NASMNaiveTranslator extends NASMTranslator {
                     Address address = ((LoadInstruction) instruction).address;
                     output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(address.base));
                     output.printf("\tadd    %s, %s\n", NASMRegister.r11, address.offset);
-                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r11);
+                    output.printf("\tmov    %s, qword [%s]\n", NASMRegister.r12, NASMRegister.r11);
+                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r12);
                 } else if (instruction instanceof MoveInstruction) {
                     VirtualRegister destination = ((MoveInstruction) instruction).destination;
                     Operand operand = ((MoveInstruction) instruction).operand;

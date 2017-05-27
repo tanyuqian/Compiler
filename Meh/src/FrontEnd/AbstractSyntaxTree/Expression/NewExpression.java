@@ -2,11 +2,13 @@ package FrontEnd.AbstractSyntaxTree.Expression;
 
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.MultiplicationInstruction;
+import BackEnd.ControlFlowGraph.Instruction.FunctionInstruction.CallInstruction;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.AllocateInstruction;
 import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.StoreInstruction;
 import BackEnd.ControlFlowGraph.Operand.Address;
 import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
+import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
@@ -15,6 +17,7 @@ import FrontEnd.AbstractSyntaxTree.Type.ClassType.ClassType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
 import Utility.CompilationError;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -60,6 +63,12 @@ public class NewExpression extends Expression {
                     instructions.add(StoreInstruction.getInstruction(member.expression.operand, address));
                 }
             });
+            if (classType.constructor != null) {
+                List<Operand> operands = new ArrayList<Operand>() {{
+                    add(operand);
+                }};
+                instructions.add(CallInstruction.getInstruction(null, classType.constructor, operands));
+            }
         } else if (type instanceof ArrayType) {
             ArrayType arrayType = (ArrayType)type;
             VirtualRegister size = Environment.registerTable.addTemporaryRegister();

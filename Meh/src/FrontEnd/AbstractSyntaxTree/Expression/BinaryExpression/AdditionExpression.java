@@ -36,8 +36,15 @@ public class AdditionExpression extends BinaryExpression {
                 String strLeft = ((StringConstant) left).str;
                 String strRight = ((StringConstant) right).str;
                 return new StringConstant(strLeft + strRight);
+            } else {
+                return FunctionCallExpression.getExpression(
+                        (Function)Environment.symbolTable.get("__builtin_string_concat").type,
+                        new ArrayList<Expression>() {{
+                            add(left);
+                            add(right);
+                        }}
+                );
             }
-            return new AdditionExpression(new StringType(), false, left, right);
         }
         throw new CompilationError("type Error beside an \"+\"");
     }

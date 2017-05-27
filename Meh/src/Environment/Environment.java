@@ -3,6 +3,7 @@ package Environment;
 import FrontEnd.AbstractSyntaxTree.Function;
 import FrontEnd.AbstractSyntaxTree.Program;
 import FrontEnd.AbstractSyntaxTree.Type.ArrayType;
+import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.StringType;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.VoidType;
@@ -112,5 +113,45 @@ public class Environment {
                     add(new Symbol(new IntType(), "pos"));
                 }}
         ), "__builtin_ord");
+        symbolTable.add(Function.getFunction(
+                "__builtin_string_equalTo",
+                new BoolType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_equalTo");
+        symbolTable.add(Function.getFunction(
+                "__builtin_string_greaterThan",
+                new BoolType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_greaterThan");
+        symbolTable.add(Function.getFunction(
+                "__builtin_string_greaterThanOrEqualTo",
+                new BoolType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_greaterThanOrEqualTo");
+        symbolTable.add(Function.getFunction(
+                "__builtin_string_lessThan",
+                new BoolType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_lessThan");
+        symbolTable.add(Function.getFunction(
+                "__builtin_string_lessThanOrEqualTo",
+                new BoolType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_lessThanOrEqualTo");
     }
 }
