@@ -1,17 +1,5 @@
-int[][] c;
-int ans;
-int[] visit = new int[110];
-int[] pre = new int[110];
-int[] f = new int[110];
-int i;
-int j;
-int open;
-int closed;
-
 int main() {
-    int ending;
-    i=ending;
-    c[j][i]--;
-    c[j][i]++;
+    println("Fuck!!!");
+
     return 0;
 }

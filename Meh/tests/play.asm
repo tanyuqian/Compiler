@@ -243,16 +243,13 @@ main:
 	mov    qword [rbp-48], r9
 														;%enter
 main_enter_0:
-														;$g0(a) = move 5
-	mov    r11, 5
-	mov    qword [rel a], r11
-														;$g1(b) = move 3
-	mov    r11, 3
-	mov    qword [rel b], r11
 														;jump %entry
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
+														;call __builtin_println $0
+	mov    rdi, CONST_STRING_0
+	call   __builtin_println
 														;ret 0
 	mov    rax, 0
 	leave
@@ -268,10 +265,8 @@ main_exit_2:
 
 
 SECTION .data
-a:
-	dq 0
-b:
-	dq 0
+CONST_STRING_0:
+	db "Fuck!!!", 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:

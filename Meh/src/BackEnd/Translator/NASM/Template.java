@@ -239,7 +239,6 @@ public class Template {
                 "RETURN_1:\n" +
                 "    mov     rax, 1\n" +
                 "    ret\n" +
-                "\n" +
-                "END\n";
+                "\n";
     }
 }
