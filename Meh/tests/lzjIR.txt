@@ -1,50 +1,25 @@
 %enter
-$t43 = move 40400
-$t43 = add $t43 4
-$t42 = alloc $t43
-store 4 $t42 10100 0
-$t42 = add $t42 4
-$g0(a) = move $t42
-$g1(n) = move 100
 jump null
 %entry
-$t8 = move 1
+$t0 = move 10
+$t1 = move 0
+$t2 = move 1
+$t4 = move 1
 jump null
 %for_condition
-$t44 = sle $t8 $g1(n)
-br $t44 null null
+$t5 = slt $t4 $t0
+br $t5 null null
 %for_body
-$t46 = mul $t8 4
-$t45 = add $g0(a) $t46
-$t47 = add $g1(n) 1
-$t48 = sub $t47 $t8
-store 4 $t45 $t48 0
+$t6 = add $t1 $t2
+$t3 = move $t6
+$t1 = move $t2
+$t2 = move $t3
 jump null
 %for_loop
-$t49 = move $t8
-$t8 = add $t8 1
+$t4 = add $t4 1
 jump null
 %for_merge
-$t50 = call qsrt 1 $g1(n)
-$t8 = move 1
-jump null
-%for_condition
-$t51 = sle $t8 $g1(n)
-br $t51 null null
-%for_body
-$t53 = mul $t8 4
-$t52 = add $g0(a) $t53
-$t54 = load 4 $t52 0
-call ____builtin____print_int $t54
-call ____builtin____print $55
-jump null
-%for_loop
-$t56 = move $t8
-$t8 = add $t8 1
-jump null
-%for_merge
-call ____builtin____print $57
-ret 0
+ret $t3
 jump null
 jump null
 %exit

@@ -41,12 +41,12 @@ public class PrefixDecrementExpression extends UnaryExpression {
             Address address = (Address)expression.operand;
             address = new Address(address.base, address.offset, address.size);
             expression.load(instructions);
-            instructions.add(MoveInstruction.getInstruction(operand, expression.operand));
+            operand = expression.operand;
             instructions.add(SubtractionInstruction.getInstruction(operand, operand, new ImmediateValue(1)));
             instructions.add(StoreInstruction.getInstruction(operand, address));
         } else {
             expression.load(instructions);
-            instructions.add(MoveInstruction.getInstruction(operand, expression.operand));
+            operand = expression.operand;
             instructions.add(SubtractionInstruction.getInstruction(operand, operand, new ImmediateValue(1)));
         }
     }
