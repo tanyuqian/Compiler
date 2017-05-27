@@ -3,6 +3,7 @@ package FrontEnd.AbstractSyntaxTree.Expression.VariableExpression;
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.MultiplicationInstruction;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.LoadInstruction;
 import BackEnd.ControlFlowGraph.Operand.Address;
 import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
@@ -50,5 +51,14 @@ public class SubscriptExpression extends Expression {
         instructions.add(MultiplicationInstruction.getInstruction(delta, subscript.operand, new ImmediateValue(type.size())));
         instructions.add(AdditionInstruction.getInstruction(address, expression.operand, delta));
         operand = new Address(address, type.size());
+    }
+
+    @Override
+    public void load(List<Instruction> instructions) {
+        if (operand instanceof Address) {
+            Address address = (Address)operand;
+            operand = Environment.registerTable.addTemporaryRegister();
+            instructions.add(LoadInstruction.getInstruction(operand, address));
+        }
     }
 }

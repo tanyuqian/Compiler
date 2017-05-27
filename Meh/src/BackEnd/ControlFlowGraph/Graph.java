@@ -36,6 +36,9 @@ public class Graph {
         function.entry = LabelInstruction.getInstruction("entry");
         function.exit = LabelInstruction.getInstruction("exit");
         instructions.add(function.enter);
+
+        System.out.println(function.name);
+
         if (function.name.equals("main")) {
             for (VariableDeclarationStatement declaration : Environment.program.globalVariables) {
                 declaration.emit(instructions);

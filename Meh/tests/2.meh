@@ -1,15 +1,16 @@
+int[][] c;
+int ans;
+int[] visit = new int[110];
+int[] pre = new int[110];
+int[] f = new int[110];
+int i;
+int j;
+int open;
+int closed;
 
-int N = 15000;
-bool[] b = new bool[15001];
-int resultCount = 0;
-
-int main()
-{
-  int i = 5;
-
-    if (i > 3 && true) {
-        i = 1;
-    }
-
-  return 0;
+int main() {
+    int ending;
+    i=ending;
+    c[j][i]--;
+    return 0;
 }
