@@ -8,8 +8,8 @@ default rel
 
 global main
 
-extern strcpy
-extern _Znam
+extern __stack_chk_fail
+extern getchar
 
 
 SECTION .text   
@@ -17,27 +17,33 @@ SECTION .text
 main:
         push    rbp
         mov     rbp, rsp
-        sub     rsp, 16
-        mov     edi, 100
-        call    _Znam
-        mov     qword [rbp-10H], rax
-        mov     edi, 100
-        call    _Znam
+        add     rsp, -128
+
+
+        mov     rax, qword [fs:abs 28H]
         mov     qword [rbp-8H], rax
+        xor     eax, eax
+        mov     dword [rbp-74H], 0
+L_001:  call    getchar
+        mov     byte [rbp-75H], al
+        mov     eax, dword [rbp-74H]
+        cdqe
+        movzx   edx, byte [rbp-75H]
+        mov     byte [rbp+rax-70H], dl
+        add     dword [rbp-74H], 1
+        cmp     byte [rbp-75H], 10
+        jz      L_002
+        jmp     L_001
 
-
-        mov     rax, qword [rbp-8H]
-        mov     byte [rax], 98
-        mov     rax, qword [rbp-8H]
-        add     rax, 1
-        mov     byte [rax], 0
-        mov     rdx, qword [rbp-8H]
-        mov     rax, qword [rbp-10H]
-        mov     rsi, rdx
-        mov     rdi, rax
-        call    strcpy
+L_002:  nop
         mov     eax, 0
-        leave
+        mov     rcx, qword [rbp-8H]
+
+
+        xor     rcx, qword [fs:abs 28H]
+        jz      L_003
+        call    __stack_chk_fail
+L_003:  leave
         ret
 
 

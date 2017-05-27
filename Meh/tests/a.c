@@ -2,14 +2,19 @@
 #include <string.h>
 
 int main() {
-    char *a = new char [100];
-    char *b = new char [100];
+    char a[100];
 
-    b[0] = 'b';
-    b[1] = '\0';
-    strcpy(a, b);
+    char cc;
+    int i = 0;
+    while (true) {
+        cc = getchar();
+        a[i] = cc;
+        i = i + 1;
+        if (cc == '\n') {
+            break;
+        }
+    }
 
-    //puts(a);
 
     return 0;
 }
