@@ -238,7 +238,7 @@ __builtin_getArraySize:
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 296
+	sub    rsp, 264
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -247,269 +247,199 @@ main:
 	mov    qword [rbp-48], r9
 														;%enter
 main_enter_0:
-														;$t4 = move 32
-	mov    r11, 32
-	mov    qword [rbp+(-160)], r11
-														;$t4 = add $t4 8
-	mov    r11, qword [rbp+(-160)]
-	add    r11, 8
-	mov    qword [rbp+(-160)], r11
-														;$t3 = alloc $t4
-	mov    rdi, qword [rbp+(-160)]
-	call   malloc
-	mov    qword [rbp+(-136)], rax
-														;store 8 $t3 4 0
-	mov    r11, qword [rbp+(-136)]
-	add    r11, 0
-	mov    rax, 4
-	mov    qword [r11], rax
-														;$t3 = add $t3 8
-	mov    r11, qword [rbp+(-136)]
-	add    r11, 8
-	mov    qword [rbp+(-136)], r11
-														;$g0(a) = move $t3
-	mov    r11, qword [rbp+(-136)]
-	mov    qword [rel a], r11
 														;jump %entry
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;$t5 = call __builtin_getArraySize $g0(a)
-	mov    rdi, qword [rel a]
-	call   __builtin_getArraySize
-	mov    qword [rbp+(-96)], rax
-														;$t7 = mul $t5 8
-	mov    r11, qword [rbp+(-96)]
-	imul   r11, 8
-	mov    qword [rbp+(-120)], r11
-														;$t7 = add $t7 8
-	mov    r11, qword [rbp+(-120)]
-	add    r11, 8
-	mov    qword [rbp+(-120)], r11
-														;$t6 = alloc $t7
-	mov    rdi, qword [rbp+(-120)]
+														;$t3 = alloc 8
+	mov    rdi, 8
 	call   malloc
-	mov    qword [rbp+(-112)], rax
-														;store 8 $t6 $t5 0
-	mov    r11, qword [rbp+(-112)]
-	add    r11, 0
-	mov    rax, qword [rbp+(-96)]
-	mov    qword [r11], rax
-														;$t6 = add $t6 8
-	mov    r11, qword [rbp+(-112)]
-	add    r11, 8
-	mov    qword [rbp+(-112)], r11
-														;$t1 = move $t6
-	mov    r11, qword [rbp+(-112)]
-	mov    qword [rbp+(-232)], r11
-														;$t2 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_2
-														;%for_condition
-main_for_condition_2:
-														;$t8 = call __builtin_getArraySize $g0(a)
-	mov    rdi, qword [rel a]
-	call   __builtin_getArraySize
-	mov    qword [rbp+(-264)], rax
-														;$t9 = slt $t2 $t8
-	mov    r11, qword [rbp+(-128)]
-	cmp    r11, qword [rbp+(-264)]
-	setl   al
-	movzx  r11, al
-	mov    qword [rbp+(-192)], r11
-														;br $t9 %for_body %for_after
-	cmp    qword [rbp+(-192)], 0
-	jnz    main_for_body_3
-	jz     main_for_after_5
-														;%for_body
-main_for_body_3:
-														;$t11 = mul $t2 8
-	mov    r11, qword [rbp+(-128)]
-	imul   r11, 8
-	mov    qword [rbp+(-80)], r11
-														;$t10 = add $g0(a) $t11
-	mov    r11, qword [rel a]
-	add    r11, qword [rbp+(-80)]
-	mov    qword [rbp+(-168)], r11
-														;store 8 $t10 0 0
+	mov    qword [rbp+(-160)], rax
+														;$t0 = move $t3
+	mov    r11, qword [rbp+(-160)]
+	mov    qword [rbp+(-184)], r11
+														;$t4 = alloc 8
+	mov    rdi, 8
+	call   malloc
+	mov    qword [rbp+(-168)], rax
+														;$t1 = move $t4
 	mov    r11, qword [rbp+(-168)]
+	mov    qword [rbp+(-128)], r11
+														;$t5 = alloc 16
+	mov    rdi, 16
+	call   malloc
+	mov    qword [rbp+(-176)], rax
+														;$t2 = move $t5
+	mov    r11, qword [rbp+(-176)]
+	mov    qword [rbp+(-64)], r11
+														;store 8 $t0 $t2 0
+	mov    r11, qword [rbp+(-184)]
+	add    r11, 0
+	mov    rax, qword [rbp+(-64)]
+	mov    qword [r11], rax
+														;store 8 $t1 $t2 0
+	mov    r11, qword [rbp+(-128)]
+	add    r11, 0
+	mov    rax, qword [rbp+(-64)]
+	mov    qword [r11], rax
+														;store 8 $t2 0 0
+	mov    r11, qword [rbp+(-64)]
 	add    r11, 0
 	mov    rax, 0
 	mov    qword [r11], rax
-														;$t13 = mul $t2 8
-	mov    r11, qword [rbp+(-128)]
-	imul   r11, 8
-	mov    qword [rbp+(-200)], r11
-														;$t12 = add $t1 $t13
-	mov    r11, qword [rbp+(-232)]
-	add    r11, qword [rbp+(-200)]
-	mov    qword [rbp+(-184)], r11
-														;$t14 = call __builtin_getInt
-	call   __builtin_getInt
-	mov    qword [rbp+(-208)], rax
-														;store 8 $t12 $t14 0
+														;$t6 = call __builtin_getString
+	call   __builtin_getString
+	mov    qword [rbp+(-112)], rax
+														;store 8 $t2 $t6 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    rax, qword [rbp+(-112)]
+	mov    qword [r11], rax
+														;$t7 = load 8 $t0 0
 	mov    r11, qword [rbp+(-184)]
 	add    r11, 0
-	mov    rax, qword [rbp+(-208)]
-	mov    qword [r11], rax
-														;jump %for_loop
-	jmp    main_for_loop_4
-														;%for_loop
-main_for_loop_4:
-														;$t15 = move $t2
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-216)], r12
+														;$t8 = load 8 $t7 8
+	mov    r11, qword [rbp+(-216)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-200)], r12
+														;$t9 = load 8 $t1 0
 	mov    r11, qword [rbp+(-128)]
-	mov    qword [rbp+(-256)], r11
-														;$t2 = add $t2 1
-	mov    r11, qword [rbp+(-128)]
-	add    r11, 1
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_2
-														;%for_after
-main_for_after_5:
-														;$t2 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_6
-														;%for_condition
-main_for_condition_6:
-														;$t16 = call __builtin_getArraySize $g0(a)
-	mov    rdi, qword [rel a]
-	call   __builtin_getArraySize
-	mov    qword [rbp+(-248)], rax
-														;$t17 = slt $t2 $t16
-	mov    r11, qword [rbp+(-128)]
-	cmp    r11, qword [rbp+(-248)]
-	setl   al
-	movzx  r11, al
-	mov    qword [rbp+(-224)], r11
-														;br $t17 %for_body %for_after
-	cmp    qword [rbp+(-224)], 0
-	jnz    main_for_body_7
-	jz     main_for_after_9
-														;%for_body
-main_for_body_7:
-														;$t19 = mul $t2 8
-	mov    r11, qword [rbp+(-128)]
-	imul   r11, 8
-	mov    qword [rbp+(-104)], r11
-														;$t18 = add $g0(a) $t19
-	mov    r11, qword [rel a]
-	add    r11, qword [rbp+(-104)]
-	mov    qword [rbp+(-176)], r11
-														;$t20 = load 8 $t18 0
-	mov    r11, qword [rbp+(-176)]
 	add    r11, 0
 	mov    r12, qword [r11]
-	mov    qword [rbp+(-280)], r12
-														;$t21 = call __builtin_toString $t20
-	mov    rdi, qword [rbp+(-280)]
-	call   __builtin_toString
-	mov    qword [rbp+(-72)], rax
-														;call __builtin_print $t21
-	mov    rdi, qword [rbp+(-72)]
-	call   __builtin_print
-														;jump %for_loop
-	jmp    main_for_loop_8
-														;%for_loop
-main_for_loop_8:
-														;$t22 = move $t2
-	mov    r11, qword [rbp+(-128)]
-	mov    qword [rbp+(-216)], r11
-														;$t2 = add $t2 1
-	mov    r11, qword [rbp+(-128)]
-	add    r11, 1
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_6
-														;%for_after
-main_for_after_9:
-														;call __builtin_println $23
-	mov    rdi, CONST_STRING_23
-	call   __builtin_println
-														;$g0(a) = move $t1
-	mov    r11, qword [rbp+(-232)]
-	mov    qword [rel a], r11
-														;$t2 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_10
-														;%for_condition
-main_for_condition_10:
-														;$t24 = call __builtin_getArraySize $g0(a)
-	mov    rdi, qword [rel a]
-	call   __builtin_getArraySize
+	mov    qword [rbp+(-72)], r12
+														;$t10 = load 8 $t9 8
+	mov    r11, qword [rbp+(-72)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-136)], r12
+														;$t11 = call __builtin_string_concat $t8 $t10
+	mov    rdi, qword [rbp+(-200)]
+	mov    rsi, qword [rbp+(-136)]
+	call   __builtin_string_concat
+	mov    qword [rbp+(-152)], rax
+														;$t12 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-88)], r12
+														;$t13 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-224)], r12
+														;$t14 = call __builtin_string_concat $t12 $t13
+	mov    rdi, qword [rbp+(-88)]
+	mov    rsi, qword [rbp+(-224)]
+	call   __builtin_string_concat
 	mov    qword [rbp+(-240)], rax
-														;$t25 = slt $t2 $t24
-	mov    r11, qword [rbp+(-128)]
-	cmp    r11, qword [rbp+(-240)]
-	setl   al
-	movzx  r11, al
-	mov    qword [rbp+(-64)], r11
-														;br $t25 %for_body %for_after
-	cmp    qword [rbp+(-64)], 0
-	jnz    main_for_body_11
-	jz     main_for_after_13
-														;%for_body
-main_for_body_11:
-														;$t27 = mul $t2 8
-	mov    r11, qword [rbp+(-128)]
-	imul   r11, 8
-	mov    qword [rbp+(-88)], r11
-														;$t26 = add $g0(a) $t27
-	mov    r11, qword [rel a]
-	add    r11, qword [rbp+(-88)]
-	mov    qword [rbp+(-288)], r11
-														;$t28 = load 8 $t26 0
-	mov    r11, qword [rbp+(-288)]
-	add    r11, 0
+														;$t15 = call __builtin_string_equalTo $t11 $t14
+	mov    rdi, qword [rbp+(-152)]
+	mov    rsi, qword [rbp+(-240)]
+	call   __builtin_string_equalTo
+	mov    qword [rbp+(-208)], rax
+														;br $t15 %if_true %if_false
+	cmp    qword [rbp+(-208)], 0
+	jnz    main_if_true_2
+	jz     main_if_false_3
+														;%if_true
+main_if_true_2:
+														;$t16 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
 	mov    r12, qword [r11]
-	mov    qword [rbp+(-272)], r12
-														;$t29 = call __builtin_toString $t28
-	mov    rdi, qword [rbp+(-272)]
-	call   __builtin_toString
+	mov    qword [rbp+(-192)], r12
+														;$t17 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-120)], r12
+														;$t18 = call __builtin_string_concat $t16 $t17
+	mov    rdi, qword [rbp+(-192)]
+	mov    rsi, qword [rbp+(-120)]
+	call   __builtin_string_concat
 	mov    qword [rbp+(-144)], rax
-														;call __builtin_print $t29
-	mov    rdi, qword [rbp+(-144)]
-	call   __builtin_print
-														;jump %for_loop
-	jmp    main_for_loop_12
-														;%for_loop
-main_for_loop_12:
-														;$t30 = move $t2
-	mov    r11, qword [rbp+(-128)]
-	mov    qword [rbp+(-152)], r11
-														;$t2 = add $t2 1
-	mov    r11, qword [rbp+(-128)]
-	add    r11, 1
-	mov    qword [rbp+(-128)], r11
-														;jump %for_condition
-	jmp    main_for_condition_10
-														;%for_after
-main_for_after_13:
+														;store 8 $t2 $t18 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    rax, qword [rbp+(-144)]
+	mov    qword [r11], rax
+														;jump %if_merge
+	jmp    main_if_merge_4
+														;%if_false
+main_if_false_3:
+														;jump %if_merge
+	jmp    main_if_merge_4
+														;%if_merge
+main_if_merge_4:
+														;$t20 = call __builtin_parseInt $19
+	mov    rdi, CONST_STRING_19
+	call   __builtin_parseInt
+	mov    qword [rbp+(-256)], rax
+														;$t21 = call __builtin_toString $t20
+	mov    rdi, qword [rbp+(-256)]
+	call   __builtin_toString
+	mov    qword [rbp+(-232)], rax
+														;store 8 $t2 $t21 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    rax, qword [rbp+(-232)]
+	mov    qword [r11], rax
+														;$t22 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-80)], r12
+														;$t23 = call __builtin_toString 123
+	mov    rdi, 123
+	call   __builtin_toString
+	mov    qword [rbp+(-96)], rax
+														;$t24 = call __builtin_string_equalTo $t22 $t23
+	mov    rdi, qword [rbp+(-80)]
+	mov    rsi, qword [rbp+(-96)]
+	call   __builtin_string_equalTo
+	mov    qword [rbp+(-104)], rax
+														;br $t24 %if_true %if_false
+	cmp    qword [rbp+(-104)], 0
+	jnz    main_if_true_5
+	jz     main_if_false_6
+														;%if_true
+main_if_true_5:
+														;$t25 = load 8 $t2 8
+	mov    r11, qword [rbp+(-64)]
+	add    r11, 8
+	mov    r12, qword [r11]
+	mov    qword [rbp+(-248)], r12
+														;call __builtin_println $t25
+	mov    rdi, qword [rbp+(-248)]
+	call   __builtin_println
+														;jump %if_merge
+	jmp    main_if_merge_7
+														;%if_false
+main_if_false_6:
+														;jump %if_merge
+	jmp    main_if_merge_7
+														;%if_merge
+main_if_merge_7:
 														;ret 0
 	mov    rax, 0
 	leave
 	ret
 														;jump %exit
-	jmp    main_exit_14
+	jmp    main_exit_8
 														;jump %exit
-	jmp    main_exit_14
+	jmp    main_exit_8
 														;%exit
-main_exit_14:
+main_exit_8:
 	leave
 	ret
 
 
 SECTION .data
-a:
-	dq 0
-CONST_STRING_23:
-	db "", 0
+CONST_STRING_19:
+	db "123.456", 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:
@@ -520,4 +450,3 @@ INTEGER_FORMAT:
 	db "%lld", 0
 CHAR_FORMAT:
 	db "%c", 0
-

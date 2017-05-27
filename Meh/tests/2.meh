@@ -1,24 +1,33 @@
-//input: 1 2 3 4
-
-int[] a = new int[4];
+class A
+{
+	C c;
+}
+class B
+{
+	C c;
+}
+class C
+{
+	int a;
+	string b;
+}
 int main()
 {
-    int[] b = new int[a.size()];
-	int i;
-    for (i = 0; i < a.size(); i++)
+	A a = new A;
+	B b = new B;
+	C c = new C;
+	a.c = c;
+	b.c = c;
+	c.a = 0;
+	c.b = getString();
+	if(a.c.b + b.c.b == c.b + c.b)
 	{
-		a[i] = 0;
-		b[i] = getInt();
+		c.b = c.b + c.b;
 	}
-	for (i = 0; i < a.size(); i++)
+	c.b = toString("123.456".parseInt());
+	if(c.b == toString(123))
 	{
-		print(toString(a[i]));
+		println(c.b);
 	}
-	println("");
-	a=b;
-	for (i = 0; i < a.size(); i++)
-	{
-		print(toString(a[i]));
-	}
-    return 0;
+	return 0;
 }

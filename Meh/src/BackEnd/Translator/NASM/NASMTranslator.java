@@ -25,13 +25,13 @@ public abstract class NASMTranslator extends Translator {
 
     @Override
     public void translate() throws Exception {
-        BufferedReader template = new BufferedReader(new InputStreamReader(new FileInputStream("lib/template.meh")));
-        for (String str = template.readLine(); !str.equals("END"); str = template.readLine()) {
-            output.println(str);
-        }
+//        BufferedReader template = new BufferedReader(new InputStreamReader(new FileInputStream("lib/template.meh")));
+//        for (String str = template.readLine(); !str.equals("END"); str = template.readLine()) {
+//            output.println(str);
+//        }
 
-//        Template template = new Template();
-//        output.print(template.templateStr);
+        Template template = new Template();
+        output.print(template.templateStr);
 
         for (Function function : Environment.program.functions) {
             translate(function.graph);

@@ -239,6 +239,10 @@ public class Template {
                 "RETURN_1:\n" +
                 "    mov     rax, 1\n" +
                 "    ret\n" +
+                "\n" +
+                "__builtin_getArraySize:\n" +
+                "    mov     rax, qword [rdi-8]\n" +
+                "    ret\n" +
                 "\n";
     }
 }
