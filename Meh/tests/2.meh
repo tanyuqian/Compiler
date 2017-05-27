@@ -1,11 +1,17 @@
-string a = "aaaaaa";
+string a = "15926";
 
 int main() {
-    int x = 5;
+    string a = getString();
+    string b = getString();
+    int c;
 
-    while (x > 0) {
-        x = x - 1;
+    if (a < b) {
+        c = 1;
+    } else {
+        c = 0;
     }
+
+    println(toString(c));
 
     return 0;
 }

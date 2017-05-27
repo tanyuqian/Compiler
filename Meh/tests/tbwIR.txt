@@ -1,17 +1,22 @@
 %enter
-$g0(a) = move $2
+$g0(a) = move $4
 jump %entry
 %entry
-$t1 = move 5
-jump %while_loop
-%while_loop
-$t3 = sgt $t1 0
-br $t3 %while_body %while_after
-%while_body
-$t4 = sub $t1 1
-$t1 = move $t4
-jump %while_loop
-%while_after
+$t5 = call __builtin_getString
+$t1 = move $t5
+$t6 = call __builtin_getString
+$t2 = move $t6
+$t7 = call __builtin_string_lessThan $t1 $t2
+br $t7 %if_true %if_false
+%if_true
+$t3 = move 1
+jump %if_merge
+%if_false
+$t3 = move 0
+jump %if_merge
+%if_merge
+$t8 = call __builtin_toString $t3
+call __builtin_println $t8
 ret 0
 jump %exit
 jump %exit

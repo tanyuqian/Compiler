@@ -1,20 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main() {
-    char a[100];
+    int x = 5;
+    int y = 3;
 
-    char cc;
-    int i = 0;
-    while (true) {
-        cc = getchar();
-        a[i] = cc;
-        i = i + 1;
-        if (cc == '\n') {
-            break;
-        }
-    }
-
+    printf("%d\n", x + y);
 
     return 0;
 }
