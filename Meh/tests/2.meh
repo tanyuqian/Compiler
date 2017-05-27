@@ -1,5 +1,8 @@
 int main() {
-    println("Fuck!!!");
+    int a = 3;
+    int b = 2;
+
+    println(toString(a + b));
 
     return 0;
 }

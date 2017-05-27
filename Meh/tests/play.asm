@@ -234,7 +234,7 @@ RETURN_1:
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 64
+	sub    rsp, 96
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -247,8 +247,22 @@ main_enter_0:
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;call __builtin_println $0
-	mov    rdi, CONST_STRING_0
+														;$t0 = move 3
+	mov    r11, 3
+	mov    qword [rbp+(-88)], r11
+														;$t1 = move 2
+	mov    r11, 2
+	mov    qword [rbp+(-64)], r11
+														;$t2 = add $t0 $t1
+	mov    r11, qword [rbp+(-88)]
+	add    r11, qword [rbp+(-64)]
+	mov    qword [rbp+(-72)], r11
+														;$t3 = call __builtin_toString $t2
+	mov    rdi, qword [rbp+(-72)]
+	call   __builtin_toString
+	mov    qword [rbp+(-80)], rax
+														;call __builtin_println $t3
+	mov    rdi, qword [rbp+(-80)]
 	call   __builtin_println
 														;ret 0
 	mov    rax, 0
@@ -265,8 +279,6 @@ main_exit_2:
 
 
 SECTION .data
-CONST_STRING_0:
-	db "Fuck!!!", 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:
