@@ -50,7 +50,7 @@ public class Graph {
         instructions.add(function.exit);
 
         this.instructions = instructions;
-//
+
 //        FileWriter fw = new FileWriter("tests/tbwIR.txt");
 //        for (Instruction instruction : instructions) {
 //            fw.write(instruction.toString());
@@ -96,7 +96,7 @@ public class Graph {
         }
         for (int i = 6; i < function.parameters.size(); i++) {
             Symbol parameter = function.parameters.get(i);
-            frame.parameterMap.put(parameter.register, (6 - i) * NASMRegister.size() - 16);
+            frame.parameterMap.put(parameter.register, (i - 6) * NASMRegister.size() + 16);
         }
     }
 

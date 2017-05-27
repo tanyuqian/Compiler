@@ -1,25 +1,10 @@
 %enter
 jump %entry
 %entry
-$t0 = move 10
-$t1 = move 0
-$t2 = move 1
-$t4 = move 1
-jump %for_condition
-%for_condition
-$t5 = slt $t4 $t0
-br $t5 %for_body %for_after
-%for_body
-$t6 = add $t1 $t2
-$t3 = move $t6
-$t1 = move $t2
-$t2 = move $t3
-jump %for_loop
-%for_loop
-$t4 = add $t4 1
-jump %for_condition
-%for_after
-ret $t3
+$t29 = call a 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+$t30 = call __builtin_toString $t29
+call __builtin_println $t30
+ret 0
 jump %exit
 jump %exit
 %exit

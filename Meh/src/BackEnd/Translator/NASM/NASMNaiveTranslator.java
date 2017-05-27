@@ -232,7 +232,7 @@ public class NASMNaiveTranslator extends NASMTranslator {
                         output.printf("\tmov    %s, %s\n", order.get(i), getPhisicalMemoryName(parameters.get(i)));
                     }
                     if (parameters.size() > 6) {
-                        for (int i = parameters.size() - 1; i >= 6; i++) {
+                        for (int i = parameters.size() - 1; i >= 6; i--) {
                             output.printf("\tpush   %s\n", getPhisicalMemoryName(parameters.get(i)));
                         }
                     }
