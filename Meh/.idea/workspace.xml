@@ -5,38 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMNaiveTranslator$1.class" afterPath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMNaiveTranslator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMNaiveTranslator.class" afterPath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMNaiveTranslator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMTranslator.class" afterPath="$PROJECT_DIR$/out/production/Meh/BackEnd/Translator/NASM/NASMTranslator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$1.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$2.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$3.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$4.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$5.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$6.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$7.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$8.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/Environment/Environment.class" afterPath="$PROJECT_DIR$/out/production/Meh/Environment/Environment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/NewExpression.class" afterPath="$PROJECT_DIR$/out/production/Meh/FrontEnd/AbstractSyntaxTree/Expression/NewExpression.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/template.meh" afterPath="$PROJECT_DIR$/lib/template.meh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/a.out" afterPath="$PROJECT_DIR$/tests/a.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.o" afterPath="$PROJECT_DIR$/tests/play.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Environment/Environment.java" afterPath="$PROJECT_DIR$/src/Environment/Environment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/LessThanOrEqualToExpression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/NewExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/NewExpression.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java" afterPath="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.asm" afterPath="$PROJECT_DIR$/tests/play.asm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/tbwIR.txt" afterPath="$PROJECT_DIR$/tests/tbwIR.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,71 +40,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NASMNaiveTranslator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="200" column="70" lean-forward="true" selection-start-line="200" selection-start-column="70" selection-end-line="200" selection-end-column="70" />
+            <state relative-caret-position="108">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.meh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/template.meh">
+      <file leaf-file-name="BlockStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/BlockStatement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NASMTranslator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java">
+      <file leaf-file-name="ReturnStatement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/ReturnStatement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="8" />
+            <state relative-caret-position="108">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Environment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Environment/Environment.java">
+      <file leaf-file-name="PrefixIncrementExpression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="153" column="18" lean-forward="true" selection-start-line="153" selection-start-column="18" selection-end-line="153" selection-end-column="18" />
+            <state relative-caret-position="200">
+              <caret line="50" column="9" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="50" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="play.asm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/play.asm">
+      <file leaf-file-name="PrefixDecrementExpression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="324" column="14" lean-forward="false" selection-start-line="324" selection-start-column="14" selection-end-line="324" selection-end-column="14" />
+            <state relative-caret-position="98">
+              <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tbwIR.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/tbwIR.txt">
+      <file leaf-file-name="PostfixIncrementExpression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixIncrementExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="-302">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="PostfixDecrementExpression.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixDecrementExpression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            <state relative-caret-position="-302">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveInstruction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/MemoryInstruction/MoveInstruction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdditionInstruction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/ArithmeticInstruction/BinaryInstruction/AdditionInstruction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,8 +133,8 @@
       <file leaf-file-name="2.meh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/2.meh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="240">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -155,7 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>divi</find>
       <find>Modulo</find>
       <find>post</find>
       <find>exitvariableEx</find>
@@ -185,6 +181,7 @@
       <find>length</find>
       <find>substring</find>
       <find>tostring</find>
+      <find>string_concat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,8 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/Instruction.java" />
-        <option value="$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/LabelInstruction.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/ArithmeticInstruction/UnaryInstruction/UnaryInstruction.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/ControlFlowInstruction/BranchInstruction.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/FunctionInstruction/CallInstruction.java" />
@@ -236,7 +231,6 @@
         <option value="$PROJECT_DIR$/tests/tbwIR.txt" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java" />
-        <option value="$PROJECT_DIR$/src/Environment/Environment.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/EqualToExpression.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanExpression.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/GreaterThanOrEqualToExpression.java" />
@@ -246,9 +240,12 @@
         <option value="$PROJECT_DIR$/tests/a.asm" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java" />
         <option value="$PROJECT_DIR$/lib/template.meh" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Environment.java" />
         <option value="$PROJECT_DIR$/tests/play.asm" />
         <option value="$PROJECT_DIR$/tests/2.meh" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java" />
+        <option value="$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java" />
       </list>
     </option>
   </component>
@@ -259,7 +256,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1366" />
     <option name="y" value="24" />
     <option name="width" value="1366" />
     <option name="height" value="744" />
@@ -443,6 +439,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="VariableExpression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Meh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Meh" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrontEnd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AbstractSyntaxTree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Expression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UnaryExpression" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1159,12 +1185,12 @@
       <workItem from="1495775261424" duration="2808000" />
       <workItem from="1495789268002" duration="12820000" />
       <workItem from="1495809132471" duration="8714000" />
-      <workItem from="1495861215584" duration="13270000" />
+      <workItem from="1495861215584" duration="14845000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="368580000" />
+    <option name="totallyTimeSpent" value="370155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1176,8 +1202,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1366" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1199,9 +1225,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40557274" sideWeight="0.49405235" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40557274" sideWeight="0.49405235" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26934984" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26934984" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30530304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1252,12 +1278,6 @@
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/BlockStatement.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="30" />
     </breakpoint-manager>
@@ -1274,83 +1294,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Type/ClassType/ClassType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-541">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="e#670#671#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#752#753#0" expanded="false" />
-            <element signature="e#787#788#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/SyntaxErrorListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="328" column="19" lean-forward="true" selection-start-line="328" selection-start-column="19" selection-end-line="328" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/MemoryInstruction/StoreInstruction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="45" column="58" lean-forward="false" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/lzjMIPSCode.mips">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2483">
-          <caret line="171" column="17" lean-forward="true" selection-start-line="171" selection-start-column="17" selection-end-line="171" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/ConstantExpression/IntConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Environment/RegisterTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/ConstantExpression/NullConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/ConstantExpression/Constant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1460,22 +1408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/BlockStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/DeclarationFetcherListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
@@ -1496,14 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="254" column="5" lean-forward="true" selection-start-line="254" selection-start-column="5" selection-end-line="254" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1536,24 +1460,6 @@
         <state relative-caret-position="180">
           <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="45" column="18" lean-forward="true" selection-start-line="39" selection-start-column="16" selection-end-line="45" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Environment/SymbolTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="e#2118#2119#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1637,42 +1543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="200" column="70" lean-forward="true" selection-start-line="200" selection-start-column="70" selection-end-line="200" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Environment/Environment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="153" column="18" lean-forward="true" selection-start-line="153" selection-start-column="18" selection-end-line="153" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/play.asm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="324" column="14" lean-forward="false" selection-start-line="324" selection-start-column="14" selection-end-line="324" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/tbwIR.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/2.meh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1695,8 +1569,154 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        <state relative-caret-position="108">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="1035" column="0" lean-forward="false" selection-start-line="1035" selection-start-column="0" selection-end-line="1035" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#2118#2119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/BinaryExpression/AdditionExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Environment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="778">
+          <caret line="114" column="28" lean-forward="true" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/Listener/TreeBuilderListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="356" column="50" lean-forward="false" selection-start-line="356" selection-start-column="32" selection-end-line="356" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///etc/jdk1.8.0_121/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="1248" column="0" lean-forward="false" selection-start-line="1248" selection-start-column="0" selection-end-line="1248" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/play.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="288" column="14" lean-forward="false" selection-start-line="288" selection-start-column="14" selection-end-line="288" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="150" column="88" lean-forward="true" selection-start-line="150" selection-start-column="88" selection-end-line="150" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/2.meh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/BlockStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Statement/ReturnStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/ArithmeticInstruction/BinaryInstruction/AdditionInstruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/MemoryInstruction/MoveInstruction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixIncrementExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PrefixDecrementExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixIncrementExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-302">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/AbstractSyntaxTree/Expression/UnaryExpression/PostfixDecrementExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-302">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>

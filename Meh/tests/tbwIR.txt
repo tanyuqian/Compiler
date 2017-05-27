@@ -1,15 +1,18 @@
 %enter
 jump %entry
 %entry
-$t15 = call __builtin_getInt
-$t3 = move $t15
-$t16 = call __builtin_getInt
-$t4 = move $t16
-$t17 = call __builtin_getInt
-$t5 = move $t17
-$t18 = call tak $t3 $t4 $t5
-$t19 = call __builtin_toString $t18
-call __builtin_println $t19
+$t7 = move 8
+$t7 = add $t7 8
+$t6 = alloc $t7
+store 8 $t6 1 0
+$t6 = add $t6 8
+$g0(count) = move $t6
+$t9 = move 0
+$t8 = add $g0(count) $t9
+store 8 $t8 0 0
+$t10 = call getcount $g0(count)
+$t2 = move $t10
+call __builtin_println $11
 ret 0
 jump %exit
 jump %exit

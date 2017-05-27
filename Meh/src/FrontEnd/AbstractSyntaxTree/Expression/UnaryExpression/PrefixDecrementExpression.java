@@ -1,10 +1,13 @@
 package FrontEnd.AbstractSyntaxTree.Expression.UnaryExpression;
 
+import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.AdditionInstruction;
 import BackEnd.ControlFlowGraph.Instruction.ArithmeticInstruction.BinaryInstruction.SubtractionInstruction;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.MoveInstruction;
 import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.StoreInstruction;
 import BackEnd.ControlFlowGraph.Operand.Address;
 import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.IntType;
 import FrontEnd.AbstractSyntaxTree.Type.Type;
@@ -33,16 +36,17 @@ public class PrefixDecrementExpression extends UnaryExpression {
     @Override
     public void emit(List<Instruction> instructions) {
         expression.emit(instructions);
+        operand = Environment.registerTable.addTemporaryRegister();
         if (expression.operand instanceof Address) {
             Address address = (Address)expression.operand;
             address = new Address(address.base, address.offset, address.size);
             expression.load(instructions);
-            operand = expression.operand;
+            instructions.add(MoveInstruction.getInstruction(operand, expression.operand));
             instructions.add(SubtractionInstruction.getInstruction(operand, operand, new ImmediateValue(1)));
             instructions.add(StoreInstruction.getInstruction(operand, address));
         } else {
             expression.load(instructions);
-            operand = expression.operand;
+            instructions.add(MoveInstruction.getInstruction(operand, expression.operand));
             instructions.add(SubtractionInstruction.getInstruction(operand, operand, new ImmediateValue(1)));
         }
     }

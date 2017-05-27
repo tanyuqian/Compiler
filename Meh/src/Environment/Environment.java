@@ -114,6 +114,14 @@ public class Environment {
                 }}
         ), "__builtin_ord");
         symbolTable.add(Function.getFunction(
+                "__builtin_string_concat",
+                new StringType(),
+                new ArrayList<Symbol>() {{
+                    add(new Symbol(new StringType(), "left"));
+                    add(new Symbol(new StringType(), "right"));
+                }}
+        ), "__builtin_string_concat");
+        symbolTable.add(Function.getFunction(
                 "__builtin_string_equalTo",
                 new BoolType(),
                 new ArrayList<Symbol>() {{

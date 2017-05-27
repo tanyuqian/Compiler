@@ -234,7 +234,7 @@ RETURN_1:
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 120
+	sub    rsp, 80
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -243,76 +243,40 @@ main:
 	mov    qword [rbp-48], r9
 														;%enter
 main_enter_0:
-														;$g0(a) = move $4
-	mov    r11, CONST_STRING_4
-	mov    qword [rel a], r11
 														;jump %entry
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;$t5 = call __builtin_getString
-	call   __builtin_getString
-	mov    qword [rbp+(-112)], rax
-														;$t1 = move $t5
-	mov    r11, qword [rbp+(-112)]
-	mov    qword [rbp+(-104)], r11
-														;$t6 = call __builtin_getString
-	call   __builtin_getString
-	mov    qword [rbp+(-80)], rax
-														;$t2 = move $t6
-	mov    r11, qword [rbp+(-80)]
+														;$t0 = move $1
+	mov    r11, CONST_STRING_1
 	mov    qword [rbp+(-72)], r11
-														;$t7 = call __builtin_string_lessThan $t1 $t2
-	mov    rdi, qword [rbp+(-104)]
-	mov    rsi, qword [rbp+(-72)]
-	call   __builtin_string_lessThan
+														;$t3 = call __builtin_string_concat $t0 $2
+	mov    rdi, qword [rbp+(-72)]
+	mov    rsi, CONST_STRING_2
+	call   __builtin_string_concat
 	mov    qword [rbp+(-64)], rax
-														;br $t7 %if_true %if_false
-	cmp    qword [rbp+(-64)], 0
-	jnz    main_if_true_2
-	jz     main_if_false_3
-														;%if_true
-main_if_true_2:
-														;$t3 = move 1
-	mov    r11, 1
-	mov    qword [rbp+(-88)], r11
-														;jump %if_merge
-	jmp    main_if_merge_4
-														;%if_false
-main_if_false_3:
-														;$t3 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-88)], r11
-														;jump %if_merge
-	jmp    main_if_merge_4
-														;%if_merge
-main_if_merge_4:
-														;$t8 = call __builtin_toString $t3
-	mov    rdi, qword [rbp+(-88)]
-	call   __builtin_toString
-	mov    qword [rbp+(-96)], rax
-														;call __builtin_println $t8
-	mov    rdi, qword [rbp+(-96)]
+														;call __builtin_println $t3
+	mov    rdi, qword [rbp+(-64)]
 	call   __builtin_println
 														;ret 0
 	mov    rax, 0
 	leave
 	ret
 														;jump %exit
-	jmp    main_exit_5
+	jmp    main_exit_2
 														;jump %exit
-	jmp    main_exit_5
+	jmp    main_exit_2
 														;%exit
-main_exit_5:
+main_exit_2:
 	leave
 	ret
 
 
 SECTION .data
-a:
-	dq 0
-CONST_STRING_4:
+CONST_STRING_1:
 	db "15926", 0
+CONST_STRING_2:
+	db "53589", 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:
