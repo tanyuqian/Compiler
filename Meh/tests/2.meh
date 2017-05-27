@@ -12,5 +12,6 @@ int main() {
     int ending;
     i=ending;
     c[j][i]--;
+    c[j][i]++;
     return 0;
 }
