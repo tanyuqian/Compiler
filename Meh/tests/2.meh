@@ -1,22 +1,10 @@
-// Target: Spill the variables from the register allocation when there are too many of them.
-// Possible optimization: Inline function
-// REMARKS: Pay attention to the size of the stack(heap).
+int a = 5;
+int b = 3;
 
-
-int[] count;
-
-int getcount(int[] count) {
-    return ++count[0];
-}
 
 int main() {
-    count = new int[1];
 
-    count[0] = 0;
 
-    int v0 = getcount(count);
-
-    println("");
     return 0;
 }
 

@@ -1,18 +1,8 @@
 %enter
+$g0(a) = move 5
+$g1(b) = move 3
 jump %entry
 %entry
-$t7 = move 8
-$t7 = add $t7 8
-$t6 = alloc $t7
-store 8 $t6 1 0
-$t6 = add $t6 8
-$g0(count) = move $t6
-$t9 = move 0
-$t8 = add $g0(count) $t9
-store 8 $t8 0 0
-$t10 = call getcount $g0(count)
-$t2 = move $t10
-call __builtin_println $11
 ret 0
 jump %exit
 jump %exit

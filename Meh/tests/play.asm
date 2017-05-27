@@ -234,7 +234,7 @@ RETURN_1:
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 80
+	sub    rsp, 64
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -243,21 +243,16 @@ main:
 	mov    qword [rbp-48], r9
 														;%enter
 main_enter_0:
+														;$g0(a) = move 5
+	mov    r11, 5
+	mov    qword [rel a], r11
+														;$g1(b) = move 3
+	mov    r11, 3
+	mov    qword [rel b], r11
 														;jump %entry
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;$t0 = move $1
-	mov    r11, CONST_STRING_1
-	mov    qword [rbp+(-72)], r11
-														;$t3 = call __builtin_string_concat $t0 $2
-	mov    rdi, qword [rbp+(-72)]
-	mov    rsi, CONST_STRING_2
-	call   __builtin_string_concat
-	mov    qword [rbp+(-64)], rax
-														;call __builtin_println $t3
-	mov    rdi, qword [rbp+(-64)]
-	call   __builtin_println
 														;ret 0
 	mov    rax, 0
 	leave
@@ -273,10 +268,10 @@ main_exit_2:
 
 
 SECTION .data
-CONST_STRING_1:
-	db "15926", 0
-CONST_STRING_2:
-	db "53589", 0
+a:
+	dq 0
+b:
+	dq 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:

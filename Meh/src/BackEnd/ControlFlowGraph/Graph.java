@@ -49,12 +49,14 @@ public class Graph {
 
         this.instructions = instructions;
 
+        /*
         FileWriter fw = new FileWriter("tests/tbwIR.txt");
         for (Instruction instruction : instructions) {
             fw.write(instruction.toString());
             fw.write("\n");
         }
         fw.close();
+        */
 
         int cntLabel = 0;
         for (int i = 0; i < instructions.size(); i++) {

@@ -17,12 +17,13 @@ main:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 16
-        mov     dword [rbp-8H], 5
-        mov     dword [rbp-4H], 3
-        mov     edx, dword [rbp-8H]
-        mov     eax, dword [rbp-4H]
-        add     eax, edx
-        mov     esi, eax
+        mov     qword [rbp-10H], -5
+        mov     qword [rbp-8H], 3
+        mov     rax, qword [rbp-10H]
+        cqo
+        idiv    qword [rbp-8H]
+        mov     rax, rdx
+        mov     rsi, rax
         mov     edi, L_001
         mov     eax, 0
         call    printf

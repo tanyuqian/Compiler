@@ -3,10 +3,10 @@
 #include <stdlib.h>
 
 int main() {
-    int x = 5;
-    int y = 3;
+    long long x = -5;
+    long long y = 3;
 
-    printf("%d\n", x + y);
+    printf("%d\n", x % y);
 
     return 0;
 }
