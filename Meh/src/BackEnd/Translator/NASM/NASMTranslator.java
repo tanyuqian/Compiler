@@ -1,6 +1,7 @@
 package BackEnd.Translator.NASM;
 
 import BackEnd.ControlFlowGraph.Block;
+import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.StringRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.GlobalRegister;
@@ -10,10 +11,8 @@ import BackEnd.Translator.Translator;
 import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Function;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.List;
 
 /**
  * Created by tan on 5/23/17.
@@ -29,6 +28,17 @@ public abstract class NASMTranslator extends Translator {
 //        for (String str = template.readLine(); !str.equals("END"); str = template.readLine()) {
 //            output.println(str);
 //        }
+
+//        FileWriter fw = new FileWriter("tests/tbwIR.txt");
+//        for (Function function : Environment.program.functions) {
+//            for (Instruction instruction : function.graph.instructions) {
+//                fw.write(instruction.toString());
+//                fw.write("\n");
+//            }
+//            fw.write("\n");
+//        }
+//        fw.close();
+
 
         Template template = new Template();
         output.print(template.templateStr);

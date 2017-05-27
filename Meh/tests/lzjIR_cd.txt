@@ -1,0 +1,41 @@
+%enter
+jump null
+%entry
+$t10 = seq $p0 1
+br $t10 null null
+%if_true
+$t11 = move $p4
+$p4 = add $p4 1
+jump null
+%if_false
+$t12 = sub $p0 1
+$t13 = call cd $t12 $p1 $p3 $p2 $p4
+$p4 = move $t13
+$t14 = sub $p0 1
+$t15 = call cd $t14 $p2 $p1 $p3 $p4
+$p4 = move $t15
+$t16 = move $p4
+$p4 = add $p4 1
+jump null
+%if_merge
+ret $p4
+jump null
+jump null
+%exit
+
+%enter
+jump null
+%entry
+$t5 = move $17
+$t6 = move $18
+$t7 = move $19
+$t20 = call ____builtin____get_int
+$t8 = move $t20
+$t21 = call cd $t8 $t5 $t6 $t7 0
+$t9 = move $t21
+$t22 = call ____builtin____to_string $t9
+call ____builtin____println $t22
+ret 0
+jump null
+jump null
+%exit

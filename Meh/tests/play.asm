@@ -180,7 +180,28 @@ __builtin_toString:
     ret
 
 __builtin_string_concat:
+    push    rbp
+    mov     rbp, rsp
+    sub     rsp, 48
+
+    mov     qword[rbp-24], rdi
+    mov     qword[rbp-16], rsi
+
+    mov     rdi, 400
+    call    malloc
+    mov     qword [rbp-8], rax
+
+    mov     rdi, rax
+    mov     rsi, qword[rbp-24]
+    call    strcpy
+
+    mov     rdi, qword[rbp-8]
+    mov     rsi, qword[rbp-16]
     call    strcat
+
+    mov     rax, qword[rbp-8]
+
+    leave
     ret
 
 __builtin_string_equalTo:
@@ -241,10 +262,140 @@ __builtin_getArraySize:
     mov     rax, qword [rdi-8]
     ret
 
+cd:
+	push   rbp
+	mov    rbp, rsp
+	sub    rsp, 168
+	mov    qword [rbp-8], rdi
+	mov    qword [rbp-16], rsi
+	mov    qword [rbp-24], rdx
+	mov    qword [rbp-32], rcx
+	mov    qword [rbp-40], r8
+	mov    qword [rbp-48], r9
+														;%enter
+cd_enter_0:
+														;jump %entry
+	jmp    cd_entry_1
+														;%entry
+cd_entry_1:
+														;$t10 = seq $p0 1
+	mov    r11, qword [rbp+(-8)]
+	cmp    r11, 1
+	sete   al
+	movzx  r11, al
+	mov    qword [rbp+(-88)], r11
+														;br $t10 %if_true %if_false
+	cmp    qword [rbp+(-88)], 0
+	jnz    cd_if_true_2
+	jz     cd_if_false_3
+														;%if_true
+cd_if_true_2:
+														;$t12 = call __builtin_string_concat $11 $p1
+	mov    rdi, CONST_STRING_11
+	mov    rsi, qword [rbp+(-16)]
+	call   __builtin_string_concat
+	mov    qword [rbp+(-64)], rax
+														;$t14 = call __builtin_string_concat $t12 $13
+	mov    rdi, qword [rbp+(-64)]
+	mov    rsi, CONST_STRING_13
+	call   __builtin_string_concat
+	mov    qword [rbp+(-136)], rax
+														;$t15 = call __builtin_string_concat $t14 $p3
+	mov    rdi, qword [rbp+(-136)]
+	mov    rsi, qword [rbp+(-32)]
+	call   __builtin_string_concat
+	mov    qword [rbp+(-128)], rax
+														;call __builtin_println $t15
+	mov    rdi, qword [rbp+(-128)]
+	call   __builtin_println
+														;$t16 = move $p4
+	mov    r11, qword [rbp+(-40)]
+	mov    qword [rbp+(-96)], r11
+														;$p4 = add $p4 1
+	mov    r11, qword [rbp+(-40)]
+	add    r11, 1
+	mov    qword [rbp+(-40)], r11
+														;jump %if_merge
+	jmp    cd_if_merge_4
+														;%if_false
+cd_if_false_3:
+														;$t17 = sub $p0 1
+	mov    r11, qword [rbp+(-8)]
+	sub    r11, 1
+	mov    qword [rbp+(-152)], r11
+														;$t18 = call cd $t17 $p1 $p3 $p2 $p4
+	mov    rdi, qword [rbp+(-152)]
+	mov    rsi, qword [rbp+(-16)]
+	mov    rdx, qword [rbp+(-32)]
+	mov    rcx, qword [rbp+(-24)]
+	mov    r8, qword [rbp+(-40)]
+	call   cd
+	mov    qword [rbp+(-112)], rax
+														;$p4 = move $t18
+	mov    r11, qword [rbp+(-112)]
+	mov    qword [rbp+(-40)], r11
+														;$t20 = call __builtin_string_concat $19 $p1
+	mov    rdi, CONST_STRING_19
+	mov    rsi, qword [rbp+(-16)]
+	call   __builtin_string_concat
+	mov    qword [rbp+(-80)], rax
+														;$t22 = call __builtin_string_concat $t20 $21
+	mov    rdi, qword [rbp+(-80)]
+	mov    rsi, CONST_STRING_21
+	call   __builtin_string_concat
+	mov    qword [rbp+(-144)], rax
+														;$t23 = call __builtin_string_concat $t22 $p3
+	mov    rdi, qword [rbp+(-144)]
+	mov    rsi, qword [rbp+(-32)]
+	call   __builtin_string_concat
+	mov    qword [rbp+(-120)], rax
+														;call __builtin_println $t23
+	mov    rdi, qword [rbp+(-120)]
+	call   __builtin_println
+														;$t24 = sub $p0 1
+	mov    r11, qword [rbp+(-8)]
+	sub    r11, 1
+	mov    qword [rbp+(-72)], r11
+														;$t25 = call cd $t24 $p2 $p1 $p3 $p4
+	mov    rdi, qword [rbp+(-72)]
+	mov    rsi, qword [rbp+(-24)]
+	mov    rdx, qword [rbp+(-16)]
+	mov    rcx, qword [rbp+(-32)]
+	mov    r8, qword [rbp+(-40)]
+	call   cd
+	mov    qword [rbp+(-160)], rax
+														;$p4 = move $t25
+	mov    r11, qword [rbp+(-160)]
+	mov    qword [rbp+(-40)], r11
+														;$t26 = move $p4
+	mov    r11, qword [rbp+(-40)]
+	mov    qword [rbp+(-104)], r11
+														;$p4 = add $p4 1
+	mov    r11, qword [rbp+(-40)]
+	add    r11, 1
+	mov    qword [rbp+(-40)], r11
+														;jump %if_merge
+	jmp    cd_if_merge_4
+														;%if_merge
+cd_if_merge_4:
+														;ret $p4
+	mov    rax, qword [rbp+(-40)]
+	leave
+	ret
+														;jump %exit
+	jmp    cd_exit_5
+														;jump %exit
+	jmp    cd_exit_5
+														;%exit
+cd_exit_5:
+	leave
+	ret
+
+
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 192
+	sub    rsp, 128
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -257,182 +408,68 @@ main_enter_0:
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;$t0 = move 5
-	mov    r11, 5
-	mov    qword [rbp+(-144)], r11
-														;$t1 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-160)], r11
-														;$t4 = sne $t1 0
-	mov    r11, qword [rbp+(-160)]
-	cmp    r11, 0
-	setne  al
-	movzx  r11, al
-	mov    qword [rbp+(-136)], r11
-														;br $t4 %logical_true %logical_false
-	cmp    qword [rbp+(-136)], 0
-	jnz    main_logical_true_2
-	jz     main_logical_false_3
-														;%logical_true
-main_logical_true_2:
-														;$t5 = div $t0 $t1
-	mov    r11, qword [rbp+(-144)]
-	mov    rax, qword [rbp+(-144)]
-	cqo
-	mov    r11, qword [rbp+(-160)]
-	idiv   r11
-	mov    r11, rax
-	mov    qword [rbp+(-80)], r11
-														;$t6 = sne $t5 1
-	mov    r11, qword [rbp+(-80)]
-	cmp    r11, 1
-	setne  al
-	movzx  r11, al
-	mov    qword [rbp+(-168)], r11
-														;$t3 = move $t6
-	mov    r11, qword [rbp+(-168)]
-	mov    qword [rbp+(-176)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_4
-														;%logical_false
-main_logical_false_3:
-														;$t3 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-176)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_4
-														;%logical_merge
-main_logical_merge_4:
-														;br $t3 %if_true %if_false
-	cmp    qword [rbp+(-176)], 0
-	jnz    main_if_true_5
-	jz     main_if_false_6
-														;%if_true
-main_if_true_5:
-														;$t2 = move 10
-	mov    r11, 10
-	mov    qword [rbp+(-184)], r11
-														;jump %if_merge
-	jmp    main_if_merge_7
-														;%if_false
-main_if_false_6:
-														;$t2 = move 20
-	mov    r11, 20
-	mov    qword [rbp+(-184)], r11
-														;jump %if_merge
-	jmp    main_if_merge_7
-														;%if_merge
-main_if_merge_7:
-														;$t9 = seq $t2 10
-	mov    r11, qword [rbp+(-184)]
-	cmp    r11, 10
-	sete   al
-	movzx  r11, al
-	mov    qword [rbp+(-72)], r11
-														;br $t9 %logical_true %logical_false
-	cmp    qword [rbp+(-72)], 0
-	jnz    main_logical_true_8
-	jz     main_logical_false_9
-														;%logical_true
-main_logical_true_8:
-														;$t10 = div $t0 $t1
-	mov    r11, qword [rbp+(-144)]
-	mov    rax, qword [rbp+(-144)]
-	cqo
-	mov    r11, qword [rbp+(-160)]
-	idiv   r11
-	mov    r11, rax
-	mov    qword [rbp+(-88)], r11
-														;$t11 = seq $t10 0
-	mov    r11, qword [rbp+(-88)]
-	cmp    r11, 0
-	sete   al
-	movzx  r11, al
-	mov    qword [rbp+(-112)], r11
-														;$t8 = move $t11
-	mov    r11, qword [rbp+(-112)]
-	mov    qword [rbp+(-152)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_10
-														;%logical_false
-main_logical_false_9:
-														;$t8 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-152)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_10
-														;%logical_merge
-main_logical_merge_10:
-														;br $t8 %logical_true %logical_false
-	cmp    qword [rbp+(-152)], 0
-	jnz    main_logical_true_11
-	jz     main_logical_false_12
-														;%logical_true
-main_logical_true_11:
-														;$t12 = seq $t0 5
-	mov    r11, qword [rbp+(-144)]
-	cmp    r11, 5
-	sete   al
-	movzx  r11, al
+														;$t5 = move $27
+	mov    r11, CONST_STRING_27
 	mov    qword [rbp+(-64)], r11
-														;$t7 = move $t12
-	mov    r11, qword [rbp+(-64)]
-	mov    qword [rbp+(-96)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_13
-														;%logical_false
-main_logical_false_12:
-														;$t7 = move 0
-	mov    r11, 0
-	mov    qword [rbp+(-96)], r11
-														;jump %logical_merge
-	jmp    main_logical_merge_13
-														;%logical_merge
-main_logical_merge_13:
-														;$t13 = not $t7
-	not    qword [rbp+(-96)]
-														;br $t13 %if_true %if_false
-	cmp    qword [rbp+(-104)], 0
-	jnz    main_if_true_14
-	jz     main_if_false_15
-														;%if_true
-main_if_true_14:
-														;$t2 = move 30
-	mov    r11, 30
-	mov    qword [rbp+(-184)], r11
-														;jump %if_merge
-	jmp    main_if_merge_16
-														;%if_false
-main_if_false_15:
-														;jump %if_merge
-	jmp    main_if_merge_16
-														;%if_merge
-main_if_merge_16:
-														;$t14 = call main
-	call   main
-	mov    qword [rbp+(-128)], rax
-														;$t15 = call __builtin_toString $t14
-	mov    rdi, qword [rbp+(-128)]
-	call   __builtin_toString
+														;$t6 = move $28
+	mov    r11, CONST_STRING_28
+	mov    qword [rbp+(-80)], r11
+														;$t7 = move $29
+	mov    r11, CONST_STRING_29
+	mov    qword [rbp+(-112)], r11
+														;$t30 = call __builtin_getInt
+	call   __builtin_getInt
 	mov    qword [rbp+(-120)], rax
-														;call __builtin_println $t15
-	mov    rdi, qword [rbp+(-120)]
+														;$t8 = move $t30
+	mov    r11, qword [rbp+(-120)]
+	mov    qword [rbp+(-104)], r11
+														;$t31 = call cd $t8 $t5 $t6 $t7 0
+	mov    rdi, qword [rbp+(-104)]
+	mov    rsi, qword [rbp+(-64)]
+	mov    rdx, qword [rbp+(-80)]
+	mov    rcx, qword [rbp+(-112)]
+	mov    r8, 0
+	call   cd
+	mov    qword [rbp+(-88)], rax
+														;$t9 = move $t31
+	mov    r11, qword [rbp+(-88)]
+	mov    qword [rbp+(-96)], r11
+														;$t32 = call __builtin_toString $t9
+	mov    rdi, qword [rbp+(-96)]
+	call   __builtin_toString
+	mov    qword [rbp+(-72)], rax
+														;call __builtin_println $t32
+	mov    rdi, qword [rbp+(-72)]
 	call   __builtin_println
-														;ret $t2
-	mov    rax, qword [rbp+(-184)]
+														;ret 0
+	mov    rax, 0
 	leave
 	ret
 														;jump %exit
-	jmp    main_exit_17
+	jmp    main_exit_2
 														;jump %exit
-	jmp    main_exit_17
+	jmp    main_exit_2
 														;%exit
-main_exit_17:
+main_exit_2:
 	leave
 	ret
 
 
 SECTION .data
+CONST_STRING_28:
+	db 66, 0
+CONST_STRING_29:
+	db 67, 0
+CONST_STRING_11:
+	db 109, 111, 118, 101, 32, 0
+CONST_STRING_13:
+	db 32, 45, 45, 62, 32, 0
+CONST_STRING_21:
+	db 32, 45, 45, 62, 32, 0
+CONST_STRING_27:
+	db 65, 0
+CONST_STRING_19:
+	db 109, 111, 118, 101, 32, 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:

@@ -1,25 +1,16 @@
 %enter
 jump null
 %entry
-$t0 = move 10
-$t1 = move 0
-$t2 = move 1
-$t4 = move 1
-jump null
-%for_condition
-$t5 = slt $t4 $t0
-br $t5 null null
-%for_body
-$t6 = add $t1 $t2
-$t3 = move $t6
-$t1 = move $t2
-$t2 = move $t3
-jump null
-%for_loop
-$t4 = add $t4 1
-jump null
-%for_merge
-ret $t3
+$t5 = move $21
+$t6 = move $22
+$t7 = move $23
+$t24 = call ____builtin____get_int
+$t8 = move $t24
+$t25 = call cd $t8 $t5 $t6 $t7 0
+$t9 = move $t25
+$t26 = call ____builtin____to_string $t9
+call ____builtin____println $t26
+ret 0
 jump null
 jump null
 %exit

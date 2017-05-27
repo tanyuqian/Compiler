@@ -1,0 +1,16 @@
+%enter
+jump null
+%entry
+$t5 = move $17
+$t6 = move $18
+$t7 = move $19
+$t20 = call ____builtin____get_int
+$t8 = move $t20
+$t21 = call cd $t8 $t5 $t6 $t7 0
+$t9 = move $t21
+$t22 = call ____builtin____to_string $t9
+call ____builtin____println $t22
+ret 0
+jump null
+jump null
+%exit

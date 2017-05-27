@@ -189,7 +189,28 @@ public class Template {
                 "    ret\n" +
                 "\n" +
                 "__builtin_string_concat:\n" +
+                "    push    rbp\n" +
+                "    mov     rbp, rsp\n" +
+                "    sub     rsp, 48\n" +
+                "\n" +
+                "    mov     qword[rbp-24], rdi\n" +
+                "    mov     qword[rbp-16], rsi\n" +
+                "\n" +
+                "    mov     rdi, 400\n" +
+                "    call    malloc\n" +
+                "    mov     qword [rbp-8], rax\n" +
+                "\n" +
+                "    mov     rdi, rax\n" +
+                "    mov     rsi, qword[rbp-24]\n" +
+                "    call    strcpy\n" +
+                "\n" +
+                "    mov     rdi, qword[rbp-8]\n" +
+                "    mov     rsi, qword[rbp-16]\n" +
                 "    call    strcat\n" +
+                "\n" +
+                "    mov     rax, qword[rbp-8]\n" +
+                "\n" +
+                "    leave\n" +
                 "    ret\n" +
                 "\n" +
                 "__builtin_string_equalTo:\n" +

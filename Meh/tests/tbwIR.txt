@@ -1,10 +1,50 @@
 %enter
 jump %entry
 %entry
-$t29 = call a 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-$t30 = call __builtin_toString $t29
-call __builtin_println $t30
+$t10 = seq $p0 1
+br $t10 %if_true %if_false
+%if_true
+$t12 = call __builtin_string_concat $11 $p1
+$t14 = call __builtin_string_concat $t12 $13
+$t15 = call __builtin_string_concat $t14 $p3
+call __builtin_println $t15
+$t16 = move $p4
+$p4 = add $p4 1
+jump %if_merge
+%if_false
+$t17 = sub $p0 1
+$t18 = call cd $t17 $p1 $p3 $p2 $p4
+$p4 = move $t18
+$t20 = call __builtin_string_concat $19 $p1
+$t22 = call __builtin_string_concat $t20 $21
+$t23 = call __builtin_string_concat $t22 $p3
+call __builtin_println $t23
+$t24 = sub $p0 1
+$t25 = call cd $t24 $p2 $p1 $p3 $p4
+$p4 = move $t25
+$t26 = move $p4
+$p4 = add $p4 1
+jump %if_merge
+%if_merge
+ret $p4
+jump %exit
+jump %exit
+%exit
+
+%enter
+jump %entry
+%entry
+$t5 = move $27
+$t6 = move $28
+$t7 = move $29
+$t30 = call __builtin_getInt
+$t8 = move $t30
+$t31 = call cd $t8 $t5 $t6 $t7 0
+$t9 = move $t31
+$t32 = call __builtin_toString $t9
+call __builtin_println $t32
 ret 0
 jump %exit
 jump %exit
 %exit
+

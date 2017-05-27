@@ -1,19 +1,22 @@
-#include <stdio.h>
+int cd(int d, string a, string b, string c, int sum) {
+    if (d == 1) {
+        println("move " + a + " --> " + c);
+        sum++;
+    } else {
+        sum = cd(d - 1, a, c, b, sum);
+        println("move " + a + " --> " + c);
+        sum = cd(d - 1, b, a, c, sum);
+        sum++;
+    }
+    return sum;
+}
 
 int main() {
-    int a = 5;
-    int b = 0;
-    int c;
-    if (b != 0 && a/b != 1) {
-        c = 10;
-    } else {
-        c = 20;
-    }
-
-    if (!(c == 10 && a/b == 0 && a == 5))
-        c = 30;
-
-    printf("%d\n", c);
-
-    return c;
+    string a = "A";
+	string b = "B";
+	string c = "C";
+    int d = getInt();
+    int sum = cd(d, a, b, c, 0);
+    println(toString(sum));
+    return 0;
 }
