@@ -1,22 +1,15 @@
 %enter
-$g0(a) = move $4
 jump %entry
 %entry
-$t5 = call __builtin_getString
-$t1 = move $t5
-$t6 = call __builtin_getString
-$t2 = move $t6
-$t7 = call __builtin_string_lessThan $t1 $t2
-br $t7 %if_true %if_false
-%if_true
-$t3 = move 1
-jump %if_merge
-%if_false
-$t3 = move 0
-jump %if_merge
-%if_merge
-$t8 = call __builtin_toString $t3
-call __builtin_println $t8
+$t15 = call __builtin_getInt
+$t3 = move $t15
+$t16 = call __builtin_getInt
+$t4 = move $t16
+$t17 = call __builtin_getInt
+$t5 = move $t17
+$t18 = call tak $t3 $t4 $t5
+$t19 = call __builtin_toString $t18
+call __builtin_println $t19
 ret 0
 jump %exit
 jump %exit
