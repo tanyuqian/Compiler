@@ -42,7 +42,24 @@ public abstract class NASMTranslator extends Translator {
                 output.printf("%s:\n\tdq 0\n", ((GlobalRegister)register).symbol.name);
             }
             if (register instanceof StringRegister) {
-                output.printf("CONST_STRING_%d:\n\tdb %s, 0\n", register.identity, ((StringRegister) register).str);
+                output.printf("CONST_STRING_%d:\n\tdb ", register.identity);
+                String str = ((StringRegister) register).str;
+                for (int i = 1; i + 1 < str.length(); i++) {
+                    if (i + 1 < str.length() && str.substring(i).startsWith("\\n")) {
+                        output.printf("%d, ", 10);
+                        i++;
+                    } else if (i + 1 < str.length() && str.substring(i).startsWith("\\\\")) {
+                        output.printf("%d, ", 92);
+                        i++;
+                    } else if (i + 1 < str.length() && str.substring(i).startsWith("\\\"")) {
+                        output.printf("%d, ", 34);
+                        i++;
+                    } else {
+                        int x = str.charAt(i);
+                        output.printf("%d, ", x);
+                    }
+                }
+                output.printf("0\n");
             }
         }
         output.printf("STRING_FORMAT:\n\tdb \"%%s\", 0\n");

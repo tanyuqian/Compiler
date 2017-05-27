@@ -1,13 +1,134 @@
+func qsrt $p2 $p3 {
+	%qsrt.0.enter:
+		jump %qsrt.1.entry
+
+	%qsrt.1.entry:
+		$t4 = move $p2
+		$t5 = move $p3
+		$t9 = add $p2 $p3
+		$t10 = div $t9 2
+		$t12 = mul $t10 4
+		$t11 = add $g0(a) $t12
+		$t13 = load 4 $t11 0
+		$t6 = move $t13
+		$t4 = move $t4
+		$t5 = move $t5
+		jump %qsrt.2.while_loop
+
+	%qsrt.2.while_loop:
+		$t14 = sle $t4 $t5
+		br $t14 %qsrt.4.while_loop %qsrt.13.while_merge
+
+	%qsrt.4.while_loop:
+		$t16 = mul $t4 4
+		$t15 = add $g0(a) $t16
+		$t17 = load 4 $t15 0
+		$t18 = slt $t17 $t6
+		br $t18 %qsrt.5.while_body %qsrt.7.while_loop
+
+	%qsrt.5.while_body:
+		$t4 = add $t4 1
+		jump %qsrt.4.while_loop
+
+	%qsrt.7.while_loop:
+		$t21 = mul $t5 4
+		$t20 = add $g0(a) $t21
+		$t22 = load 4 $t20 0
+		$t23 = sgt $t22 $t6
+		br $t23 %qsrt.8.while_body %qsrt.9.while_merge
+
+	%qsrt.8.while_body:
+		$t5 = sub $t5 1
+		jump %qsrt.7.while_loop
+
+	%qsrt.9.while_merge:
+		$t25 = sle $t4 $t5
+		br $t25 %qsrt.12.if_merge %qsrt.2.while_loop
+
+	%qsrt.12.if_merge:
+		$t27 = mul $t4 4
+		$t26 = add $g0(a) $t27
+		$t28 = load 4 $t26 0
+		$t7 = move $t28
+		$t32 = mul $t5 4
+		$t31 = add $g0(a) $t32
+		$t33 = load 4 $t31 0
+		store 4 $t26 $t33 0
+		store 4 $t31 $t7 0
+		$t4 = add $t4 1
+		$t5 = sub $t5 1
+		jump %qsrt.2.while_loop
+
+	%qsrt.13.while_merge:
+		$t38 = slt $p2 $t5
+		br $t38 %qsrt.14.if_true %qsrt.16.if_merge
+
+	%qsrt.14.if_true:
+		$t39 = call qsrt $p2 $t5
+		jump %qsrt.16.if_merge
+
+	%qsrt.16.if_merge:
+		$t40 = slt $t4 $p3
+		br $t40 %qsrt.17.if_true %qsrt.19.if_merge
+
+	%qsrt.17.if_true:
+		$t41 = call qsrt $t4 $p3
+		jump %qsrt.19.if_merge
+
+	%qsrt.19.if_merge:
+		ret 0
+		jump %qsrt.20.exit
+
+	%qsrt.20.exit:
+}
 func main {
 	%main.0.enter:
-		$g0(a) = move $3
+		$t42 = alloc 40404
+		store 4 $t42 10100 0
+		$t42 = add $t42 4
+		$g0(a) = move $t42
+		$g1(n) = move 100
 		jump %main.1.entry
 
 	%main.1.entry:
-		$t1 = move $4
-		$t5 = call ____builtin_string____concatenate $g0(a) $t1
-		ret 0
-		jump %main.2.exit
+		$t8 = move 1
+		jump %main.2.for_condition
 
-	%main.2.exit:
+	%main.2.for_condition:
+		$t44 = sle $t8 $g1(n)
+		br $t44 %main.4.for_loop %main.5.for_merge
+
+	%main.4.for_loop:
+		$t46 = mul $t8 4
+		$t45 = add $g0(a) $t46
+		$t47 = add $g1(n) 1
+		$t48 = sub $t47 $t8
+		store 4 $t45 $t48 0
+		$t8 = add $t8 1
+		jump %main.2.for_condition
+
+	%main.5.for_merge:
+		$t50 = call qsrt 1 $g1(n)
+		$t8 = move 1
+		jump %main.6.for_condition
+
+	%main.6.for_condition:
+		$t51 = sle $t8 $g1(n)
+		br $t51 %main.8.for_loop %main.9.for_merge
+
+	%main.8.for_loop:
+		$t53 = mul $t8 4
+		$t52 = add $g0(a) $t53
+		$t54 = load 4 $t52 0
+		call ____builtin____print_int $t54
+		call ____builtin____print $55
+		$t8 = add $t8 1
+		jump %main.6.for_condition
+
+	%main.9.for_merge:
+		call ____builtin____print $57
+		ret 0
+		jump %main.10.exit
+
+	%main.10.exit:
 }

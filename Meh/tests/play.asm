@@ -573,8 +573,8 @@ main_enter_0:
 														;$g0(a) = move $t42
 	mov    r11, qword [rbp+(-168)]
 	mov    qword [rel a], r11
-														;$g1(n) = move 10
-	mov    r11, 10
+														;$g1(n) = move 100
+	mov    r11, 100
 	mov    qword [rel n], r11
 														;jump %entry
 	jmp    main_entry_1
@@ -720,9 +720,9 @@ a:
 n:
 	dq 0
 CONST_STRING_56:
-	db " ", 0
+	db 32, 0
 CONST_STRING_58:
-	db "\n", 0
+	db 10, 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:
