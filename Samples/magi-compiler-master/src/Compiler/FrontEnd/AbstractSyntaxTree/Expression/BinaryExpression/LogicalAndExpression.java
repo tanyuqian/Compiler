@@ -61,7 +61,7 @@ public class LogicalAndExpression extends BinaryExpression {
 		instructions.add(trueLabel);
 		right.emit(instructions);
 		right.load(instructions);
-		operand = right.operand;
+		instructions.add(MoveInstruction.getInstruction(operand, right.operand));
 		instructions.add(JumpInstruction.getInstruction(mergeLabel));
 		instructions.add(falseLabel);
 		instructions.add(MoveInstruction.getInstruction(operand, new ImmediateValue(0)));

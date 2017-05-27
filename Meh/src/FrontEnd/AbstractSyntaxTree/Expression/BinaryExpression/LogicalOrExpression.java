@@ -6,6 +6,7 @@ import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Instruction.LabelInstruction;
 import BackEnd.ControlFlowGraph.Instruction.MemoryInstruction.MoveInstruction;
 import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
+import Environment.Environment;
 import FrontEnd.AbstractSyntaxTree.Expression.ConstantExpression.BoolConstant;
 import FrontEnd.AbstractSyntaxTree.Expression.Expression;
 import FrontEnd.AbstractSyntaxTree.Type.BasicType.BoolType;
@@ -37,7 +38,7 @@ public class LogicalOrExpression extends BinaryExpression {
         LabelInstruction trueLabel = LabelInstruction.getInstruction("logical_true");
         LabelInstruction falseLabel = LabelInstruction.getInstruction("logical_false");
         LabelInstruction mergeLabel = LabelInstruction.getInstruction("logical_merge");
-
+        operand = Environment.registerTable.addTemporaryRegister();
         left.emit(instructions);
         left.load(instructions);
         instructions.add(BranchInstruction.getInstruction(left.operand, trueLabel, falseLabel));
@@ -45,7 +46,7 @@ public class LogicalOrExpression extends BinaryExpression {
         instructions.add(falseLabel);
         right.emit(instructions);
         right.load(instructions);
-        operand = right.operand;
+        instructions.add(MoveInstruction.getInstruction(operand, right.operand));
         instructions.add(JumpInstruction.getInstruction(mergeLabel));
         // logical_true
         instructions.add(trueLabel);

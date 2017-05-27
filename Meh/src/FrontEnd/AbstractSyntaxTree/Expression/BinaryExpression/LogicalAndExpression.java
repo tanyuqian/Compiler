@@ -39,6 +39,7 @@ public class LogicalAndExpression extends BinaryExpression {
         LabelInstruction trueLabel = LabelInstruction.getInstruction("logical_true");
         LabelInstruction falseLabel = LabelInstruction.getInstruction("logical_false");
         LabelInstruction mergeLabel = LabelInstruction.getInstruction("logical_merge");
+        operand = Environment.registerTable.addTemporaryRegister();
         left.emit(instructions);
         left.load(instructions);
         instructions.add(BranchInstruction.getInstruction(left.operand, trueLabel, falseLabel));
@@ -46,7 +47,7 @@ public class LogicalAndExpression extends BinaryExpression {
         instructions.add(trueLabel);
         right.emit(instructions);
         right.load(instructions);
-        operand = right.operand;
+        instructions.add(MoveInstruction.getInstruction(operand, right.operand));
         instructions.add(JumpInstruction.getInstruction(mergeLabel));
         // logical_false
         instructions.add(falseLabel);
