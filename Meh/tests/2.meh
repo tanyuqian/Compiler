@@ -1,33 +1,36 @@
-class A
-{
-	C c;
+int[] a = new int[10100];
+int n = 10;
+
+int qsrt(int l, int r) {
+    int i = l;
+    int j = r;
+    int x = a[(l + r) / 2];
+    while (i <= j) {
+        while (a[i] < x) i++;
+        while (a[j] > x) j--;
+        if (i <= j) {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    if (l < j) qsrt(l, j);
+    if (i < r) qsrt(i, r);
+    return 0;
 }
-class B
-{
-	C c;
-}
-class C
-{
-	int a;
-	string b;
-}
-int main()
-{
-	A a = new A;
-	B b = new B;
-	C c = new C;
-	a.c = c;
-	b.c = c;
-	c.a = 0;
-	c.b = getString();
-	if(a.c.b + b.c.b == c.b + c.b)
-	{
-		c.b = c.b + c.b;
+
+int main() {
+    int i;
+    for (i = 1; i <= n; i++)
+        a[i] = n + 1 - i;
+    qsrt(1, n);
+    for (i = 1; i <= n; i++) {
+//       printf("%d ", a[i]);
+		print(toString(a[i]));
+		print(" ");
 	}
-	c.b = toString("123.456".parseInt());
-	if(c.b == toString(123))
-	{
-		println(c.b);
-	}
-	return 0;
+    print("\n");
+    return 0;
 }

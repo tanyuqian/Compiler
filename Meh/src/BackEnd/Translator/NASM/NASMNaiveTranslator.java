@@ -148,7 +148,8 @@ public class NASMNaiveTranslator extends NASMTranslator {
                     } else if (instruction instanceof DivisionInstruction) {
                         output.printf("\tmov    %s, %s\n", NASMRegister.rax, getPhisicalMemoryName(operand1));
                         output.printf("\tcqo\n");
-                        output.printf("\tidiv   %s\n", getPhisicalMemoryName(operand2));
+                        output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
+                        output.printf("\tidiv   %s\n", NASMRegister.r11);
                         output.printf("\tmov    %s, %s\n", NASMRegister.r11, NASMRegister.rax);
                     } else if (instruction instanceof EqualToInstruction) {
                         output.printf("\tcmp    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
@@ -173,7 +174,8 @@ public class NASMNaiveTranslator extends NASMTranslator {
                     } else if (instruction instanceof ModuloInstruction) {
                         output.printf("\tmov    %s, %s\n", NASMRegister.rax, getPhisicalMemoryName(operand1));
                         output.printf("\tcqo\n");
-                        output.printf("\tidiv   %s\n", getPhisicalMemoryName(operand2));
+                        output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));
+                        output.printf("\tidiv   %s\n", NASMRegister.r11);
                         output.printf("\tmov    %s, %s\n", NASMRegister.r11, NASMRegister.rdx);
                     } else if (instruction instanceof MultiplicationInstruction) {
                         output.printf("\timul   %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand2));

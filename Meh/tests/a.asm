@@ -17,11 +17,16 @@ main:
         push    rbp
         mov     rbp, rsp
         sub     rsp, 16
-        mov     qword [rbp-10H], -5
+        mov     qword [rbp-10H], 15926
         mov     qword [rbp-8H], 3
-        mov     rax, qword [rbp-10H]
-        cqo
-        idiv    qword [rbp-8H]
+        mov     rcx, qword [rbp-10H]
+        mov     rdx, qword 7A7F4841139E6293H
+        mov     rax, rcx
+        imul    rdx
+        sar     rdx, 8
+        mov     rax, rcx
+        sar     rax, 63
+        sub     rdx, rax
         mov     rax, rdx
         mov     rsi, rax
         mov     edi, L_001
