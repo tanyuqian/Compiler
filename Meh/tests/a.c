@@ -1,12 +1,19 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 int main() {
-    long long x = 15926;
-    long long y = 3;
+    int a = 5;
+    int b = 0;
+    int c;
+    if (b != 0 && a/b != 1) {
+        c = 10;
+    } else {
+        c = 20;
+    }
 
-    printf("%s", " \n");
+    if (!(c == 10 && a/b == 0 && a == 5))
+        c = 30;
 
-    return 0;
+    printf("%d\n", c);
+
+    return c;
 }

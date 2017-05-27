@@ -170,6 +170,12 @@ __builtin_toString:
 
     mov     rax, r13
 
+
+    mov     r12, qword[rbp-8]
+    mov     r13, qword[rbp-16]
+    mov     r14, qword[rbp-24]
+    mov     r15, qword[rbp-32]
+
     leave
     ret
 

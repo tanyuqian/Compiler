@@ -170,6 +170,12 @@ __builtin_toString:
 
     mov     rax, r13
 
+
+    mov     r12, qword[rbp-8]
+    mov     r13, qword[rbp-16]
+    mov     r14, qword[rbp-24]
+    mov     r15, qword[rbp-32]
+
     leave
     ret
 
@@ -235,96 +241,10 @@ __builtin_getArraySize:
     mov     rax, qword [rdi-8]
     ret
 
-a:
-	push   rbp
-	mov    rbp, rsp
-	sub    rsp, 176
-	mov    qword [rbp-8], rdi
-	mov    qword [rbp-16], rsi
-	mov    qword [rbp-24], rdx
-	mov    qword [rbp-32], rcx
-	mov    qword [rbp-40], r8
-	mov    qword [rbp-48], r9
-														;%enter
-a_enter_0:
-														;jump %entry
-	jmp    a_entry_1
-														;%entry
-a_entry_1:
-														;$t15 = add $p0 $p1
-	mov    r11, qword [rbp+(-8)]
-	add    r11, qword [rbp+(-16)]
-	mov    qword [rbp+(-88)], r11
-														;$t16 = add $t15 $p2
-	mov    r11, qword [rbp+(-88)]
-	add    r11, qword [rbp+(-24)]
-	mov    qword [rbp+(-112)], r11
-														;$t17 = add $t16 $p3
-	mov    r11, qword [rbp+(-112)]
-	add    r11, qword [rbp+(-32)]
-	mov    qword [rbp+(-72)], r11
-														;$t18 = add $t17 $p4
-	mov    r11, qword [rbp+(-72)]
-	add    r11, qword [rbp+(-40)]
-	mov    qword [rbp+(-160)], r11
-														;$t19 = add $t18 $p5
-	mov    r11, qword [rbp+(-160)]
-	add    r11, qword [rbp+(-48)]
-	mov    qword [rbp+(-120)], r11
-														;$t20 = add $t19 $p6
-	mov    r11, qword [rbp+(-120)]
-	add    r11, qword [rbp+(16)]
-	mov    qword [rbp+(-168)], r11
-														;$t21 = add $t20 $p7
-	mov    r11, qword [rbp+(-168)]
-	add    r11, qword [rbp+(24)]
-	mov    qword [rbp+(-128)], r11
-														;$t22 = add $t21 $p8
-	mov    r11, qword [rbp+(-128)]
-	add    r11, qword [rbp+(32)]
-	mov    qword [rbp+(-104)], r11
-														;$t23 = add $t22 $p9
-	mov    r11, qword [rbp+(-104)]
-	add    r11, qword [rbp+(40)]
-	mov    qword [rbp+(-64)], r11
-														;$t24 = add $t23 $p10
-	mov    r11, qword [rbp+(-64)]
-	add    r11, qword [rbp+(48)]
-	mov    qword [rbp+(-144)], r11
-														;$t25 = add $t24 $p11
-	mov    r11, qword [rbp+(-144)]
-	add    r11, qword [rbp+(56)]
-	mov    qword [rbp+(-96)], r11
-														;$t26 = add $t25 $p12
-	mov    r11, qword [rbp+(-96)]
-	add    r11, qword [rbp+(64)]
-	mov    qword [rbp+(-152)], r11
-														;$t27 = add $t26 $p13
-	mov    r11, qword [rbp+(-152)]
-	add    r11, qword [rbp+(72)]
-	mov    qword [rbp+(-136)], r11
-														;$t28 = add $t27 $p14
-	mov    r11, qword [rbp+(-136)]
-	add    r11, qword [rbp+(80)]
-	mov    qword [rbp+(-80)], r11
-														;ret $t28
-	mov    rax, qword [rbp+(-80)]
-	leave
-	ret
-														;jump %exit
-	jmp    a_exit_2
-														;jump %exit
-	jmp    a_exit_2
-														;%exit
-a_exit_2:
-	leave
-	ret
-
-
 main:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 80
+	sub    rsp, 192
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
@@ -337,41 +257,177 @@ main_enter_0:
 	jmp    main_entry_1
 														;%entry
 main_entry_1:
-														;$t29 = call a 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-	mov    rdi, 1
-	mov    rsi, 2
-	mov    rdx, 3
-	mov    rcx, 4
-	mov    r8, 5
-	mov    r9, 6
-	push   15
-	push   14
-	push   13
-	push   12
-	push   11
-	push   10
-	push   9
-	push   8
-	push   7
-	call   a
-	mov    qword [rbp+(-72)], rax
-														;$t30 = call __builtin_toString $t29
-	mov    rdi, qword [rbp+(-72)]
+														;$t0 = move 5
+	mov    r11, 5
+	mov    qword [rbp+(-144)], r11
+														;$t1 = move 0
+	mov    r11, 0
+	mov    qword [rbp+(-160)], r11
+														;$t4 = sne $t1 0
+	mov    r11, qword [rbp+(-160)]
+	cmp    r11, 0
+	setne  al
+	movzx  r11, al
+	mov    qword [rbp+(-136)], r11
+														;br $t4 %logical_true %logical_false
+	cmp    qword [rbp+(-136)], 0
+	jnz    main_logical_true_2
+	jz     main_logical_false_3
+														;%logical_true
+main_logical_true_2:
+														;$t5 = div $t0 $t1
+	mov    r11, qword [rbp+(-144)]
+	mov    rax, qword [rbp+(-144)]
+	cqo
+	mov    r11, qword [rbp+(-160)]
+	idiv   r11
+	mov    r11, rax
+	mov    qword [rbp+(-80)], r11
+														;$t6 = sne $t5 1
+	mov    r11, qword [rbp+(-80)]
+	cmp    r11, 1
+	setne  al
+	movzx  r11, al
+	mov    qword [rbp+(-168)], r11
+														;$t3 = move $t6
+	mov    r11, qword [rbp+(-168)]
+	mov    qword [rbp+(-176)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_4
+														;%logical_false
+main_logical_false_3:
+														;$t3 = move 0
+	mov    r11, 0
+	mov    qword [rbp+(-176)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_4
+														;%logical_merge
+main_logical_merge_4:
+														;br $t3 %if_true %if_false
+	cmp    qword [rbp+(-176)], 0
+	jnz    main_if_true_5
+	jz     main_if_false_6
+														;%if_true
+main_if_true_5:
+														;$t2 = move 10
+	mov    r11, 10
+	mov    qword [rbp+(-184)], r11
+														;jump %if_merge
+	jmp    main_if_merge_7
+														;%if_false
+main_if_false_6:
+														;$t2 = move 20
+	mov    r11, 20
+	mov    qword [rbp+(-184)], r11
+														;jump %if_merge
+	jmp    main_if_merge_7
+														;%if_merge
+main_if_merge_7:
+														;$t9 = seq $t2 10
+	mov    r11, qword [rbp+(-184)]
+	cmp    r11, 10
+	sete   al
+	movzx  r11, al
+	mov    qword [rbp+(-72)], r11
+														;br $t9 %logical_true %logical_false
+	cmp    qword [rbp+(-72)], 0
+	jnz    main_logical_true_8
+	jz     main_logical_false_9
+														;%logical_true
+main_logical_true_8:
+														;$t10 = div $t0 $t1
+	mov    r11, qword [rbp+(-144)]
+	mov    rax, qword [rbp+(-144)]
+	cqo
+	mov    r11, qword [rbp+(-160)]
+	idiv   r11
+	mov    r11, rax
+	mov    qword [rbp+(-88)], r11
+														;$t11 = seq $t10 0
+	mov    r11, qword [rbp+(-88)]
+	cmp    r11, 0
+	sete   al
+	movzx  r11, al
+	mov    qword [rbp+(-112)], r11
+														;$t8 = move $t11
+	mov    r11, qword [rbp+(-112)]
+	mov    qword [rbp+(-152)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_10
+														;%logical_false
+main_logical_false_9:
+														;$t8 = move 0
+	mov    r11, 0
+	mov    qword [rbp+(-152)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_10
+														;%logical_merge
+main_logical_merge_10:
+														;br $t8 %logical_true %logical_false
+	cmp    qword [rbp+(-152)], 0
+	jnz    main_logical_true_11
+	jz     main_logical_false_12
+														;%logical_true
+main_logical_true_11:
+														;$t12 = seq $t0 5
+	mov    r11, qword [rbp+(-144)]
+	cmp    r11, 5
+	sete   al
+	movzx  r11, al
+	mov    qword [rbp+(-64)], r11
+														;$t7 = move $t12
+	mov    r11, qword [rbp+(-64)]
+	mov    qword [rbp+(-96)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_13
+														;%logical_false
+main_logical_false_12:
+														;$t7 = move 0
+	mov    r11, 0
+	mov    qword [rbp+(-96)], r11
+														;jump %logical_merge
+	jmp    main_logical_merge_13
+														;%logical_merge
+main_logical_merge_13:
+														;$t13 = not $t7
+	not    qword [rbp+(-96)]
+														;br $t13 %if_true %if_false
+	cmp    qword [rbp+(-104)], 0
+	jnz    main_if_true_14
+	jz     main_if_false_15
+														;%if_true
+main_if_true_14:
+														;$t2 = move 30
+	mov    r11, 30
+	mov    qword [rbp+(-184)], r11
+														;jump %if_merge
+	jmp    main_if_merge_16
+														;%if_false
+main_if_false_15:
+														;jump %if_merge
+	jmp    main_if_merge_16
+														;%if_merge
+main_if_merge_16:
+														;$t14 = call main
+	call   main
+	mov    qword [rbp+(-128)], rax
+														;$t15 = call __builtin_toString $t14
+	mov    rdi, qword [rbp+(-128)]
 	call   __builtin_toString
-	mov    qword [rbp+(-64)], rax
-														;call __builtin_println $t30
-	mov    rdi, qword [rbp+(-64)]
+	mov    qword [rbp+(-120)], rax
+														;call __builtin_println $t15
+	mov    rdi, qword [rbp+(-120)]
 	call   __builtin_println
-														;ret 0
-	mov    rax, 0
+														;ret $t2
+	mov    rax, qword [rbp+(-184)]
 	leave
 	ret
 														;jump %exit
-	jmp    main_exit_2
+	jmp    main_exit_17
 														;jump %exit
-	jmp    main_exit_2
+	jmp    main_exit_17
 														;%exit
-main_exit_2:
+main_exit_17:
 	leave
 	ret
 

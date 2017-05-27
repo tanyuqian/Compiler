@@ -179,6 +179,12 @@ public class Template {
                 "\n" +
                 "    mov     rax, r13\n" +
                 "\n" +
+                "\n" +
+                "    mov     r12, qword[rbp-8]\n" +
+                "    mov     r13, qword[rbp-16]\n" +
+                "    mov     r14, qword[rbp-24]\n" +
+                "    mov     r15, qword[rbp-32]\n" +
+                "\n" +
                 "    leave\n" +
                 "    ret\n" +
                 "\n" +
@@ -244,5 +250,5 @@ public class Template {
                 "    mov     rax, qword [rdi-8]\n" +
                 "    ret\n" +
                 "\n";
-    }
+   }
 }
