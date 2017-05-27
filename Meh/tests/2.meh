@@ -4,5 +4,7 @@ int main() {
 
     println(toString(a + b));
 
+    fuck;
+
     return 0;
 }
