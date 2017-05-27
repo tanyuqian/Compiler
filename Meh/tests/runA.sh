@@ -1,4 +1,3 @@
-
-nasm -f elf64 a.asm
-gcc -o a a.o
-./a
+nasm -f elf64 play.asm
+gcc -o play play.o
+./play

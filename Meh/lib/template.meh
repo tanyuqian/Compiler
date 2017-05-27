@@ -231,4 +231,8 @@ RETURN_1:
     mov     rax, 1
     ret
 
+__builtin_getArraySize:
+    mov     rax, qword [rdi-8]
+    ret
+
 END
