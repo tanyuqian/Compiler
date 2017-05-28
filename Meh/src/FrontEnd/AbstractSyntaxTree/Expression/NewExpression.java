@@ -84,7 +84,7 @@ public class NewExpression extends Expression {
             instructions.add(AllocateInstruction.getInstruction(operand, size));
             instructions.add(StoreInstruction.getInstruction(subscripts.get(0).operand, new Address((VirtualRegister)operand, new IntType().size())));
             instructions.add(AdditionInstruction.getInstruction(operand, operand, new ImmediateValue(new IntType().size())));
-            if (subscripts.size() > 1 || (((ArrayType) type).baseType instanceof ClassType)) {
+            if ((subscripts.size() > 1 && subscripts.get(1) != null) || (((ArrayType) type).baseType instanceof ClassType)) {
                 LabelInstruction condition = LabelInstruction.getInstruction("new_condition");
                 LabelInstruction body = LabelInstruction.getInstruction("new_body");
                 LabelInstruction loop = LabelInstruction.getInstruction("new_loop");

@@ -1,87 +1,48 @@
-class Edge{
-    int to;
-    int next;
-}
+int N = 8;
+int[] row = new int[8];
+int[] col = new int[8];
+int[][] d = new int[2][];
 
-Edge[] e;
-int ne = 0;
-int n = 0;
-int[] head;
-int ans = 0;
-int size = 0;
-int i = 0;
-
-void add(int from, int to){
-    ++ne;
-    e[ne].to = to;
-    e[ne].next = head[from];
-    head[from] = ne;
-}
-
-bool[] visit;
-int[] son;
-int[] maxson;
-
-void init(){
-    e = new Edge[100];
-    ne = 0;
-    ans = 0;
-    size = n;
-    visit = new bool[100];
-    son = new int[100];
-    maxson = new int[100];
-    head = new int[100];
-    for (i = 0; i <= n; ++ i){
-        visit[i] = false;
-        son[i] = 0;
-        maxson[i] = 0;
-        head[i] = 0;
-    }
-}
-
-int max(int a, int b){
-    if (a > b) return a;
-    else return b;
-}
-
-void dfs(int u){
-    int tmp = 0;
-    visit[u] = true;
+void printBoard() {
     int i;
-    for (i = head[u]; i != 0; i = e[i].next){
-        int v = e[i].to;
-        if (visit[v]==false) {
-            dfs(v);
-            son[u] = son[u] + (son[v] + 1);
-            tmp = max(tmp, son[v] + 1);
+    int j;
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            if (col[i] == j)
+                print(" O");
+            else
+                print(" .");
         }
+        println("");
     }
-    tmp = max(tmp, n - son[u] - 1);
-    if (tmp < size || (tmp == size && u < ans)){
-       ans = u;
-       size = tmp;
-       }
+    println("");
 }
 
-int main(){
-    int t;
-    t = getInt();
-    while((t--) != 0){
-        n = getInt();
-        init();
-        for (i = 0; i < n-1; ++i){
-            int u;
-            int v;
-            u = getInt();
-            v = getInt();
-            add(u,v);
-            add(v,u);
-        }
-        dfs(1);
-        println(toString(ans));
-        println(toString(size));
+void search(int c) {
+    if (c == N) {
+        printBoard();
     }
+    else {
+        int r;
+        for (r = 0; r < N; r++) {
+            if (row[r] == 0 && d[0][r+c] == 0 && d[1][r+N-1-c] == 0) {
+                row[r] = 1;
+                d[0][r+c] = 1;
+                d[1][r+N-1-c] = 1;
+                col[c] = r;
+                search(c+1);
+                row[r] = 0;
+                d[0][r+c] = 0;
+                d[1][r+N-1-c] = 0;
+            }
+        }
+    }
+}
 
-
+int main() {
+    int i;
+	for (i = 0; i < 2; i ++)
+	    d[i] = new int[8 + 8 - 1];
+    search(0);
     return 0;
 }
