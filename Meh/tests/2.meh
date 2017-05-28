@@ -1,122 +1,87 @@
-int n;
-int h;
-int now;
-int[] a;
-int A = 48271;
-int M = 2147483647;
-int Q;
-int R;
-int seed=1;
-int random() {
-    int tempseed = A * (seed % Q) - R * (seed / Q);
-    if (tempseed >= 0)
-		seed = tempseed;
-    else
-		seed = tempseed + M;
-	return seed;
+class Edge{
+    int to;
+    int next;
 }
-void initialize(int val) {
-    seed = val;
+
+Edge[] e;
+int ne = 0;
+int n = 0;
+int[] head;
+int ans = 0;
+int size = 0;
+int i = 0;
+
+void add(int from, int to){
+    ++ne;
+    e[ne].to = to;
+    e[ne].next = head[from];
+    head[from] = ne;
 }
-void swap(int x,int y) {
-    int temp = a[x];
-    a[x] = a[y];
-    a[y] = temp;
+
+bool[] visit;
+int[] son;
+int[] maxson;
+
+void init(){
+    e = new Edge[100];
+    ne = 0;
+    ans = 0;
+    size = n;
+    visit = new bool[100];
+    son = new int[100];
+    maxson = new int[100];
+    head = new int[100];
+    for (i = 0; i <= n; ++ i){
+        visit[i] = false;
+        son[i] = 0;
+        maxson[i] = 0;
+        head[i] = 0;
+    }
 }
-bool pd(int x) {
-    for (;h <= x; ++h)
-        if (x == h * (h + 1) / 2)
-			return true;
-    return false;
+
+int max(int a, int b){
+    if (a > b) return a;
+    else return b;
 }
-void show() {
+
+void dfs(int u){
+    int tmp = 0;
+    visit[u] = true;
     int i;
-    for (i = 0; i < now; ++i)
-        print(toString(a[i]) + " ");
-    println("");
-}
-bool win()
-{
-    int i;
-	int j;
-	int[] b = new int[100];
-	int temp;
-    if (now != h)
-		return false;
-    for (j = 0; j < now; ++j)
-        b[j] = a[j];
-    for (i = 0;i < now - 1; ++i)
-        for (j = i + 1;j < now; ++j)
-            if (b[i] > b[j]) {
-                temp = b[i];
-                b[i] = b[j];
-                b[j] = temp;
-            }
-    for (i = 0; i < now; ++i)
-        if (b[i] != i + 1)
-			return false;
-    return true;
-}
-void merge()
-{
-    int i;
-    for (i = 0;i < now; ++i)
-        if (a[i] == 0) {
-            int j;
-            for (j = i+1; j < now; ++j)
-                if (a[j] != 0) {
-                    swap(i,j);
-                    break;
-                }
+    for (i = head[u]; i != 0; i = e[i].next){
+        int v = e[i].to;
+        if (visit[v]==false) {
+            dfs(v);
+            son[u] = son[u] + (son[v] + 1);
+            tmp = max(tmp, son[v] + 1);
         }
-    for (i=0;i<now;++i)
-        if (a[i] == 0) {
-            now = i;
-            break;
+    }
+    tmp = max(tmp, n - son[u] - 1);
+    if (tmp < size || (tmp == size && u < ans)){
+       ans = u;
+       size = tmp;
+       }
+}
+
+int main(){
+    int t;
+    t = getInt();
+    while((t--) != 0){
+        n = getInt();
+        init();
+        for (i = 0; i < n-1; ++i){
+            int u;
+            int v;
+            u = getInt();
+            v = getInt();
+            add(u,v);
+            add(v,u);
         }
-}
-void move() {
-    int i = 0;
-    for (; i < now; ) {
-        --a[i];
-        i = i + 1;
+        dfs(1);
+        println(toString(ans));
+        println(toString(size));
     }
-    a[now] = now;
-    now++;
-}
-int main() {
-    int i = 0;
-	int temp = 0;
-	int count = 0;
-	n = 3 * 7 * 10;
-	h = 0;
-	a = new int[100];
-    Q = M / A;
-    R = M % A;
-    if (!pd(n)) {
-        println("Sorry, the number n must be a number s.t. there exists i satisfying n=1+2+...+i");
-        return 1;
-    }
-    println("Let's start!");
-    initialize(3654898);
-    now = random() % 10 + 1;
-    println(toString(now));
-    for (; i < now - 1; ++i)
-    {
-        a[i] = random() % 10 + 1;
-        while (a[i] + temp > n)
-            a[i] = random() % 10 + 1;
-        temp = temp + a[i];
-    }
-    a[now - 1] = n - temp;
-    show();
-    merge();
-    while (!win()) {
-        println("step " + toString(++count) + ":");
-        move();
-        merge();
-        show();
-    }
-    println("Total: " + toString(count) + " step(s)");
+
+
     return 0;
 }

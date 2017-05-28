@@ -1,6 +1,0 @@
-%enter
-jump null
-%entry
-$g8(seed) = move $p10
-jump null
-%exit

@@ -1,15 +1,23 @@
-#include <stdio.h>
-#include <string.h>
+class Edge{
+    int to;
+    int next;
+}
 
-int main() {
-    long long a = 5;
-    long long b = 3;
+Edge[] e;
+int ne = 0;
+int n = 0;
 
-    scanf("%lld%lld", &a, &b);
+void init(){
+    e = new Edge[100];
+    ne = 0;
+}
 
-    long long c = (a > b);
+int main(){
 
-    printf("%lld\n", c);
+    n = 7;
+    e = new Edge[100];
+    ne = 0;
+    e[0].to = 2;
 
     return 0;
 }
