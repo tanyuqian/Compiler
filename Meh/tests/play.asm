@@ -186,12 +186,21 @@ __builtin_toString:
 __builtin_string_concat:
     push    rbp
     mov     rbp, rsp
-    sub     rsp, 48
+    sub     rsp, 80
 
     mov     qword[rbp-24], rdi
     mov     qword[rbp-16], rsi
 
-    mov     rdi, 400
+    mov     rdi, qword[rbp-24]
+    call    __builtin_getStringLength
+    mov     qword[rbp-32], rax
+
+    mov     rdi, qword[rbp-16]
+    call    __builtin_getStringLength
+    add     qword[rbp-32], rax
+    add     qword[rbp-32], 3
+
+    mov     rdi, qword[rbp-32]
     call    malloc
     mov     qword [rbp-8], rax
 

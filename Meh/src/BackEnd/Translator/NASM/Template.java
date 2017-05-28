@@ -195,12 +195,21 @@ public class Template {
                 "__builtin_string_concat:\n" +
                 "    push    rbp\n" +
                 "    mov     rbp, rsp\n" +
-                "    sub     rsp, 48\n" +
+                "    sub     rsp, 80\n" +
                 "\n" +
                 "    mov     qword[rbp-24], rdi\n" +
                 "    mov     qword[rbp-16], rsi\n" +
                 "\n" +
-                "    mov     rdi, 400\n" +
+                "    mov     rdi, qword[rbp-24]\n" +
+                "    call    __builtin_getStringLength\n" +
+                "    mov     qword[rbp-32], rax\n" +
+                "\n" +
+                "    mov     rdi, qword[rbp-16]\n" +
+                "    call    __builtin_getStringLength\n" +
+                "    add     qword[rbp-32], rax\n" +
+                "    add     qword[rbp-32], 3\n" +
+                "\n" +
+                "    mov     rdi, qword[rbp-32]\n" +
                 "    call    malloc\n" +
                 "    mov     qword [rbp-8], rax\n" +
                 "\n" +

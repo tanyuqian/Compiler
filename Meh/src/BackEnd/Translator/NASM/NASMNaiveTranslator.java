@@ -110,8 +110,8 @@ public class NASMNaiveTranslator extends NASMTranslator {
                     Address address = ((LoadInstruction) instruction).address;
                     output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(address.base));
                     output.printf("\tadd    %s, %s\n", NASMRegister.r11, address.offset);
-                    output.printf("\tmov    %s, qword [%s]\n", NASMRegister.r12, NASMRegister.r11);
-                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r12);
+                    output.printf("\tmov    %s, qword [%s]\n", NASMRegister.rax, NASMRegister.r11);
+                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.rax);
                 } else if (instruction instanceof MoveInstruction) {
                     VirtualRegister destination = ((MoveInstruction) instruction).destination;
                     Operand operand = ((MoveInstruction) instruction).operand;
