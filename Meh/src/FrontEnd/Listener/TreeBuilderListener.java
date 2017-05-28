@@ -459,7 +459,7 @@ public class TreeBuilderListener extends BaseListener {
 
     @Override
     public void exitStringConstant(MehParser.StringConstantContext ctx) {
-        returnNode.put(ctx, new StringConstant(ctx.getText()));
+        returnNode.put(ctx, new StringConstant(ctx.getText().substring(1, ctx.getText().length() - 1)));
     }
 
     @Override

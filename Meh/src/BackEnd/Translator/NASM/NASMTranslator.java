@@ -54,7 +54,7 @@ public abstract class NASMTranslator extends Translator {
             if (register instanceof StringRegister) {
                 output.printf("CONST_STRING_%d:\n\tdb ", register.identity);
                 String str = ((StringRegister) register).str;
-                for (int i = 1; i + 1 < str.length(); i++) {
+                for (int i = 0; i < str.length(); i++) {
                     if (i + 1 < str.length() && str.substring(i).startsWith("\\n")) {
                         output.printf("%d, ", 10);
                         i++;
