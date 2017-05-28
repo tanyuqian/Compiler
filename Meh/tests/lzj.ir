@@ -1,46 +1,40 @@
-func cd $p0 $p1 $p2 $p3 $p4 {
-	%cd.0.enter:
-		jump %cd.1.entry
-
-	%cd.1.entry:
-		$t10 = seq $p0 1
-		br $t10 %cd.2.if_true %cd.3.if_false
-
-	%cd.2.if_true:
-		$p4 = add $p4 1
-		jump %cd.4.if_merge
-
-	%cd.4.if_merge:
-		ret $p4
-		jump %cd.5.exit
-
-	%cd.3.if_false:
-		$t12 = sub $p0 1
-		$t13 = call cd $t12 $p1 $p3 $p2 $p4
-		$p4 = move $t13
-		$t15 = call cd $t12 $p2 $p1 $p3 $p4
-		$p4 = move $t15
-		$p4 = add $p4 1
-		jump %cd.4.if_merge
-
-	%cd.5.exit:
-}
 func main {
 	%main.0.enter:
 		jump %main.1.entry
 
 	%main.1.entry:
-		$t5 = move $17
-		$t6 = move $18
-		$t7 = move $19
-		$t20 = call ____builtin____get_int
-		$t8 = move $t20
-		$t21 = call cd $t8 $t5 $t6 $t7 0
-		$t9 = move $t21
-		$t22 = call ____builtin____to_string $t9
-		call ____builtin____println $t22
-		ret 0
-		jump %main.2.exit
+		$t5 = call ____builtin____get_int
+		$g0(N) = move $t5
+		$t6 = call ____builtin____get_int
+		$g1(M) = move $t6
+		$t7 = call ____builtin____get_string
+		$g2(chiii) = move $t7
+		$t8 = alloc 404
+		store 4 $t8 100 0
+		$t8 = add $t8 4
+		$t19 = move $t8
+		$t4 = move 1
+		jump %main.2.for_condition
 
-	%main.2.exit:
+	%main.2.for_condition:
+		$t10 = sle $t4 5
+		br $t10 %main.4.for_loop %main.5.for_merge
+
+	%main.4.for_loop:
+		$t12 = mul $t4 4
+		$t11 = add $t19 $t12
+		$t13 = call ____builtin____get_int
+		store 4 $t11 $t13 0
+		$t16 = load 4 $t11 0
+		$t17 = call ____builtin____to_string $t16
+		call ____builtin____println $t17
+		$t4 = add $t4 1
+		jump %main.2.for_condition
+
+	%main.5.for_merge:
+		ret 0
+		jump %main.6.exit
+
+	%main.6.exit:
+		$g3(w) = move $t19
 }

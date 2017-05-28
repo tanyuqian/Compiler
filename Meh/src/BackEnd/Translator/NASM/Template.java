@@ -75,6 +75,10 @@ public class Template {
                 "    mov     rbp, rsp\n" +
                 "    sub     rsp, 24\n" +
                 "\n" +
+                "    mov     rdi, NEXT_LINE\n" +
+                "    mov     rax, 0\n" +
+                "    call    scanf\n" +
+                "\n" +
                 "    mov     rdi, 400\n" +
                 "    call    malloc\n" +
                 "    mov     qword [rbp-8], rax\n" +

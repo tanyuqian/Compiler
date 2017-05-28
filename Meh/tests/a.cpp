@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main() {
-    char a[100];
+    char *a = new char[100];
 
     scanf("\n");
     gets(a);

@@ -1,32 +1,61 @@
 %enter
 jump %entry
 %entry
-$t10 = seq $p0 1
-br $t10 %if_true %if_false
+$t13 = seq 0 $p6
+br $t13 %if_true %if_false
 %if_true
-$t12 = call __builtin_string_concat $11 $p1
-$t14 = call __builtin_string_concat $t12 $13
-$t15 = call __builtin_string_concat $t14 $p3
-call __builtin_println $t15
-$t16 = move $p4
-$p4 = add $p4 1
+ret $p7
+jump %exit
 jump %if_merge
 %if_false
-$t17 = sub $p0 1
-$t18 = call cd $t17 $p1 $p3 $p2 $p4
-$p4 = move $t18
-$t20 = call __builtin_string_concat $19 $p1
-$t22 = call __builtin_string_concat $t20 $21
-$t23 = call __builtin_string_concat $t22 $p3
-call __builtin_println $t23
-$t24 = sub $p0 1
-$t25 = call cd $t24 $p2 $p1 $p3 $p4
-$p4 = move $t25
-$t26 = move $p4
-$p4 = add $p4 1
 jump %if_merge
 %if_merge
-ret $p4
+$t14 = seq 0 $p7
+br $t14 %if_true %if_false
+%if_true
+ret $p6
+jump %exit
+jump %if_merge
+%if_false
+jump %if_merge
+%if_merge
+$t16 = mul $p6 8
+$t15 = add $g5(w) $t16
+$t17 = load 8 $t15 0
+$t19 = mul $p7 8
+$t18 = add $g5(w) $t19
+$t20 = load 8 $t18 0
+$t21 = slt $t17 $t20
+br $t21 %if_true %if_false
+%if_true
+$t8 = move $p6
+$p6 = move $p7
+$p7 = move $t8
+jump %if_merge
+%if_false
+jump %if_merge
+%if_merge
+$t23 = mul $p6 8
+$t22 = add $g4(r) $t23
+$t25 = mul $p6 8
+$t24 = add $g4(r) $t25
+$t26 = load 8 $t24 0
+$t27 = call merge $t26 $p7
+store 8 $t22 $t27 0
+$t29 = mul $p6 8
+$t28 = add $g3(l) $t29
+$t30 = load 8 $t28 0
+$t9 = move $t30
+$t32 = mul $p6 8
+$t31 = add $g3(l) $t32
+$t34 = mul $p6 8
+$t33 = add $g4(r) $t34
+$t35 = load 8 $t33 0
+store 8 $t31 $t35 0
+$t37 = mul $p6 8
+$t36 = add $g4(r) $t37
+store 8 $t36 $t9 0
+ret $p6
 jump %exit
 jump %exit
 %exit
@@ -34,15 +63,133 @@ jump %exit
 %enter
 jump %entry
 %entry
-$t5 = move $27
-$t6 = move $28
-$t7 = move $29
-$t30 = call __builtin_getInt
-$t8 = move $t30
-$t31 = call cd $t8 $t5 $t6 $t7 0
-$t9 = move $t31
-$t32 = call __builtin_toString $t9
-call __builtin_println $t32
+$t38 = call __builtin_getInt
+$g0(N) = move $t38
+$t39 = call __builtin_getInt
+$g1(M) = move $t39
+$t40 = call __builtin_getString
+$g2(ch) = move $t40
+$t41 = add $g0(N) $g1(M)
+$t42 = add $t41 5
+$t44 = mul $t42 8
+$t44 = add $t44 8
+$t43 = alloc $t44
+store 8 $t43 $t42 0
+$t43 = add $t43 8
+$g3(l) = move $t43
+$t45 = add $g0(N) $g1(M)
+$t46 = add $t45 5
+$t48 = mul $t46 8
+$t48 = add $t48 8
+$t47 = alloc $t48
+store 8 $t47 $t46 0
+$t47 = add $t47 8
+$g4(r) = move $t47
+$t49 = add $g0(N) $g1(M)
+$t50 = add $t49 5
+$t52 = mul $t50 8
+$t52 = add $t52 8
+$t51 = alloc $t52
+store 8 $t51 $t50 0
+$t51 = add $t51 8
+$g5(w) = move $t51
+$t10 = move 1
+jump %for_condition
+%for_condition
+$t53 = sle $t10 $g0(N)
+br $t53 %for_body %for_after
+%for_body
+$t55 = mul $t10 8
+$t54 = add $g5(w) $t55
+$t56 = call __builtin_getInt
+store 8 $t54 $t56 0
+$t58 = mul $t10 8
+$t57 = add $g3(l) $t58
+store 8 $t57 0 0
+$t60 = mul $t10 8
+$t59 = add $g4(r) $t60
+store 8 $t59 0 0
+jump %for_loop
+%for_loop
+$t61 = move $t10
+$t10 = add $t10 1
+jump %for_condition
+%for_after
+$t10 = move 1
+jump %for_condition
+%for_condition
+$t62 = sle $t10 $g1(M)
+br $t62 %for_body %for_after
+%for_body
+$t63 = add $t10 $g0(N)
+$t65 = mul $t63 8
+$t64 = add $g5(w) $t65
+$t66 = sub $t10 1
+$t67 = call __builtin_ord $g2(ch) $t66
+store 8 $t64 $t67 0
+$t68 = add $t10 $g0(N)
+$t70 = mul $t68 8
+$t69 = add $g3(l) $t70
+store 8 $t69 0 0
+$t71 = add $t10 $g0(N)
+$t73 = mul $t71 8
+$t72 = add $g4(r) $t73
+store 8 $t72 0 0
+jump %for_loop
+%for_loop
+$t74 = move $t10
+$t10 = add $t10 1
+jump %for_condition
+%for_after
+$t11 = move 1
+$t75 = add $g0(N) 1
+$t12 = move $t75
+$t10 = move 2
+jump %for_condition
+%for_condition
+$t76 = sle $t10 $g0(N)
+br $t76 %for_body %for_after
+%for_body
+$t77 = call merge $t11 $t10
+$t11 = move $t77
+jump %for_loop
+%for_loop
+$t78 = move $t10
+$t10 = add $t10 1
+jump %for_condition
+%for_after
+$t79 = add $g0(N) 2
+$t10 = move $t79
+jump %for_condition
+%for_condition
+$t80 = add $g0(N) $g1(M)
+$t81 = sle $t10 $t80
+br $t81 %for_body %for_after
+%for_body
+$t82 = call merge $t12 $t10
+$t12 = move $t82
+jump %for_loop
+%for_loop
+$t83 = move $t10
+$t10 = add $t10 1
+jump %for_condition
+%for_after
+$t85 = mul $t11 8
+$t84 = add $g5(w) $t85
+$t86 = load 8 $t84 0
+$t87 = call __builtin_toString $t86
+call __builtin_print $t87
+call __builtin_print $88
+$t89 = sub $t12 $g0(N)
+$t90 = sub $t89 1
+$t91 = sub $t12 $g0(N)
+$t92 = sub $t91 1
+$t93 = call __builtin_getSubstring $g2(ch) $t90 $t92
+call __builtin_print $t93
+call __builtin_print $94
+$t95 = call merge $t11 $t12
+$t96 = call __builtin_toString $t95
+call __builtin_println $t96
 ret 0
 jump %exit
 jump %exit

@@ -54,7 +54,7 @@ public class NASMNaiveTranslator extends NASMTranslator {
 
     public String getPhisicalMemoryName(Operand register) {
         if (register instanceof GlobalRegister) {
-            return "qword [rel " + ((GlobalRegister) register).symbol.name + "]";
+            return "qword [rel " + "GV_" + ((GlobalRegister) register).symbol.name + "]";
         } else if (register instanceof TemporaryRegister) {
             int offset = graph.frame.temporaryMap.get(register);
             return String.format("qword [rbp+(%d)]", offset);

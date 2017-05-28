@@ -66,6 +66,10 @@ __builtin_getString:
     mov     rbp, rsp
     sub     rsp, 24
 
+    mov     rdi, NEXT_LINE
+    mov     rax, 0
+    call    scanf
+
     mov     rdi, 400
     call    malloc
     mov     qword [rbp-8], rax

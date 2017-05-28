@@ -1,15 +1,39 @@
 %enter
 jump null
 %entry
-$t5 = move $17
-$t6 = move $18
-$t7 = move $19
-$t20 = call ____builtin____get_int
-$t8 = move $t20
-$t21 = call cd $t8 $t5 $t6 $t7 0
-$t9 = move $t21
-$t22 = call ____builtin____to_string $t9
-call ____builtin____println $t22
+$t5 = call ____builtin____get_int
+$g0(N) = move $t5
+$t6 = call ____builtin____get_int
+$g1(M) = move $t6
+$t7 = call ____builtin____get_string
+$g2(chiii) = move $t7
+$t9 = move 400
+$t9 = add $t9 4
+$t8 = alloc $t9
+store 4 $t8 100 0
+$t8 = add $t8 4
+$g3(w) = move $t8
+$t4 = move 1
+jump null
+%for_condition
+$t10 = sle $t4 5
+br $t10 null null
+%for_body
+$t12 = mul $t4 4
+$t11 = add $g3(w) $t12
+$t13 = call ____builtin____get_int
+store 4 $t11 $t13 0
+$t15 = mul $t4 4
+$t14 = add $g3(w) $t15
+$t16 = load 4 $t14 0
+$t17 = call ____builtin____to_string $t16
+call ____builtin____println $t17
+jump null
+%for_loop
+$t18 = move $t4
+$t4 = add $t4 1
+jump null
+%for_merge
 ret 0
 jump null
 jump null

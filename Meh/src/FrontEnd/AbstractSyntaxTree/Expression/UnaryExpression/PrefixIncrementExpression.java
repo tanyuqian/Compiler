@@ -36,7 +36,6 @@ public class PrefixIncrementExpression extends UnaryExpression {
     @Override
     public void emit(List<Instruction> instructions) {
         expression.emit(instructions);
-        operand = Environment.registerTable.addTemporaryRegister();
         if (expression.operand instanceof Address) {
             Address address = (Address)expression.operand;
             address = new Address(address.base, address.offset, address.size);

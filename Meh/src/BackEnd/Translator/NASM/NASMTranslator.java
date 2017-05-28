@@ -49,7 +49,7 @@ public abstract class NASMTranslator extends Translator {
         output.println("SECTION .data");
         for (VirtualRegister register : Environment.registerTable.registers) {
             if (register instanceof GlobalRegister) {
-                output.printf("%s:\n\tdq 0\n", ((GlobalRegister)register).symbol.name);
+                output.printf("%s:\n\tdq 0\n", "GV_" + ((GlobalRegister)register).symbol.name);
             }
             if (register instanceof StringRegister) {
                 output.printf("CONST_STRING_%d:\n\tdb ", register.identity);
@@ -77,5 +77,6 @@ public abstract class NASMTranslator extends Translator {
         output.printf("INT_FORMAT_NEXT_LINE:\n\tdb \"%%d\", 10, 0\n");
         output.printf("INTEGER_FORMAT:\n\tdb \"%%lld\", 0\n");
         output.printf("CHAR_FORMAT:\n\tdb \"%%c\", 0\n");
+        output.printf("NEXT_LINE:\n\tdb 10, 0\n");
     }
 }
