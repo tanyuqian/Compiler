@@ -95,7 +95,7 @@ public class NewExpression extends Expression {
                 if (subscripts.size() <= 1) {
                     reduceSubscripts = new ArrayList<>();
                 } else {
-                    reduceSubscripts = subscripts.subList(1, subscripts.size() - 1);
+                    reduceSubscripts = subscripts.subList(1, subscripts.size());
                 }
                 NewExpression reduceNewExpression = NewExpression.getExpression(reduceType, reduceSubscripts);
 
