@@ -190,12 +190,15 @@ public class NASMNaiveTranslator extends NASMTranslator {
                     }
                     output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r11);
                 } else if (instruction instanceof UnaryInstruction) {
+                    VirtualRegister destination = ((UnaryInstruction)instruction).destination;
                     Operand operand = ((UnaryInstruction)instruction).operand;
+                    output.printf("\tmov    %s, %s\n", NASMRegister.r11, getPhisicalMemoryName(operand));
                     if (instruction instanceof BitwiseNotInstruction) {
-                        output.printf("\tnot    %s\n", getPhisicalMemoryName(operand));
+                        output.printf("\tnot    %s\n", NASMRegister.r11);
                     } else if (instruction instanceof UnaryMinusInstruction) {
-                        output.printf("\tneg    %s\n", getPhisicalMemoryName(operand));
+                        output.printf("\tneg    %s\n", NASMRegister.r11);
                     }
+                    output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(destination), NASMRegister.r11);
                 }
             } else if (instruction instanceof ControlFlowInstruction) {
                 if (instruction instanceof JumpInstruction) {
