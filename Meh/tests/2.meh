@@ -1,21 +1,13 @@
-//This is the most basic test.
-//基本测试，注释是中文应该要能搞吧
-
-int main()
-{
-	int[][] array = new int[3][3];
-	array[0] = null;
-	println(toString(array[0].size()));
-	array[0] = new int[10];
-    int i;
-	for(i = 0; i < 10; ++i)
-		array[0][i] = i * i; //
-	println(toString(array[0][9]));
-	while(true)
-	{
-		break;
-		continue;
-	}
-
-	return 0;
+class A {}
+class B { B() {{{{{ return; }}}}} }  // single return is allowed in constructor
+class C { int func() { return 93; } }
+int main() {}
+void func() {
+    if(false);else;
+    while(true);
+    for(;;);
+    return;
+    {;{{;{{}{}}}};{{};{}}};
+    new A[10][][][];
+    (new C).func() + (new C).func();   // new is a kind of expression
 }
