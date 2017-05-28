@@ -161,7 +161,7 @@ __builtin_toString:
     mov     qword[rbp-32], r15
 
     mov     r12, rdi
-    mov     rdi, 400
+    mov     rdi, 12
     call    malloc
     mov     r13, rax
 

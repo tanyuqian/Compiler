@@ -170,7 +170,7 @@ public class Template {
                 "    mov     qword[rbp-32], r15\n" +
                 "\n" +
                 "    mov     r12, rdi\n" +
-                "    mov     rdi, 400\n" +
+                "    mov     rdi, 12\n" +
                 "    call    malloc\n" +
                 "    mov     r13, rax\n" +
                 "\n" +
