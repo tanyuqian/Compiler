@@ -24,7 +24,7 @@ public class MultiplicationExpression extends BinaryExpression {
         if ((left.type instanceof IntType) && (right.type instanceof IntType)) {
             if ((left instanceof IntConstant) && (right instanceof IntConstant)) {
                 int a = ((IntConstant)left).number, b = ((IntConstant)right).number;
-                return new IntConstant(a / b);
+                return new IntConstant(a * b);
             }
             return new MultiplicationExpression(new IntType(), false, left, right);
         }

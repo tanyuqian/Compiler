@@ -1,0 +1,27 @@
+%enter
+jump null
+%entry
+$t22 = move 0
+jump null
+%for_condition
+$t114 = slt $t22 $g2(now)
+br $t114 null null
+%for_body
+$t116 = mul $t22 4
+$t115 = add $g3(a) $t116
+$t117 = load 4 $t115 0
+$t117 = sub $t117 1
+store 4 $t115 $t117 0
+$t118 = add $t22 1
+$t22 = move $t118
+jump null
+%for_loop
+jump null
+%for_merge
+$t120 = mul $g2(now) 4
+$t119 = add $g3(a) $t120
+store 4 $t119 $g2(now) 0
+$t121 = move $g2(now)
+$g2(now) = add $g2(now) 1
+jump null
+%exit

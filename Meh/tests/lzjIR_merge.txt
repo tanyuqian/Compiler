@@ -1,61 +1,73 @@
 %enter
 jump null
 %entry
-$t11 = seq 0 $p6
-br $t11 null null
+$t20 = move 0
+jump null
+%for_condition
+$t98 = slt $t20 $g2(now)
+br $t98 null null
+%for_body
+$t100 = mul $t20 4
+$t99 = add $g3(a) $t100
+$t101 = load 4 $t99 0
+$t102 = seq $t101 0
+br $t102 null null
 %if_true
-ret $p7
+$t103 = add $t20 1
+$t21 = move $t103
+jump null
+%for_condition
+$t104 = slt $t21 $g2(now)
+br $t104 null null
+%for_body
+$t106 = mul $t21 4
+$t105 = add $g3(a) $t106
+$t107 = load 4 $t105 0
+$t108 = sne $t107 0
+br $t108 null null
+%if_true
+call swap $t20 $t21
 jump null
 jump null
 %if_false
 jump null
 %if_merge
-$t12 = seq 0 $p7
-br $t12 null null
+jump null
+%for_loop
+$t21 = add $t21 1
+jump null
+%for_merge
+jump null
+%if_false
+jump null
+%if_merge
+jump null
+%for_loop
+$t20 = add $t20 1
+jump null
+%for_merge
+$t20 = move 0
+jump null
+%for_condition
+$t109 = slt $t20 $g2(now)
+br $t109 null null
+%for_body
+$t111 = mul $t20 4
+$t110 = add $g3(a) $t111
+$t112 = load 4 $t110 0
+$t113 = seq $t112 0
+br $t113 null null
 %if_true
-ret $p6
+$g2(now) = move $t20
 jump null
 jump null
 %if_false
 jump null
 %if_merge
-$t14 = mul $p6 4
-$t13 = add $g5(w) $t14
-$t15 = load 4 $t13 0
-$t17 = mul $p7 4
-$t16 = add $g5(w) $t17
-$t18 = load 4 $t16 0
-$t19 = slt $t15 $t18
-br $t19 null null
-%if_true
-$t8 = move $p6
-$p6 = move $p7
-$p7 = move $t8
 jump null
-%if_false
+%for_loop
+$t20 = add $t20 1
 jump null
-%if_merge
-$t21 = mul $p6 4
-$t20 = add $g4(r) $t21
-$t23 = mul $p6 4
-$t22 = add $g4(r) $t23
-$t24 = load 4 $t22 0
-$t25 = call merge $t24 $p7
-store 4 $t20 $t25 0
-$t27 = mul $p6 4
-$t26 = add $g3(l) $t27
-$t28 = load 4 $t26 0
-$t9 = move $t28
-$t30 = mul $p6 4
-$t29 = add $g3(l) $t30
-$t32 = mul $p6 4
-$t31 = add $g4(r) $t32
-$t33 = load 4 $t31 0
-store 4 $t29 $t33 0
-$t35 = mul $p6 4
-$t34 = add $g4(r) $t35
-store 4 $t34 $t9 0
-ret $p6
-jump null
+%for_merge
 jump null
 %exit

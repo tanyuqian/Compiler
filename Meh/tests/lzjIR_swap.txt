@@ -1,0 +1,18 @@
+%enter
+jump null
+%entry
+$t36 = mul $p11 4
+$t35 = add $g3(a) $t36
+$t37 = load 4 $t35 0
+$t13 = move $t37
+$t39 = mul $p11 4
+$t38 = add $g3(a) $t39
+$t41 = mul $p12 4
+$t40 = add $g3(a) $t41
+$t42 = load 4 $t40 0
+store 4 $t38 $t42 0
+$t44 = mul $p12 4
+$t43 = add $g3(a) $t44
+store 4 $t43 $t13 0
+jump null
+%exit

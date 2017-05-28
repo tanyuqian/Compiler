@@ -1,0 +1,29 @@
+%enter
+jump null
+%entry
+jump null
+%for_condition
+$t45 = sle $g1(h) $p14
+br $t45 null null
+%for_body
+$t46 = add $g1(h) 1
+$t47 = mul $g1(h) $t46
+$t48 = div $t47 2
+$t49 = seq $p14 $t48
+br $t49 null null
+%if_true
+ret 1
+jump null
+jump null
+%if_false
+jump null
+%if_merge
+jump null
+%for_loop
+$g1(h) = add $g1(h) 1
+jump null
+%for_merge
+ret 0
+jump null
+jump null
+%exit

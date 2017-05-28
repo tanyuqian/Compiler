@@ -26,7 +26,7 @@ public class LogicalNotExpression extends UnaryExpression {
             if (expression instanceof BoolConstant) {
                 return new BoolConstant(!(((BoolConstant) expression).tag));
             }
-            return new BitwiseNotExpression(new BoolType(), false, expression);
+            return new LogicalNotExpression(new BoolType(), false, expression);
         }
         throw new CompilationError("logical-not needs bool.");
     }

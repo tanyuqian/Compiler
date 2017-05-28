@@ -1,56 +1,122 @@
-int N;
-int M;
-string ch;
-
-int[] l;
-int[] r;
-int[] w;
-
-int merge(int x,int y)
-{
-	if (0 == x) return y;
-	if (0 == y) return x;
-	if (w[x] < w[y]) {
-		int e = x;
-		x = y;
-		y = e;
-	}
-	r[x] = merge(r[x],y);
-	int e = l[x];
-	l[x] = r[x];
-	r[x] = e;
-	return x;
+int n;
+int h;
+int now;
+int[] a;
+int A = 48271;
+int M = 2147483647;
+int Q;
+int R;
+int seed=1;
+int random() {
+    int tempseed = A * (seed % Q) - R * (seed / Q);
+    if (tempseed >= 0)
+		seed = tempseed;
+    else
+		seed = tempseed + M;
+	return seed;
 }
-
-int main()
+void initialize(int val) {
+    seed = val;
+}
+void swap(int x,int y) {
+    int temp = a[x];
+    a[x] = a[y];
+    a[y] = temp;
+}
+bool pd(int x) {
+    for (;h <= x; ++h)
+        if (x == h * (h + 1) / 2)
+			return true;
+    return false;
+}
+void show() {
+    int i;
+    for (i = 0; i < now; ++i)
+        print(toString(a[i]) + " ");
+    println("");
+}
+bool win()
 {
-	N = getInt();
-	M = getInt();
-	ch = getString();
-	l = new int[N+M+5];
-	r = new int[N+M+5];
-	w = new int[N+M+5];
-	int i;
-	for (i=1;i <= N;i++) {
-		w[i] = getInt();
-		l[i] = 0;
-   		r[i] = 0;
-	}
-	for (i=1;i <= M;i++) {
-		w[i + N] = ch.ord(i-1);
-		l[i + N] = 0;
-		r[i + N] = 0;
-	}
-	int rt0 = 1;
-	int rt1 = N + 1;
-	for (i = 2;i <= N;i++)
-		rt0 = merge(rt0,i);
-	for (i = N+2;i<= N+M;i++)
-		rt1 = merge(rt1,i);
-	print(toString(w[rt0]));
-	print(" ");
-	print(ch.substring(rt1-N-1,rt1-N-1));
-	print("\n");
-	println(toString(merge(rt0,rt1)));
-	return 0;
+    int i;
+	int j;
+	int[] b = new int[100];
+	int temp;
+    if (now != h)
+		return false;
+    for (j = 0; j < now; ++j)
+        b[j] = a[j];
+    for (i = 0;i < now - 1; ++i)
+        for (j = i + 1;j < now; ++j)
+            if (b[i] > b[j]) {
+                temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+    for (i = 0; i < now; ++i)
+        if (b[i] != i + 1)
+			return false;
+    return true;
+}
+void merge()
+{
+    int i;
+    for (i = 0;i < now; ++i)
+        if (a[i] == 0) {
+            int j;
+            for (j = i+1; j < now; ++j)
+                if (a[j] != 0) {
+                    swap(i,j);
+                    break;
+                }
+        }
+    for (i=0;i<now;++i)
+        if (a[i] == 0) {
+            now = i;
+            break;
+        }
+}
+void move() {
+    int i = 0;
+    for (; i < now; ) {
+        --a[i];
+        i = i + 1;
+    }
+    a[now] = now;
+    now++;
+}
+int main() {
+    int i = 0;
+	int temp = 0;
+	int count = 0;
+	n = 3 * 7 * 10;
+	h = 0;
+	a = new int[100];
+    Q = M / A;
+    R = M % A;
+    if (!pd(n)) {
+        println("Sorry, the number n must be a number s.t. there exists i satisfying n=1+2+...+i");
+        return 1;
+    }
+    println("Let's start!");
+    initialize(3654898);
+    now = random() % 10 + 1;
+    println(toString(now));
+    for (; i < now - 1; ++i)
+    {
+        a[i] = random() % 10 + 1;
+        while (a[i] + temp > n)
+            a[i] = random() % 10 + 1;
+        temp = temp + a[i];
+    }
+    a[now - 1] = n - temp;
+    show();
+    merge();
+    while (!win()) {
+        println("step " + toString(++count) + ":");
+        move();
+        merge();
+        show();
+    }
+    println("Total: " + toString(count) + " step(s)");
+    return 0;
 }

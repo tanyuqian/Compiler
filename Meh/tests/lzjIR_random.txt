@@ -1,0 +1,23 @@
+%enter
+jump null
+%entry
+$t26 = rem $g8(seed) $g6(Q)
+$t27 = mul $g4(A) $t26
+$t28 = div $g8(seed) $g6(Q)
+$t29 = mul $g7(R) $t28
+$t30 = sub $t27 $t29
+$t9 = move $t30
+$t31 = sge $t9 0
+br $t31 null null
+%if_true
+$g8(seed) = move $t9
+jump null
+%if_false
+$t32 = add $t9 $g5(M)
+$g8(seed) = move $t32
+jump null
+%if_merge
+ret $g8(seed)
+jump null
+jump null
+%exit

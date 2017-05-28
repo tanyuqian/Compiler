@@ -2,12 +2,14 @@
 #include <string.h>
 
 int main() {
-    char a[100];
+    long long a = 5;
+    long long b = 3;
 
-    scanf("\n");
-    gets(a);
+    scanf("%lld%lld", &a, &b);
 
-    puts(a);
+    long long c = (a > b);
+
+    printf("%lld\n", c);
 
     return 0;
 }
