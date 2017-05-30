@@ -175,10 +175,12 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         } else if (instruction instanceof BitwiseXorInstruction) {
                             output.printf("\txor     %s, %s\n", c, b);
                         } else if (instruction instanceof DivisionInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            //output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            moveFilter(NASMRegister.rax, c);
                             output.printf("\tcqo\n");
                             output.printf("\tidiv   %s\n", b);
-                            output.printf("\tmov    %s, %s\n", c, NASMRegister.rax);
+                            //output.printf("\tmov    %s, %s\n", c, NASMRegister.rax);
+                            moveFilter(c, NASMRegister.rax);
                         } else if (instruction instanceof EqualToInstruction) {
                             output.printf("\tcmp    %s, %s\n", c, b);
                             output.printf("\tsete   al\n");
@@ -200,7 +202,8 @@ public class NASMSimpleTranslator extends NASMTranslator {
                             output.printf("\tsetle   al\n");
                             output.printf("\tmovzx    %s, al\n", c);
                         } else if (instruction instanceof ModuloInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            //output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            moveFilter(NASMRegister.rax, c);
                             output.printf("\tcqo\n");
                             output.printf("\tidiv   %s\n", b);
                             output.printf("\tmov    %s, %s\n", c, NASMRegister.rdx);
@@ -280,7 +283,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                             PhysicalRegistor cur = loadToRead(parameters.get(i), NASMRegister.rax);
                             if (order.contains(cur) && !cur.isCalleeSaved) {
                                 output.printf("\tmov    %s, qword[rbp + (%d)]\n", order.get(i),
-                                        -graph.frame.size - cur.identity * NASMRegister.size());
+                                        -graph.frame.size - (cur.identity + 1) * NASMRegister.size());
                             } else {
                                 output.printf("\tmov    %s, %s\n", order.get(i), cur);
                             }
