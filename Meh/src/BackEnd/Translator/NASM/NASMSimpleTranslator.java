@@ -237,7 +237,12 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         for (int i = 0; i < 6 && i < parameters.size(); i++) {
                             //rdi, rsi, rdx, rcx, r8, r9
                             PhysicalRegistor cur = loadToRead(parameters.get(i), NASMRegister.rax);
-                            output.printf("\tmov    %s, %s\n", order.get(i), cur);
+                            if (order.contains(cur)) {
+                                output.printf("\tmov    %s, qword[rbp + (%d)]\n", order.get(i),
+                                        -graph.frame.size - cur.identity * NASMRegister.size());
+                            } else {
+                                output.printf("\tmov    %s, %s\n", order.get(i), cur);
+                            }
                         }
                         if (parameters.size() > 6) {
                             for (int i = parameters.size() - 1; i >= 6; i--) {
