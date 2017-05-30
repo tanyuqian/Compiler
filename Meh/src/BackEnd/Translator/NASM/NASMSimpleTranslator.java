@@ -247,7 +247,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         //output.printf("\tmov    %s, %s\n", NASMRegister.r11, baseR);
                         moveFilter(NASMRegister.r11, baseR);
                         if (((StoreInstruction) instruction).address.offset.value != 0) {
-                            output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((LoadInstruction) instruction).address.offset);
+                            output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((StoreInstruction) instruction).address.offset);
                         }
                         output.printf("\tmov    qword [%s], %s\n", NASMRegister.r11, a);
                     }
