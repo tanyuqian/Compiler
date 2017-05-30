@@ -1,4 +1,4 @@
-package BackEnd.Allocator;
+package BackEnd.Translator.NASM;
 
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 

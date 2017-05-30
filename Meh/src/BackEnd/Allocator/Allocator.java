@@ -1,6 +1,7 @@
 package BackEnd.Allocator;
 
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
+import BackEnd.Translator.NASM.PhysicalRegistor;
 import FrontEnd.AbstractSyntaxTree.Function;
 
 import java.util.HashMap;

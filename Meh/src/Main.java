@@ -1,3 +1,4 @@
+import BackEnd.Allocator.RegisterAllocator.RegisterAllocator;
 import BackEnd.ControlFlowGraph.Graph;
 import BackEnd.Translator.NASM.NASMNaiveTranslator;
 import Environment.Environment;
@@ -19,8 +20,8 @@ import java.io.InputStream;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        InputStream iStream = System.in;
-        //InputStream iStream = new FileInputStream("tests/2.meh");
+        //InputStream iStream = System.in;
+        InputStream iStream = new FileInputStream("tests/2.meh");
         ANTLRInputStream input = new ANTLRInputStream(iStream);
         MehLexer lexer = new MehLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -39,6 +40,7 @@ public class Main {
 
         for (Function function : Environment.program.functions) {
             function.graph = new Graph(function);
+            function.allocator = new RegisterAllocator(function);
         }
         new NASMNaiveTranslator(System.out).translate();
     }

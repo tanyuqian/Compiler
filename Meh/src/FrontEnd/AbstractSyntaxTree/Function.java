@@ -1,5 +1,6 @@
 package FrontEnd.AbstractSyntaxTree;
 
+import BackEnd.Allocator.Allocator;
 import BackEnd.ControlFlowGraph.Graph;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
 import BackEnd.ControlFlowGraph.Instruction.LabelInstruction;
@@ -24,6 +25,7 @@ public class Function extends Type implements Scope {
     public BlockStatement statements;
     public LabelInstruction entry, enter, exit;
     public Graph graph;
+    public Allocator allocator;
 
     public Function(Type type, String name, List<Symbol> parameters) {
         this.type = type;

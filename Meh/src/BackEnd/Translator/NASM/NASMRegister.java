@@ -1,7 +1,5 @@
 package BackEnd.Translator.NASM;
 
-import BackEnd.Allocator.PhysicalRegistor;
-
 /**
  * Created by tan on 5/23/17.
  */
