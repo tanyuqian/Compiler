@@ -1,40 +1,25 @@
+%enter
+liveIn: {}
 jump %entry
-$t0 = move 1000000
-call __builtin_print $4
-$t5 = mul $t0 2
-$t6 = add $t5 1
-$t7 = call __builtin_toString $t6
-$t9 = call __builtin_string_concat $t7 $8
-$t10 = call __builtin_toString $t0
-$t11 = call __builtin_string_concat $t9 $t10
-call __builtin_println $t11
-$t2 = move 1
-$t1 = move 0
-jump %for_condition
-$t12 = slt $t1 $t0
-br $t12 %for_body %for_after
-$t13 = call __builtin_toString $t2
-$t15 = call __builtin_string_concat $t13 $14
-$t16 = add $t2 1
-$t17 = call __builtin_toString $t16
-$t18 = call __builtin_string_concat $t15 $t17
-$t20 = call __builtin_string_concat $t18 $19
-$t21 = add $t2 2
-$t22 = neg $t21
-$t23 = call __builtin_toString $t22
-$t24 = call __builtin_string_concat $t20 $t23
-$t3 = move $t24
-$t25 = rem $t1 100000
-$t26 = seq $t25 0
-br $t26 %if_true %if_false
-call __builtin_println $t3
-jump %if_merge
-$t27 = add $t2 2
-$t2 = move $t27
-jump %for_loop
-$t1 = add $t1 1
-jump %for_condition
-jump %if_merge
+%entry
+liveIn: {}
+$t3 = move 32
+$t3 = add $t3 8
+$t2 = alloc $t3
+store 8 $t2 4 0
+$t2 = add $t2 8
+$t1 = move $t2
+$t5 = move 16
+$t4 = add $t1 $t5
+store 8 $t4 2 0
+$g0(a) = move $t1
+$t7 = move 16
+$t6 = add $g0(a) $t7
+$t8 = load 8 $t6 0
+$t9 = call __builtin_toString $t8
+call __builtin_println $t9
 ret 0
 jump %exit
+%exit
+liveIn: {}
 

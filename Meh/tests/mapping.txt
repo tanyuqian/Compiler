@@ -1,0 +1,9 @@
+$t6 --> rsi
+$t4 --> rdi
+$t8 --> rbx
+$t3 --> rbx
+$t1 --> rsi
+$t7 --> rbx
+$t5 --> rbx
+$t2 --> rbx
+$t9 --> rbx

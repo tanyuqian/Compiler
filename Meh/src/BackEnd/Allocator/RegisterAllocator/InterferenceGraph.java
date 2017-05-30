@@ -43,19 +43,15 @@ public class InterferenceGraph {
         if (u == v) {
             return ;
         }
-        if ((u instanceof TemporaryRegister) && (v instanceof TemporaryRegister)) {
-            forbids.get(u).add(v);
-            forbids.get(v).add(u);
-        }
+        forbids.get(u).add(v);
+        forbids.get(v).add(u);
     }
 
     void addRecommend(VirtualRegister u, VirtualRegister v) {
         if (u == v) {
             return ;
         }
-        if ((u instanceof TemporaryRegister) && (v instanceof TemporaryRegister)) {
-            recommend.get(u).add(v);
-            recommend.get(v).add(u);
-        }
+        recommend.get(u).add(v);
+        recommend.get(v).add(u);
     }
 }

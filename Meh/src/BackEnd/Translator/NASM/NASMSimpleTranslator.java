@@ -220,9 +220,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                     if (instruction instanceof ReturnInstruction) {
                         PhysicalRegistor a = loadToRead(((ReturnInstruction) instruction).operand, NASMRegister.rax);
                         output.printf("\tmov    %s, %s\n", NASMRegister.rax, a);
-                        restoreScene();
-                        output.printf("\tleave\n");
-                        output.printf("\tret\n");
+                        output.printf("\tjmp    %s\n", getBlockName(graph.exit));
                     } else if (instruction instanceof CallInstruction) {
                         protectScene();
                         VirtualRegister destination = ((CallInstruction) instruction).destination;
@@ -258,5 +256,13 @@ public class NASMSimpleTranslator extends NASMTranslator {
                 }
             }
         }
+        for (VirtualRegister register : allocator.mapping.keySet()) {
+            if (register instanceof GlobalRegister || register instanceof StringRegister) {
+                output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(register), allocator.mapping.get(register));
+            }
+        }
+        restoreScene();
+        output.printf("\tleave\n");
+        output.printf("\tret\n");
     }
 }

@@ -15,7 +15,7 @@ import java.util.Set;
  * Created by tan on 5/29/17.
  */
 public class RegisterAllocator extends Allocator {
-    public RegisterAllocator(Function function) {
+    public RegisterAllocator(Function function) throws Exception {
         super(function);
         InterferenceGraph interGraph = new InterferenceGraph();
         for (Block block : function.graph.blocks) {
@@ -77,5 +77,6 @@ public class RegisterAllocator extends Allocator {
             }
         }
         mapping = new ChaitinGraphColoring(interGraph).analysis();
+
     }
 }

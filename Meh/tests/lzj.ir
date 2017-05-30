@@ -1,0 +1,21 @@
+func main {
+	%main.0.enter:
+		jump %main.1.entry
+
+	%main.1.entry:
+		$t2 = alloc 20
+		store 4 $t2 4 0
+		$t2 = add $t2 4
+		$t1 = move $t2
+		$t4 = add $t1 8
+		store 4 $t4 2 0
+		$g0(a) = move $t1
+		$t6 = add $g0(a) 8
+		$t8 = load 4 $t6 0
+		$t9 = call ____builtin____to_string $t8
+		call ____builtin____println $t9
+		ret 0
+		jump %main.2.exit
+
+	%main.2.exit:
+}

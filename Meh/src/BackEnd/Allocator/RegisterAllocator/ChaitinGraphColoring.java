@@ -1,8 +1,11 @@
 package BackEnd.Allocator.RegisterAllocator;
 
+import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.TemporaryRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import BackEnd.Translator.NASM.PhysicalRegistor;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.*;
 
 /**
@@ -21,7 +24,7 @@ public class ChaitinGraphColoring {
         leftVertices = new HashSet<>();
     }
 
-    public Map<VirtualRegister, PhysicalRegistor> analysis() {
+    public Map<VirtualRegister, PhysicalRegistor> analysis() throws Exception {
         for (VirtualRegister register : interferenceGraph.vertices) {
             leftVertices.add(register);
             degree.put(register, interferenceGraph.forbids.get(register).size());
@@ -50,6 +53,21 @@ public class ChaitinGraphColoring {
         while (!stack.empty()) {
             putColor(stack.pop());
         }
+
+        Map<VirtualRegister, PhysicalRegistor> old = mapping;
+        mapping = new HashMap<>();
+        for (VirtualRegister register : old.keySet()) {
+            if (register instanceof TemporaryRegister) {
+                mapping.put(register, old.get(register));
+            }
+        }
+
+//        FileWriter fw = new FileWriter("tests/mapping.txt");
+//        for (VirtualRegister register : mapping.keySet()) {
+//            fw.write(String.format("%s --> %s\n", register, mapping.get(register)));
+//        }
+//        fw.close();
+
         return mapping;
     }
 

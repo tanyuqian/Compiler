@@ -1,0 +1,22 @@
+%enter
+jump null
+%entry
+$t3 = move 16
+$t3 = add $t3 4
+$t2 = alloc $t3
+store 4 $t2 4 0
+$t2 = add $t2 4
+$t1 = move $t2
+$t5 = move 8
+$t4 = add $t1 $t5
+store 4 $t4 2 0
+$g0(a) = move $t1
+$t7 = move 8
+$t6 = add $g0(a) $t7
+$t8 = load 4 $t6 0
+$t9 = call ____builtin____to_string $t8
+call ____builtin____println $t9
+ret 0
+jump null
+jump null
+%exit

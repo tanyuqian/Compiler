@@ -62,6 +62,14 @@ public abstract class NASMTranslator extends Translator {
 //        FileWriter fw = new FileWriter("tests/tbwIR.txt");
 //        for (Function function : Environment.program.functions) {
 //            for (Block block : function.graph.blocks) {
+//                fw.write("%" + block.name);
+//                fw.write("\n");
+//                fw.write("liveIn: {");
+//                for (VirtualRegister register : block.liveliness.liveIn) {
+//                    fw.write(register.toString());
+//                    fw.write(", ");
+//                }
+//                fw.write("}\n");
 //                for (Instruction instruction : block.instructions) {
 //                    fw.write(instruction.toString());
 //                    fw.write("\n");
