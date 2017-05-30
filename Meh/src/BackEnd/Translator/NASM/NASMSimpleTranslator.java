@@ -236,7 +236,9 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         PhysicalRegistor destR = loadToWrite(((LoadInstruction) instruction).destination, NASMRegister.r10);
                         //output.printf("\tmov    %s, %s\n", NASMRegister.r11, baseR);
                         moveFilter(NASMRegister.r11, baseR);
-                        output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((LoadInstruction) instruction).address.offset);
+                        if (((LoadInstruction) instruction).address.offset.value != 0) {
+                            output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((LoadInstruction) instruction).address.offset);
+                        }
                         output.printf("\tmov    %s, qword [%s]\n", destR, NASMRegister.r11);
                         store(destR, ((LoadInstruction) instruction).destination);
                     } else if (instruction instanceof StoreInstruction) {
@@ -244,7 +246,9 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         PhysicalRegistor a = loadToRead(((StoreInstruction) instruction).operand, NASMRegister.rax);
                         //output.printf("\tmov    %s, %s\n", NASMRegister.r11, baseR);
                         moveFilter(NASMRegister.r11, baseR);
-                        output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((StoreInstruction) instruction).address.offset);
+                        if (((StoreInstruction) instruction).address.offset.value != 0) {
+                            output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((LoadInstruction) instruction).address.offset);
+                        }
                         output.printf("\tmov    qword [%s], %s\n", NASMRegister.r11, a);
                     }
                 } else if (instruction instanceof ControlFlowInstruction) {
