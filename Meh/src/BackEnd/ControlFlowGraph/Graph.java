@@ -86,7 +86,6 @@ public class Graph {
 //                ((LabelInstruction) instruction).block = new Block(((LabelInstruction) instruction).name, cntLabel++, function);
 //            }
 //        }
-
         refresh();
     }
 
