@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play" afterPath="$PROJECT_DIR$/tests/play" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.o" afterPath="$PROJECT_DIR$/tests/play.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.asm" afterPath="$PROJECT_DIR$/tests/play.asm" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,8 +49,8 @@
       <file leaf-file-name="NASMSimpleTranslator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="265" column="56" lean-forward="false" selection-start-line="265" selection-start-column="56" selection-end-line="265" selection-end-column="56" />
+            <state relative-caret-position="92">
+              <caret line="112" column="87" lean-forward="false" selection-start-line="112" selection-start-column="87" selection-end-line="112" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -71,6 +71,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1911">
               <caret line="203" column="49" lean-forward="false" selection-start-line="203" selection-start-column="49" selection-end-line="203" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-731">
+              <caret line="173" column="66" lean-forward="false" selection-start-line="173" selection-start-column="66" selection-end-line="173" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -109,21 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Meh.tokens" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.tokens">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2.meh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/2.meh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="496">
+              <caret line="1041" column="1" lean-forward="false" selection-start-line="1041" selection-start-column="1" selection-end-line="1041" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -132,8 +132,8 @@
       <file leaf-file-name="play.asm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/play.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,7 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>length</find>
       <find>substring</find>
       <find>string_concat</find>
       <find>modulo</find>
@@ -181,6 +180,7 @@
       <find>t14</find>
       <find>collition</find>
       <find>c</find>
+      <find>mov</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -239,10 +239,10 @@
         <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
         <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
-        <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java" />
-        <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java" />
+        <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
+        <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/tests/play.asm" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
@@ -994,12 +994,12 @@
       <workItem from="1495960278103" duration="1638000" />
       <workItem from="1496036229567" duration="6933000" />
       <workItem from="1496051677513" duration="39715000" />
-      <workItem from="1496127885682" duration="22039000" />
+      <workItem from="1496127885682" duration="22792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="480895000" />
+    <option name="totallyTimeSpent" value="481648000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1036,7 +1036,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42414862" sideWeight="0.49405235" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31578946" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3142415" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2530303" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1299,14 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="173" column="66" lean-forward="false" selection-start-line="173" selection-start-column="66" selection-end-line="173" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Instruction/MemoryInstruction/LoadInstruction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100">
@@ -1473,30 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="265" column="56" lean-forward="false" selection-start-line="265" selection-start-column="56" selection-end-line="265" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/play.asm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/2.meh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -1505,6 +1473,38 @@
             <element signature="e#1544#1545#0" expanded="true" />
             <element signature="e#1596#1597#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="173" column="66" lean-forward="false" selection-start-line="173" selection-start-column="66" selection-end-line="173" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="112" column="87" lean-forward="false" selection-start-line="112" selection-start-column="87" selection-end-line="112" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/2.meh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="1041" column="1" lean-forward="false" selection-start-line="1041" selection-start-column="1" selection-end-line="1041" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/play.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
