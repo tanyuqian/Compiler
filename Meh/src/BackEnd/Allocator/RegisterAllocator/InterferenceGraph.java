@@ -13,6 +13,8 @@ import java.util.*;
 public class InterferenceGraph {
     public static List<PhysicalRegistor> colors = new ArrayList<PhysicalRegistor>() {{
         add(NASMRegister.rbx);
+        add(NASMRegister.rcx);
+        add(NASMRegister.rdx);
         add(NASMRegister.rsi);
         add(NASMRegister.rdi);
         add(NASMRegister.r8);

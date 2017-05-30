@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/a.out" afterPath="$PROJECT_DIR$/tests/a.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play" afterPath="$PROJECT_DIR$/tests/play" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.o" afterPath="$PROJECT_DIR$/tests/play.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java" afterPath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" afterPath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.asm" afterPath="$PROJECT_DIR$/tests/play.asm" />
     </list>
@@ -36,21 +38,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NASMTranslator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java">
+      <file leaf-file-name="NASMSimpleTranslator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="75" column="19" lean-forward="true" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+            <state relative-caret-position="279">
+              <caret line="299" column="54" lean-forward="true" selection-start-line="299" selection-start-column="54" selection-end-line="299" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NASMSimpleTranslator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
+      <file leaf-file-name="Meh.g4" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="112" column="87" lean-forward="false" selection-start-line="112" selection-start-column="87" selection-end-line="112" selection-end-column="87" />
+            <state relative-caret-position="460">
+              <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -59,7 +61,7 @@
       <file leaf-file-name="RegisterAllocator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-299">
+            <state relative-caret-position="400">
               <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
               <folding />
             </state>
@@ -69,28 +71,8 @@
       <file leaf-file-name="NASMNaiveTranslator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1911">
+            <state relative-caret-position="-47">
               <caret line="203" column="49" lean-forward="false" selection-start-line="203" selection-start-column="49" selection-end-line="203" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-731">
-              <caret line="173" column="66" lean-forward="false" selection-start-line="173" selection-start-column="66" selection-end-line="173" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhysicalRegistor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -106,10 +88,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ChaitinGraphColoring.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1496160423263" expanded="true" signature="1810:2005" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InterferenceGraph.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-596">
+              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="NASMRegister.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
+            <state relative-caret-position="260">
               <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
               <folding>
                 <element signature="e#1544#1545#0" expanded="true" />
@@ -122,8 +127,8 @@
       <file leaf-file-name="2.meh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/2.meh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="1041" column="1" lean-forward="false" selection-start-line="1041" selection-start-column="1" selection-end-line="1041" selection-end-column="1" />
+            <state relative-caret-position="193">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -132,8 +137,8 @@
       <file leaf-file-name="play.asm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/play.asm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-3320">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -234,14 +239,14 @@
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java" />
         <option value="$PROJECT_DIR$/tests/mapping.txt" />
         <option value="$PROJECT_DIR$/tests/tbwIR.txt" />
-        <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMTranslator.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java" />
         <option value="$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4" />
-        <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
+        <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java" />
+        <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
         <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/tests/play.asm" />
         <option value="$PROJECT_DIR$/src/Main.java" />
@@ -994,12 +999,12 @@
       <workItem from="1495960278103" duration="1638000" />
       <workItem from="1496036229567" duration="6933000" />
       <workItem from="1496051677513" duration="39715000" />
-      <workItem from="1496127885682" duration="22792000" />
+      <workItem from="1496127885682" duration="24439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481648000" />
+    <option name="totallyTimeSpent" value="483295000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1374,33 +1379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1496152904861" expanded="true" signature="1698:1937" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/Allocator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1433,26 +1411,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1911">
-          <caret line="203" column="49" lean-forward="false" selection-start-line="203" selection-start-column="49" selection-end-line="203" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/PhysicalRegistor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-299">
-          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1465,17 +1427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding>
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/ControlFlowGraph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-731">
@@ -1484,26 +1435,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="112" column="87" lean-forward="false" selection-start-line="112" selection-start-column="87" selection-end-line="112" selection-end-column="87" />
+        <state relative-caret-position="400">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-47">
+          <caret line="203" column="49" lean-forward="false" selection-start-line="203" selection-start-column="49" selection-end-line="203" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1496160423263" expanded="true" signature="1810:2005" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/2.meh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="1041" column="1" lean-forward="false" selection-start-line="1041" selection-start-column="1" selection-end-line="1041" selection-end-column="1" />
+        <state relative-caret-position="193">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-596">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/play.asm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-3320">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="299" column="54" lean-forward="true" selection-start-line="299" selection-start-column="54" selection-end-line="299" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/Meh.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
           <folding />
         </state>
       </provider>

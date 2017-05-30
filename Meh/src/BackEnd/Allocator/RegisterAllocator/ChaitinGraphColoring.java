@@ -3,6 +3,7 @@ package BackEnd.Allocator.RegisterAllocator;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.TemporaryRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import BackEnd.Translator.NASM.PhysicalRegistor;
+import Utility.CompilationError;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -41,12 +42,19 @@ public class ChaitinGraphColoring {
                 }
             }
             if (!modified) {
+                int maxDegree = -1;
+                VirtualRegister uu = null;
                 for (VirtualRegister vertice : leftVertices) {
-                    if (degree.get(vertice) >= InterferenceGraph.colors.size()) {
-                        stack.add(vertice);
-                        remove(vertice);
-                        break;
+                    if (degree.get(vertice) > maxDegree) {
+                        maxDegree = degree.get(vertice);
+                        uu = vertice;
                     }
+                }
+                if (uu != null) {
+                    stack.add(uu);
+                    remove(uu);
+                } else {
+                    throw new CompilationError("Internal Error!!");
                 }
             }
         }
