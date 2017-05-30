@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" afterPath="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -90,9 +88,22 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="100">
+              <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChaitinGraphColoring.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1496160423263" expanded="true" signature="1810:2005" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,16 +133,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
               <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="play.asm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/play.asm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-28226">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -988,12 +989,12 @@
       <workItem from="1495960278103" duration="1638000" />
       <workItem from="1496036229567" duration="6933000" />
       <workItem from="1496051677513" duration="39715000" />
-      <workItem from="1496127885682" duration="25758000" />
+      <workItem from="1496127885682" duration="25981000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484614000" />
+    <option name="totallyTimeSpent" value="484837000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1395,17 +1396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1696">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1496160423263" expanded="true" signature="1810:2005" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/RegisterAllocator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-636">
@@ -1446,14 +1436,6 @@
             <element signature="e#131#132#0" expanded="true" />
             <element signature="e#187#188#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,10 +1487,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontEnd/ConcreteSyntaxTree/MehParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/ChaitinGraphColoring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1496160423263" expanded="true" signature="1810:2005" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="100">
+          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding />
         </state>
       </provider>
