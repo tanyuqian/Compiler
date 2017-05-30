@@ -1,4 +1,8 @@
-$t22 --> r8
-$t4 --> r8
-$t5 --> rsi
-$t24 --> rsi
+$t17 --> rbx
+$t16 --> rsi
+$t15 --> rdi
+$t3 --> rdi
+$t4 --> rsi
+$t19 --> rbx
+$t18 --> rbx
+$t5 --> rbx
