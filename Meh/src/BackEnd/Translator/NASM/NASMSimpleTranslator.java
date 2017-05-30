@@ -45,17 +45,21 @@ public class NASMSimpleTranslator extends NASMTranslator {
 
     public void protectScene() {
         for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
-            output.printf("\tmov    qword [rbp + (%d)], %s\n",
-                    -graph.frame.size - NASMRegister.size() * physicalRegistor.identity,
-                    physicalRegistor.name);
+            if (!physicalRegistor.isCalleeSaved) {
+                output.printf("\tmov    qword [rbp + (%d)], %s\n",
+                        -graph.frame.size - NASMRegister.size() * physicalRegistor.identity,
+                        physicalRegistor.name);
+            }
         }
     }
 
     public void restoreScene() {
         for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
-            output.printf("\tmov    %s, qword [rbp + (%d)]\n",
-                    physicalRegistor.name,
-                    -graph.frame.size - NASMRegister.size() * physicalRegistor.identity);
+            if (!physicalRegistor.isCalleeSaved) {
+                output.printf("\tmov    %s, qword [rbp + (%d)]\n",
+                        physicalRegistor.name,
+                        -graph.frame.size - NASMRegister.size() * physicalRegistor.identity);
+            }
         }
     }
 
@@ -99,17 +103,31 @@ public class NASMSimpleTranslator extends NASMTranslator {
         output.printf("\tpush   rbp\n");
         output.printf("\tmov    rbp, rsp\n");
         output.printf("\tsub    rsp, %d\n", graph.frame.size + NASMRegister.size() * 40);
-        output.printf("\tmov    qword [rbp-8], rdi\n");
-        output.printf("\tmov    qword [rbp-16], rsi\n");
-        output.printf("\tmov    qword [rbp-24], rdx\n");
-        output.printf("\tmov    qword [rbp-32], rcx\n");
-        output.printf("\tmov    qword [rbp-40], r8\n");
-        output.printf("\tmov    qword [rbp-48], r9\n");
+        if (graph.function.parameters.size() >= 1) {
+            output.printf("\tmov    qword [rbp-8], rdi\n");
+        }
+        if (graph.function.parameters.size() >= 2) {
+            output.printf("\tmov    qword [rbp-16], rsi\n");
+        }
+        if (graph.function.parameters.size() >= 3) {
+            output.printf("\tmov    qword [rbp-24], rdx\n");
+        }
+        if (graph.function.parameters.size() >= 4) {
+            output.printf("\tmov    qword [rbp-32], rcx\n");
+        }
+        if (graph.function.parameters.size() >= 5) {
+            output.printf("\tmov    qword [rbp-40], r8\n");
+        }
+        if (graph.function.parameters.size() >= 6) {
+            output.printf("\tmov    qword [rbp-48], r9\n");
+        }
         //protectScene();
         for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
-            output.printf("\tmov    qword [rbp + (%d)], %s\n",
-                    -graph.frame.size - NASMRegister.size() * 20 - physicalRegistor.identity * NASMRegister.size(),
-                    physicalRegistor);
+            if (!physicalRegistor.isCalleeSaved) {
+                output.printf("\tmov    qword [rbp + (%d)], %s\n",
+                        -graph.frame.size - NASMRegister.size() * 20 - physicalRegistor.identity * NASMRegister.size(),
+                        physicalRegistor);
+            }
         }
 
         for (Block block : graph.blocks) {
@@ -244,7 +262,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         for (int i = 0; i < 6 && i < parameters.size(); i++) {
                             //rdi, rsi, rdx, rcx, r8, r9
                             PhysicalRegistor cur = loadToRead(parameters.get(i), NASMRegister.rax);
-                            if (order.contains(cur)) {
+                            if (order.contains(cur) && !cur.isCalleeSaved) {
                                 output.printf("\tmov    %s, qword[rbp + (%d)]\n", order.get(i),
                                         -graph.frame.size - cur.identity * NASMRegister.size());
                             } else {
@@ -266,11 +284,6 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         }
                     }
                 }
-            }
-        }
-        for (VirtualRegister register : allocator.mapping.keySet()) {
-            if (register instanceof GlobalRegister || register instanceof StringRegister) {
-                output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(register), allocator.mapping.get(register));
             }
         }
         //restoreScene();

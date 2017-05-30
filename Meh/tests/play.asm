@@ -280,12 +280,6 @@ fibo:
 	mov    rbp, rsp
 	sub    rsp, 432
 	mov    qword [rbp-8], rdi
-	mov    qword [rbp-16], rsi
-	mov    qword [rbp-24], rdx
-	mov    qword [rbp-32], rcx
-	mov    qword [rbp-40], r8
-	mov    qword [rbp-48], r9
-	mov    qword [rbp + (-304)], rbx
 	mov    qword [rbp + (-328)], rsi
 fibo_enter_0:
 														;jump %entry
@@ -323,11 +317,9 @@ fibo_if_merge_4:
 	sub    r10, r11
 	mov    rbx, r10
 														;$t5 = call fibo $t4
-	mov    qword [rbp + (-144)], rbx
 	mov    qword [rbp + (-168)], rsi
 	mov    rdi, rbx
 	call   fibo
-	mov    rbx, qword [rbp + (-144)]
 	mov    rsi, qword [rbp + (-168)]
 	mov    rsi, rax
 														;$t6 = sub $p0 2
@@ -338,11 +330,9 @@ fibo_if_merge_4:
 	sub    r10, r11
 	mov    rbx, r10
 														;$t7 = call fibo $t6
-	mov    qword [rbp + (-144)], rbx
 	mov    qword [rbp + (-168)], rsi
 	mov    rdi, rbx
 	call   fibo
-	mov    rbx, qword [rbp + (-144)]
 	mov    rsi, qword [rbp + (-168)]
 	mov    rbx, rax
 														;$t8 = add $t5 $t7
@@ -364,13 +354,6 @@ main:
 	push   rbp
 	mov    rbp, rsp
 	sub    rsp, 440
-	mov    qword [rbp-8], rdi
-	mov    qword [rbp-16], rsi
-	mov    qword [rbp-24], rdx
-	mov    qword [rbp-32], rcx
-	mov    qword [rbp-40], r8
-	mov    qword [rbp-48], r9
-	mov    qword [rbp + (-312)], rbx
 	mov    qword [rbp + (-336)], rsi
 main_enter_0:
 														;jump %entry
@@ -380,27 +363,21 @@ main_entry_1:
 	mov    rax, 32
 	mov    rbx, rax
 														;$t9 = call fibo $t1
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rdi, rbx
 	call   fibo
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 	mov    rbx, rax
 														;$t10 = call __builtin_toString $t9
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rdi, rbx
 	call   __builtin_toString
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 	mov    rbx, rax
 														;call __builtin_println $t10
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rdi, rbx
 	call   __builtin_println
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 														;$t2 = move 0
 	mov    rax, 0
@@ -422,28 +399,22 @@ main_for_condition_2:
 	jz     main_for_after_5
 main_for_body_3:
 														;$t12 = call fibo 30
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rax, 30
 	mov    rdi, rax
 	call   fibo
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 	mov    rbx, rax
 														;$t13 = call __builtin_toString $t12
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rdi, rbx
 	call   __builtin_toString
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 	mov    rbx, rax
 														;call __builtin_println $t13
-	mov    qword [rbp + (-152)], rbx
 	mov    qword [rbp + (-176)], rsi
 	mov    rdi, rbx
 	call   __builtin_println
-	mov    rbx, qword [rbp + (-152)]
 	mov    rsi, qword [rbp + (-176)]
 														;jump %for_loop
 	jmp    main_for_loop_4
