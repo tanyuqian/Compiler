@@ -62,11 +62,11 @@ public class ChaitinGraphColoring {
             }
         }
 
-//        FileWriter fw = new FileWriter("tests/mapping.txt");
-//        for (VirtualRegister register : mapping.keySet()) {
-//            fw.write(String.format("%s --> %s\n", register, mapping.get(register)));
-//        }
-//        fw.close();
+        FileWriter fw = new FileWriter("tests/mapping.txt");
+        for (VirtualRegister register : mapping.keySet()) {
+            fw.write(String.format("%s --> %s\n", register, mapping.get(register)));
+        }
+        fw.close();
 
         return mapping;
     }

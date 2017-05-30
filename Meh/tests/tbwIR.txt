@@ -1,23 +1,54 @@
 %enter
-liveIn: {}
+liveIn: {$18, $g1(work_anger), $p3, $8, $12, $14, $p2, }
 jump %entry
 %entry
+liveIn: {$18, $g1(work_anger), $p3, $8, $12, $14, $p2, }
+$t6 = load 8 $p3 8
+$t7 = sle $t6 100
+br $t7 %if_true %if_false
+%if_true
+liveIn: {$g1(work_anger), $p3, $8, $12, $p2, }
+$t9 = call __builtin_string_concat $p2 $8
+$t10 = load 8 $p3 0
+$t11 = call __builtin_string_concat $t9 $t10
+$t13 = call __builtin_string_concat $t11 $12
+call __builtin_println $t13
+jump %if_merge
+%if_merge
+liveIn: {$g1(work_anger), $p3, }
+$t20 = load 8 $p3 8
+$t21 = add $t20 $g1(work_anger)
+store 8 $p3 $t21 8
+jump %exit
+%if_false
+liveIn: {$18, $g1(work_anger), $p3, $14, $p2, }
+$t15 = call __builtin_string_concat $p2 $14
+$t16 = load 8 $p3 0
+$t17 = call __builtin_string_concat $t15 $t16
+$t19 = call __builtin_string_concat $t17 $18
+call __builtin_println $t19
+jump %if_merge
+%exit
 liveIn: {}
-$t3 = move 32
-$t3 = add $t3 8
-$t2 = alloc $t3
-store 8 $t2 4 0
-$t2 = add $t2 8
-$t1 = move $t2
-$t5 = move 16
-$t4 = add $t1 $t5
-store 8 $t4 2 0
-$g0(a) = move $t1
-$t7 = move 16
-$t6 = add $g0(a) $t7
-$t8 = load 8 $t6 0
-$t9 = call __builtin_toString $t8
-call __builtin_println $t9
+
+%enter
+liveIn: {$27, $25, $26, $23, $28, }
+$g0(init_anger) = move 100
+$g1(work_anger) = move 10
+jump %entry
+%entry
+liveIn: {$g0(init_anger), $27, $g1(work_anger), $25, $26, $23, $28, }
+$t22 = alloc 16
+$t4 = move $t22
+store 8 $t4 $23 0
+store 8 $t4 0 8
+$t24 = alloc 16
+$t5 = move $t24
+store 8 $t5 $25 0
+store 8 $t5 $g0(init_anger) 8
+call work $26 $t4
+call work $27 $t5
+call work $28 $t5
 ret 0
 jump %exit
 %exit

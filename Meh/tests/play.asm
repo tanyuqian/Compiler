@@ -275,94 +275,240 @@ __builtin_getArraySize:
     mov     rax, qword [rdi-8]
     ret
 
-main:
+work:
 	push   rbp
 	mov    rbp, rsp
-	sub    rsp, 296
+	sub    rsp, 320
 	mov    qword [rbp-8], rdi
 	mov    qword [rbp-16], rsi
 	mov    qword [rbp-24], rdx
 	mov    qword [rbp-32], rcx
 	mov    qword [rbp-40], r8
 	mov    qword [rbp-48], r9
-	mov    qword [rbp + (-168)], rbx
-	mov    qword [rbp + (-200)], rdi
-	mov    qword [rbp + (-192)], rsi
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+work_enter_0:
+														;jump %entry
+	jmp    work_entry_1
+work_entry_1:
+														;$t6 = load 8 $p3 8
+	mov    rax, qword [rbp+(-16)]
+	mov    r11, rax
+	add    r11, 8
+	mov    rsi, qword [r11]
+														;$t7 = sle $t6 100
+	mov    r11, 100
+	mov    rsi, rsi
+	cmp    rsi, r11
+	setle   al
+	movzx    rsi, al
+														;br $t7 %if_true %if_false
+	cmp    rsi, 0
+	jnz    work_if_true_2
+	jz     work_if_false_3
+work_if_true_2:
+														;$t9 = call __builtin_string_concat $p2 $8
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rax, qword [rbp+(-8)]
+	mov    rdi, rax
+	mov    rax, CONST_STRING_8
+	mov    rsi, rax
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rsi, rax
+														;$t10 = load 8 $p3 0
+	mov    rax, qword [rbp+(-16)]
+	mov    r11, rax
+	add    r11, 0
+	mov    rbx, qword [r11]
+														;$t11 = call __builtin_string_concat $t9 $t10
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rsi
+	mov    rsi, rbx
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rbx, rax
+														;$t13 = call __builtin_string_concat $t11 $12
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rbx
+	mov    rax, CONST_STRING_12
+	mov    rsi, rax
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rbx, rax
+														;call __builtin_println $t13
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rbx
+	call   __builtin_println
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+														;jump %if_merge
+	jmp    work_if_merge_4
+work_if_merge_4:
+														;$t20 = load 8 $p3 8
+	mov    rax, qword [rbp+(-16)]
+	mov    r11, rax
+	add    r11, 8
+	mov    rbx, qword [r11]
+														;$t21 = add $t20 $g1(work_anger)
+	mov    r11, qword [rel GV_work_anger]
+	mov    rbx, rbx
+	add    rbx, r11
+														;store 8 $p3 $t21 8
+	mov    rax, qword [rbp+(-16)]
+	mov    r11, rax
+	add    r11, 8
+	mov    qword [r11], rbx
+														;jump %exit
+	jmp    work_exit_5
+work_if_false_3:
+														;$t15 = call __builtin_string_concat $p2 $14
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rax, qword [rbp+(-8)]
+	mov    rdi, rax
+	mov    rax, CONST_STRING_14
+	mov    rsi, rax
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rsi, rax
+														;$t16 = load 8 $p3 0
+	mov    rax, qword [rbp+(-16)]
+	mov    r11, rax
+	add    r11, 0
+	mov    rbx, qword [r11]
+														;$t17 = call __builtin_string_concat $t15 $t16
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rsi
+	mov    rsi, rbx
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rbx, rax
+														;$t19 = call __builtin_string_concat $t17 $18
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rbx
+	mov    rax, CONST_STRING_18
+	mov    rsi, rax
+	call   __builtin_string_concat
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	mov    rbx, rax
+														;call __builtin_println $t19
+	mov    qword [rbp + (-192)], rbx
+	mov    qword [rbp + (-216)], rsi
+	mov    rdi, rbx
+	call   __builtin_println
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+														;jump %if_merge
+	jmp    work_if_merge_4
+work_exit_5:
+	mov    rbx, qword [rbp + (-192)]
+	mov    rsi, qword [rbp + (-216)]
+	leave
+	ret
+main:
+	push   rbp
+	mov    rbp, rsp
+	sub    rsp, 256
+	mov    qword [rbp-8], rdi
+	mov    qword [rbp-16], rsi
+	mov    qword [rbp-24], rdx
+	mov    qword [rbp-32], rcx
+	mov    qword [rbp-40], r8
+	mov    qword [rbp-48], r9
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
 main_enter_0:
+														;$g0(init_anger) = move 100
+	mov    rax, 100
+	mov    qword [rel GV_init_anger], rax
+														;$g1(work_anger) = move 10
+	mov    rax, 10
+	mov    qword [rel GV_work_anger], rax
 														;jump %entry
 	jmp    main_entry_1
 main_entry_1:
-														;$t3 = move 32
-	mov    rax, 32
-	mov    rbx, rax
-														;$t3 = add $t3 8
-	mov    r11, 8
-	mov    rbx, rbx
-	add    rbx, r11
-														;$t2 = alloc $t3
-	mov    rdi, rbx
-	mov    qword [rbp + (-168)], rbx
-	mov    qword [rbp + (-200)], rdi
-	mov    qword [rbp + (-192)], rsi
+														;$t22 = alloc 16
+	mov    rax, 16
+	mov    rdi, rax
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
 	call   malloc
-	mov    rbx, qword [rbp + (-168)]
-	mov    rdi, qword [rbp + (-200)]
-	mov    rsi, qword [rbp + (-192)]
-	mov    rbx, rax
-														;store 8 $t2 4 0
-	mov    rax, 4
-	mov    r11, rbx
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
+	mov    r8, rax
+														;$t4 = move $t22
+	mov    r8, r8
+														;store 8 $t4 $23 0
+	mov    rax, CONST_STRING_23
+	mov    r11, r8
 	add    r11, 0
 	mov    qword [r11], rax
-														;$t2 = add $t2 8
-	mov    r11, 8
-	mov    rbx, rbx
-	add    rbx, r11
-														;$t1 = move $t2
-	mov    rsi, rbx
-														;$t5 = move 16
-	mov    rax, 16
-	mov    rbx, rax
-														;$t4 = add $t1 $t5
-	mov    rdi, rsi
-	add    rdi, rbx
-														;store 8 $t4 2 0
-	mov    rax, 2
-	mov    r11, rdi
-	add    r11, 0
+														;store 8 $t4 0 8
+	mov    rax, 0
+	mov    r11, r8
+	add    r11, 8
 	mov    qword [r11], rax
-														;$g0(a) = move $t1
-	mov    qword [rel GV_a], rsi
-														;$t7 = move 16
+														;$t24 = alloc 16
 	mov    rax, 16
-	mov    rbx, rax
-														;$t6 = add $g0(a) $t7
-	mov    rax, qword [rel GV_a]
+	mov    rdi, rax
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
+	call   malloc
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
 	mov    rsi, rax
-	add    rsi, rbx
-														;$t8 = load 8 $t6 0
+														;$t5 = move $t24
+	mov    rsi, rsi
+														;store 8 $t5 $25 0
+	mov    rax, CONST_STRING_25
 	mov    r11, rsi
 	add    r11, 0
-	mov    rbx, qword [r11]
-														;$t9 = call __builtin_toString $t8
-	mov    qword [rbp + (-168)], rbx
-	mov    qword [rbp + (-200)], rdi
-	mov    qword [rbp + (-192)], rsi
-	mov    rdi, rbx
-	call   __builtin_toString
-	mov    rbx, qword [rbp + (-168)]
-	mov    rdi, qword [rbp + (-200)]
-	mov    rsi, qword [rbp + (-192)]
-	mov    rbx, rax
-														;call __builtin_println $t9
-	mov    qword [rbp + (-168)], rbx
-	mov    qword [rbp + (-200)], rdi
-	mov    qword [rbp + (-192)], rsi
-	mov    rdi, rbx
-	call   __builtin_println
-	mov    rbx, qword [rbp + (-168)]
-	mov    rdi, qword [rbp + (-200)]
-	mov    rsi, qword [rbp + (-192)]
+	mov    qword [r11], rax
+														;store 8 $t5 $g0(init_anger) 8
+	mov    rax, qword [rel GV_init_anger]
+	mov    r11, rsi
+	add    r11, 8
+	mov    qword [r11], rax
+														;call work $26 $t4
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
+	mov    rax, CONST_STRING_26
+	mov    rdi, rax
+	mov    rsi, r8
+	call   work
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
+														;call work $27 $t5
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
+	mov    rax, CONST_STRING_27
+	mov    rdi, rax
+	mov    rsi, rsi
+	call   work
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
+														;call work $28 $t5
+	mov    qword [rbp + (-168)], r8
+	mov    qword [rbp + (-152)], rsi
+	mov    rax, CONST_STRING_28
+	mov    rdi, rax
+	mov    rsi, rsi
+	call   work
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
 														;ret 0
 	mov    rax, 0
 	mov    rax, rax
@@ -370,14 +516,33 @@ main_entry_1:
 														;jump %exit
 	jmp    main_exit_2
 main_exit_2:
-	mov    rbx, qword [rbp + (-168)]
-	mov    rdi, qword [rbp + (-200)]
-	mov    rsi, qword [rbp + (-192)]
+	mov    r8, qword [rbp + (-168)]
+	mov    rsi, qword [rbp + (-152)]
 	leave
 	ret
 SECTION .data
-GV_a:
+GV_work_anger:
 	dq 0
+CONST_STRING_12:
+	db 32, 101, 110, 106, 111, 121, 115, 32, 116, 104, 105, 115, 32, 119, 111, 114, 107, 46, 32, 88, 68, 0
+GV_init_anger:
+	dq 0
+CONST_STRING_18:
+	db 32, 119, 97, 110, 116, 115, 32, 116, 111, 32, 103, 105, 118, 101, 32, 117, 112, 33, 33, 33, 33, 33, 0
+CONST_STRING_26:
+	db 77, 82, 0
+CONST_STRING_8:
+	db 44, 32, 0
+CONST_STRING_25:
+	db 116, 104, 101, 32, 115, 116, 114, 105, 107, 105, 110, 103, 32, 84, 65, 0
+CONST_STRING_27:
+	db 77, 97, 114, 115, 0
+CONST_STRING_23:
+	db 116, 104, 101, 32, 108, 101, 97, 100, 105, 110, 103, 32, 84, 65, 0
+CONST_STRING_14:
+	db 44, 32, 0
+CONST_STRING_28:
+	db 77, 97, 114, 115, 0
 STRING_FORMAT:
 	db "%s", 0
 INTEGER_FORMAT_NEXT_LINE:
@@ -390,4 +555,3 @@ CHAR_FORMAT:
 	db "%c", 0
 NEXT_LINE:
 	db 10, 0
-
