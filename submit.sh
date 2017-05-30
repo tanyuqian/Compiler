@@ -1,4 +1,4 @@
 git add .
-git commit -m "r2r debuging..."
+git commit -m "finished."
 git push bb master
 git push origin master

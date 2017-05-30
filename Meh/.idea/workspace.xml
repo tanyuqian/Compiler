@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6894d33d-fb8b-40bc-9cea-53437ffe6f8f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play" afterPath="$PROJECT_DIR$/tests/play" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.o" afterPath="$PROJECT_DIR$/tests/play.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" afterPath="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/2.meh" afterPath="$PROJECT_DIR$/tests/2.meh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/play.asm" afterPath="$PROJECT_DIR$/tests/play.asm" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NASMSimpleTranslator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NASMSimpleTranslator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
+            <state relative-caret-position="388">
               <caret line="162" column="25" lean-forward="true" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
               <folding />
             </state>
@@ -67,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="100">
+              <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -179,10 +175,10 @@
         <option value="$PROJECT_DIR$/tests/test.cpp" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMNaiveTranslator.java" />
         <option value="$PROJECT_DIR$/src/BackEnd/Allocator/RegisterAllocator/InterferenceGraph.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/tests/2.meh" />
         <option value="$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java" />
         <option value="$PROJECT_DIR$/tests/play.asm" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -931,12 +927,12 @@
       <workItem from="1495960278103" duration="1638000" />
       <workItem from="1496036229567" duration="6933000" />
       <workItem from="1496051677513" duration="39715000" />
-      <workItem from="1496127885682" duration="35141000" />
+      <workItem from="1496127885682" duration="35548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="493997000" />
+    <option name="totallyTimeSpent" value="494404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1466,14 +1462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/play.asm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-65198">
@@ -1484,8 +1472,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BackEnd/Translator/NASM/NASMSimpleTranslator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
+        <state relative-caret-position="388">
           <caret line="162" column="25" lean-forward="true" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding />
         </state>
       </provider>
