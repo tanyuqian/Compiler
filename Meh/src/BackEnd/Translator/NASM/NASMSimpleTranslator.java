@@ -158,10 +158,12 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         PhysicalRegistor a = loadToRead(((BinaryInstruction) instruction).operand1, NASMRegister.r10);
                         PhysicalRegistor b = loadToRead(((BinaryInstruction) instruction).operand2, NASMRegister.r11);
                         PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
-                        moveFilter(c, a);
-
+                        if (!(instruction instanceof AdditionInstruction)) {
+                            moveFilter(c, a);
+                        }
                         if (instruction instanceof AdditionInstruction) {
-                            output.printf("\tadd    %s, %s\n", c, b);
+                            //output.printf("\tadd    %s, %s\n", c, b);
+                            output.printf("\tlea    %s, [%s + %s]\n", c, b, a);
                         } else if (instruction instanceof BitwiseAndInstruction) {
                             output.printf("\tand    %s, %s\n", c, b);
                         } else if (instruction instanceof BitwiseLeftShiftInstruction) {

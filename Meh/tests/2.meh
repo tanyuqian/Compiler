@@ -1,3 +1,5 @@
+//Compute and Crack SHA-1
+//by zzk
 
 int hex2int(string x)
 {
@@ -228,8 +230,23 @@ void crackSHA1(string input)
 
 int main()
 {
-	string input = "04E8696E6424C21D717E46008780505D598EB59A";
-	crackSHA1(input);
+	int op;
+	string input;
+	while(true)
+	{
+		op = getInt();
+		if(op == 0)
+			break;
+		if(op == 1)
+		{
+			input = getString();
+			computeSHA1(input);
+		}
+		else if(op == 2)
+		{
+			input = getString();
+			crackSHA1(input);
+		}
+	}
 	return 0;
 }
-
