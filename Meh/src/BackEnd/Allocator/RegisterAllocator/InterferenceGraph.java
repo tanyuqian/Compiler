@@ -43,6 +43,7 @@ public class InterferenceGraph {
         if (u == v) {
             return ;
         }
+        //System.err.printf("Collision: %s, %s\n", u, v);
         forbids.get(u).add(v);
         forbids.get(v).add(u);
     }

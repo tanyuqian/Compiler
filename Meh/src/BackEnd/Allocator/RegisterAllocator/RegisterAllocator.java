@@ -77,6 +77,5 @@ public class RegisterAllocator extends Allocator {
             }
         }
         mapping = new ChaitinGraphColoring(interGraph).analysis();
-
     }
 }

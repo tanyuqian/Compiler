@@ -123,63 +123,65 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         }
                         store(b, ((UnaryInstruction) instruction).destination);
                     } else if (instruction instanceof BinaryInstruction) {
-                        PhysicalRegistor a = loadToRead(((BinaryInstruction) instruction).operand1, NASMRegister.rax);
+                        PhysicalRegistor a = loadToRead(((BinaryInstruction) instruction).operand1, NASMRegister.r10);
                         PhysicalRegistor b = loadToRead(((BinaryInstruction) instruction).operand2, NASMRegister.r11);
-                        PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
-                        output.printf("\tmov    %s, %s\n", c, a);
+                        output.printf("\tmov    %s, %s\n", NASMRegister.r10, a);
+                        output.printf("\tmov    %s, %s\n", NASMRegister.r11, b);
                         if (instruction instanceof AdditionInstruction) {
-                            output.printf("\tadd    %s, %s\n", c, b);
+                            output.printf("\tadd    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         } else if (instruction instanceof BitwiseAndInstruction) {
-                            output.printf("\tand    %s, %s\n", c, b);
+                            output.printf("\tand    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         } else if (instruction instanceof BitwiseLeftShiftInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rcx, b);
-                            output.printf("\tsal    %s, cl\n", c);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.rcx, NASMRegister.r11);
+                            output.printf("\tsal    %s, cl\n", NASMRegister.r10);
                         } else if (instruction instanceof BitwiseOrInstruction) {
-                            output.printf("\tor     %s, %s\n", c, b);
+                            output.printf("\tor     %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         } else if (instruction instanceof BitwiseRightShiftInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rcx, b);
-                            output.printf("\tsar    %s, cl\n", c);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.rcx, NASMRegister.r11);
+                            output.printf("\tsar    %s, cl\n", NASMRegister.r10);
                         } else if (instruction instanceof BitwiseXorInstruction) {
-                            output.printf("\txor     %s, %s\n", c, b);
+                            output.printf("\txor     %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         } else if (instruction instanceof DivisionInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, NASMRegister.r10);
                             output.printf("\tcqo\n");
-                            output.printf("\tidiv   %s\n", b);
-                            output.printf("\tmov    %s, %s\n", c, NASMRegister.rax);
+                            output.printf("\tidiv   %s\n", NASMRegister.r11);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.r10, NASMRegister.rax);
                         } else if (instruction instanceof EqualToInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsete   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof GreaterThanInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsetg   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof GreaterThanOrEqualToInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsetge   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof LessThanInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsetl   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof LessThanOrEqualToInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsetle   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof ModuloInstruction) {
-                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, c);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.rax, NASMRegister.r10);
                             output.printf("\tcqo\n");
-                            output.printf("\tidiv   %s\n", b);
-                            output.printf("\tmov    %s, %s\n", c, NASMRegister.rdx);
+                            output.printf("\tidiv   %s\n", NASMRegister.r11);
+                            output.printf("\tmov    %s, %s\n", NASMRegister.r10, NASMRegister.rdx);
                         } else if (instruction instanceof MultiplicationInstruction) {
-                            output.printf("\timul    %s, %s\n", c, b);
+                            output.printf("\timul    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         } else if (instruction instanceof NotEqualToInstruction) {
-                            output.printf("\tcmp    %s, %s\n", a, b);
+                            output.printf("\tcmp    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                             output.printf("\tsetne   al\n");
-                            output.printf("\tmovzx    %s, al\n", c);
+                            output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof SubtractionInstruction) {
-                            output.printf("\tsub    %s, %s\n", c, b);
+                            output.printf("\tsub    %s, %s\n", NASMRegister.r11, NASMRegister.r10);
                         }
+                        PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
+                        output.printf("\tmov    %s, %s\n", c, NASMRegister.r10);
                         store(c, ((BinaryInstruction) instruction).destination);
                     }
                 } else if (instruction instanceof MemoryInstruction) {
@@ -188,8 +190,8 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         move(a, ((MoveInstruction) instruction).destination);
                     } else if (instruction instanceof AllocateInstruction) {
                         PhysicalRegistor sizeR = loadToRead(((AllocateInstruction) instruction).size, NASMRegister.rax);
-                        output.printf("\tmov    %s, %s\n", NASMRegister.rdi, sizeR);
                         protectScene();
+                        output.printf("\tmov    %s, %s\n", NASMRegister.rdi, sizeR);
                         output.printf("\tcall   malloc\n");
                         restoreScene();
                         move(NASMRegister.rax, ((AllocateInstruction) instruction).destination);
@@ -201,7 +203,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         output.printf("\tmov    %s, qword [%s]\n", destR, NASMRegister.r11);
                         store(destR, ((LoadInstruction) instruction).destination);
                     } else if (instruction instanceof StoreInstruction) {
-                        PhysicalRegistor baseR = loadToRead(((StoreInstruction) instruction).address.base, NASMRegister.rax);
+                        PhysicalRegistor baseR = loadToRead(((StoreInstruction) instruction).address.base, NASMRegister.r10);
                         PhysicalRegistor a = loadToRead(((StoreInstruction) instruction).operand, NASMRegister.rax);
                         output.printf("\tmov    %s, %s\n", NASMRegister.r11, baseR);
                         output.printf("\tadd    %s, %s\n", NASMRegister.r11, ((StoreInstruction) instruction).address.offset);

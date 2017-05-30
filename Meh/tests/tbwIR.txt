@@ -1,45 +1,254 @@
 %enter
-liveIn: {$p2, $p0, $p1, }
+liveIn: {}
 jump %entry
+
 %entry
-liveIn: {$p2, $p0, $p1, }
-$t6 = slt $p1 $p0
-br $t6 %if_true %if_false
+liveIn: {}
+$t7 = move 800
+$t7 = add $t7 8
+$t6 = alloc $t7
+store 8 $t6 100 0
+$t6 = add $t6 8
+$t0 = move $t6
+$t1 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t0, }
+$t8 = slt $t1 100
+br $t8 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t0, }
+$t10 = mul $t1 8
+$t9 = add $t0 $t10
+$t12 = move 800
+$t12 = add $t12 8
+$t11 = alloc $t12
+store 8 $t11 100 0
+$t11 = add $t11 8
+store 8 $t9 $t11 0
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t0, }
+$t13 = move $t1
+$t1 = add $t1 1
+jump %for_condition
+
+%for_after
+liveIn: {$t0, }
+$t3 = move 0
+$t1 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t3, $t0, }
+$t14 = slt $t1 100
+br $t14 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t3, $t0, }
+$t2 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t2, $t3, $t0, }
+$t15 = slt $t2 100
+br $t15 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t2, $t3, $t0, }
+$t17 = mul $t1 8
+$t16 = add $t0 $t17
+$t18 = load 8 $t16 0
+$t20 = mul $t2 8
+$t19 = add $t18 $t20
+store 8 $t19 0 0
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t2, $t3, $t0, }
+$t21 = move $t2
+$t2 = add $t2 1
+jump %for_condition
+
+%for_after
+liveIn: {$t1, $t3, $t0, }
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t3, $t0, }
+$t22 = move $t1
+$t1 = add $t1 1
+jump %for_condition
+
+%for_after
+liveIn: {$t3, $t0, }
+$t1 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t3, $t0, }
+$t23 = slt $t1 100
+br $t23 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t3, $t0, }
+$t25 = sgt $t1 20
+br $t25 %logical_true %logical_false
+
+%logical_true
+liveIn: {$t1, $t3, $t0, }
+$t26 = slt $t1 80
+$t24 = move $t26
+jump %logical_merge
+
+%logical_merge
+liveIn: {$t24, $t1, $t3, $t0, }
+br $t24 %if_true %if_false
+
 %if_true
-liveIn: {$p2, $p0, $p1, }
-$t7 = sub $p0 1
-$t8 = call tak $t7 $p1 $p2
-$t9 = sub $p1 1
-$t10 = call tak $t9 $p2 $p0
-$t11 = sub $p2 1
-$t12 = call tak $t11 $p0 $p1
-$t13 = call tak $t8 $t10 $t12
-$t14 = add $t13 1
-ret $t14
-jump %exit
+liveIn: {$t1, $t3, $t0, }
+$t2 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t2, $t3, $t0, }
+$t27 = slt $t2 100
+br $t27 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t2, $t3, $t0, }
+$t29 = sgt $t2 5
+br $t29 %logical_true %logical_false
+
+%logical_true
+liveIn: {$t1, $t2, $t3, $t0, }
+$t28 = move 1
+jump %logical_merge
+
+%logical_merge
+liveIn: {$t28, $t1, $t2, $t3, $t0, }
+br $t28 %if_true %if_false
+
+%if_true
+liveIn: {$t1, $t2, $t3, $t0, }
+$t31 = mul $t2 4
+$t32 = div $t31 100
+$t4 = move $t32
+$t33 = mul $t2 4
+$t34 = rem $t33 100
+$t5 = move $t34
+$t35 = add $t1 $t4
+$t37 = mul $t35 8
+$t36 = add $t0 $t37
+$t38 = load 8 $t36 0
+$t40 = mul $t5 8
+$t39 = add $t38 $t40
+$t41 = add $t2 50
+store 8 $t39 $t41 0
+jump %if_merge
+
+%if_merge
+liveIn: {$t1, $t2, $t3, $t0, }
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t2, $t3, $t0, }
+$t42 = move $t2
+$t2 = add $t2 1
+jump %for_condition
+
 %if_false
-liveIn: {$p2, }
-ret $p2
+liveIn: {$t1, $t2, $t3, $t0, }
+jump %if_merge
+
+%logical_false
+liveIn: {$t1, $t2, $t3, $t0, }
+$t30 = slt $t1 90
+$t28 = move $t30
+jump %logical_merge
+
+%for_after
+liveIn: {$t1, $t3, $t0, }
+jump %if_merge
+
+%if_merge
+liveIn: {$t1, $t3, $t0, }
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t3, $t0, }
+$t43 = move $t1
+$t1 = add $t1 1
+jump %for_condition
+
+%if_false
+liveIn: {$t1, $t3, $t0, }
+jump %if_merge
+
+%logical_false
+liveIn: {$t1, $t3, $t0, }
+$t24 = move 0
+jump %logical_merge
+
+%for_after
+liveIn: {$t3, $t0, }
+$t1 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t3, $t0, }
+$t44 = slt $t1 100
+br $t44 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t3, $t0, }
+$t2 = move 0
+jump %for_condition
+
+%for_condition
+liveIn: {$t1, $t2, $t3, $t0, }
+$t45 = slt $t2 100
+br $t45 %for_body %for_after
+
+%for_body
+liveIn: {$t1, $t2, $t3, $t0, }
+$t47 = mul $t1 8
+$t46 = add $t0 $t47
+$t48 = load 8 $t46 0
+$t50 = mul $t2 8
+$t49 = add $t48 $t50
+$t51 = load 8 $t49 0
+$t52 = add $t3 $t51
+$t3 = move $t52
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t2, $t3, $t0, }
+$t53 = move $t2
+$t2 = add $t2 1
+jump %for_condition
+
+%for_after
+liveIn: {$t1, $t3, $t0, }
+jump %for_loop
+
+%for_loop
+liveIn: {$t1, $t3, $t0, }
+$t54 = move $t1
+$t1 = add $t1 1
+jump %for_condition
+
+%for_after
+liveIn: {$t3, }
+$t55 = call __builtin_toString $t3
+call __builtin_println $t55
+ret 0
 jump %exit
+
 %exit
 liveIn: {}
 
-%enter
-liveIn: {}
-jump %entry
-%entry
-liveIn: {}
-$t15 = call __builtin_getInt
-$t3 = move $t15
-$t16 = call __builtin_getInt
-$t4 = move $t16
-$t17 = call __builtin_getInt
-$t5 = move $t17
-$t18 = call tak $t3 $t4 $t5
-$t19 = call __builtin_toString $t18
-call __builtin_println $t19
-ret 0
-jump %exit
-%exit
-liveIn: {}
 

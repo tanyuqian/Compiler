@@ -74,6 +74,7 @@ public abstract class NASMTranslator extends Translator {
 //                    fw.write(instruction.toString());
 //                    fw.write("\n");
 //                }
+//                fw.write("\n");
 //            }
 //            fw.write("\n");
 //        }
