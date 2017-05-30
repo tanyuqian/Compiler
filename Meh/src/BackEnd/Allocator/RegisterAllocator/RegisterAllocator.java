@@ -35,34 +35,16 @@ public class RegisterAllocator extends Allocator {
             }
             for (int i = block.instructions.size() - 1; i >= 0; i--) {
                 Instruction instruction = block.instructions.get(i);
-                if (instruction instanceof BinaryInstruction) {
+                for (VirtualRegister register : instruction.getDefinedRegisters()) {
                     for (VirtualRegister livingRegister : living) {
-                        interGraph.addForbid(((BinaryInstruction) instruction).destination, livingRegister);
+                        interGraph.addForbid(register, livingRegister);
                     }
-                    living.remove(((BinaryInstruction) instruction).destination);
-                    if (((BinaryInstruction) instruction).operand2 instanceof VirtualRegister) {
-                        living.add((VirtualRegister) ((BinaryInstruction) instruction).operand2);
-                    }
-
-                    for (VirtualRegister livingRegister : living) {
-                        interGraph.addForbid(((BinaryInstruction) instruction).destination, livingRegister);
-                    }
-                    living.remove(((BinaryInstruction) instruction).destination);
-                    if (((BinaryInstruction) instruction).operand1 instanceof VirtualRegister) {
-                        living.add((VirtualRegister) ((BinaryInstruction) instruction).operand1);
-                    }
-                } else {
-                    for (VirtualRegister register : instruction.getDefinedRegisters()) {
-                        for (VirtualRegister livingRegister : living) {
-                            interGraph.addForbid(register, livingRegister);
-                        }
-                    }
-                    for (VirtualRegister register : instruction.getDefinedRegisters()) {
-                        living.remove(register);
-                    }
-                    for (VirtualRegister register : instruction.getUsedRegisters()) {
-                        living.add(register);
-                    }
+                }
+                for (VirtualRegister register : instruction.getDefinedRegisters()) {
+                    living.remove(register);
+                }
+                for (VirtualRegister register : instruction.getUsedRegisters()) {
+                    living.add(register);
                 }
             }
         }

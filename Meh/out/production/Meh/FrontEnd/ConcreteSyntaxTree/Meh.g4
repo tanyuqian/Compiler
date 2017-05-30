@@ -67,7 +67,7 @@ expression
     | expression '&' expression                                 #andExpression
     | expression '^' expression                                 #exclusiveOrExpression
     | expression '|' expression                                 #inclusiveOrExpression
-    | expression '&&' expression                                #logicalAndExpression
+    | <assoc=right>expression '&&' expression                                #logicalAndExpression
     | expression '||' expression                                #logicalOrExpression
     | <assoc=right> expression '=' expression				    #assignmentExpression
 ;

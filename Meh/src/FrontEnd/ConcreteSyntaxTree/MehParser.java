@@ -1612,7 +1612,7 @@ public class MehParser extends Parser {
 						setState(197);
 						match(T__39);
 						setState(198);
-						expression(4);
+						expression(3);
 						}
 						break;
 					case 10:
@@ -2168,7 +2168,7 @@ public class MehParser extends Parser {
 		"\u00bc\t\7\2\2\u00bc\u00e7\5\26\f\n\u00bd\u00be\f\b\2\2\u00be\u00bf\7"+
 		"\'\2\2\u00bf\u00e7\5\26\f\t\u00c0\u00c1\f\7\2\2\u00c1\u00c2\7(\2\2\u00c2"+
 		"\u00e7\5\26\f\b\u00c3\u00c4\f\6\2\2\u00c4\u00c5\7)\2\2\u00c5\u00e7\5\26"+
-		"\f\7\u00c6\u00c7\f\5\2\2\u00c7\u00c8\7*\2\2\u00c8\u00e7\5\26\f\6\u00c9"+
+		"\f\7\u00c6\u00c7\f\5\2\2\u00c7\u00c8\7*\2\2\u00c8\u00e7\5\26\f\5\u00c9"+
 		"\u00ca\f\4\2\2\u00ca\u00cb\7+\2\2\u00cb\u00e7\5\26\f\5\u00cc\u00cd\f\3"+
 		"\2\2\u00cd\u00ce\7\t\2\2\u00ce\u00e7\5\26\f\3\u00cf\u00d0\f\23\2\2\u00d0"+
 		"\u00e7\t\b\2\2\u00d1\u00d2\f\22\2\2\u00d2\u00db\7\6\2\2\u00d3\u00d8\5"+
