@@ -1,10 +1,13 @@
 package BackEnd.Translator.NASM;
 
 import BackEnd.ControlFlowGraph.Block;
+import BackEnd.ControlFlowGraph.Graph;
 import BackEnd.ControlFlowGraph.Instruction.Instruction;
+import BackEnd.ControlFlowGraph.Operand.ImmediateValue;
 import BackEnd.ControlFlowGraph.Operand.Operand;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.StringRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.GlobalRegister;
+import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.ParameterRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VariableRegister.TemporaryRegister;
 import BackEnd.ControlFlowGraph.Operand.VirtualRegister.VirtualRegister;
 import BackEnd.Translator.Translator;
@@ -18,8 +21,35 @@ import java.util.List;
  * Created by tan on 5/23/17.
  */
 public abstract class NASMTranslator extends Translator {
+    public Graph graph;
+
     public NASMTranslator(PrintStream output) {
         super(output);
+    }
+
+    public String getFunctionName(Function function) {
+        return function.name;
+    }
+
+    public String getBlockName(Block block) {
+        return String.format("%s_%s_%d", block.function.name, block.name, block.identity);
+    }
+
+    public String getPhisicalMemoryName(Operand register) {
+        if (register instanceof GlobalRegister) {
+            return "qword [rel " + "GV_" + ((GlobalRegister) register).symbol.name + "]";
+        } else if (register instanceof TemporaryRegister) {
+            int offset = graph.frame.temporaryMap.get(register);
+            return String.format("qword [rbp+(%d)]", offset);
+        } else if (register instanceof ParameterRegister) {
+            int offset = graph.frame.parameterMap.get(register);
+            return String.format("qword [rbp+(%d)]", offset);
+        } else if (register instanceof ImmediateValue) {
+            return String.valueOf(((ImmediateValue) register).value);
+        } else if (register instanceof StringRegister) {
+            return String.format("CONST_STRING_%d", ((StringRegister) register).identity);
+        }
+        return "FUCK";
     }
 
     @Override
@@ -29,17 +59,17 @@ public abstract class NASMTranslator extends Translator {
 //            output.println(str);
 //        }
 
-        FileWriter fw = new FileWriter("tests/tbwIR.txt");
-        for (Function function : Environment.program.functions) {
-            for (Block block : function.graph.blocks) {
-                for (Instruction instruction : block.instructions) {
-                    fw.write(instruction.toString());
-                    fw.write("\n");
-                }
-            }
-            fw.write("\n");
-        }
-        fw.close();
+//        FileWriter fw = new FileWriter("tests/tbwIR.txt");
+//        for (Function function : Environment.program.functions) {
+//            for (Block block : function.graph.blocks) {
+//                for (Instruction instruction : block.instructions) {
+//                    fw.write(instruction.toString());
+//                    fw.write("\n");
+//                }
+//            }
+//            fw.write("\n");
+//        }
+//        fw.close();
 
         Template template = new Template();
         output.print(template.templateStr);

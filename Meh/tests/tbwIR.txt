@@ -1,8 +1,40 @@
 jump %entry
-jump %exit
-
-jump %entry
-call func 1 2 3 4 5 6 7 8 9
+$t0 = move 1000000
+call __builtin_print $4
+$t5 = mul $t0 2
+$t6 = add $t5 1
+$t7 = call __builtin_toString $t6
+$t9 = call __builtin_string_concat $t7 $8
+$t10 = call __builtin_toString $t0
+$t11 = call __builtin_string_concat $t9 $t10
+call __builtin_println $t11
+$t2 = move 1
+$t1 = move 0
+jump %for_condition
+$t12 = slt $t1 $t0
+br $t12 %for_body %for_after
+$t13 = call __builtin_toString $t2
+$t15 = call __builtin_string_concat $t13 $14
+$t16 = add $t2 1
+$t17 = call __builtin_toString $t16
+$t18 = call __builtin_string_concat $t15 $t17
+$t20 = call __builtin_string_concat $t18 $19
+$t21 = add $t2 2
+$t22 = neg $t21
+$t23 = call __builtin_toString $t22
+$t24 = call __builtin_string_concat $t20 $t23
+$t3 = move $t24
+$t25 = rem $t1 100000
+$t26 = seq $t25 0
+br $t26 %if_true %if_false
+call __builtin_println $t3
+jump %if_merge
+$t27 = add $t2 2
+$t2 = move $t27
+jump %for_loop
+$t1 = add $t1 1
+jump %for_condition
+jump %if_merge
 ret 0
 jump %exit
 

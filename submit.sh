@@ -1,4 +1,4 @@
 git add .
-git commit -m "m2m debuging..."
+git commit -m "translating..."
 git push bb master
 git push origin master
