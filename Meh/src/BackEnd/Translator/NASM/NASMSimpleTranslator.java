@@ -157,6 +157,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                     } else if (instruction instanceof BinaryInstruction) {
                         PhysicalRegistor a = loadToRead(((BinaryInstruction) instruction).operand1, NASMRegister.r10);
                         PhysicalRegistor b = loadToRead(((BinaryInstruction) instruction).operand2, NASMRegister.r11);
+                        PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
                         //output.printf("\tmov    %s, %s\n", NASMRegister.r10, a);
                         moveFilter(NASMRegister.r10, a);
                         //output.printf("\tmov    %s, %s\n", NASMRegister.r11, b);
@@ -214,7 +215,6 @@ public class NASMSimpleTranslator extends NASMTranslator {
                         } else if (instruction instanceof SubtractionInstruction) {
                             output.printf("\tsub    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         }
-                        PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
                         //output.printf("\tmov    %s, %s\n", c, NASMRegister.r10);
                         moveFilter(c, NASMRegister.r10);
                         store(c, ((BinaryInstruction) instruction).destination);

@@ -12,16 +12,16 @@ import java.util.*;
  */
 public class InterferenceGraph {
     public static List<PhysicalRegistor> colors = new ArrayList<PhysicalRegistor>() {{
+        add(NASMRegister.r12);
+        add(NASMRegister.r13);
+        add(NASMRegister.r14);
+        add(NASMRegister.r15);
         add(NASMRegister.rbx);
         add(NASMRegister.rcx);
         add(NASMRegister.rsi);
         add(NASMRegister.rdi);
         add(NASMRegister.r8);
         add(NASMRegister.r9);
-        add(NASMRegister.r12);
-        add(NASMRegister.r13);
-        add(NASMRegister.r14);
-        add(NASMRegister.r15);
     }};
 
     public Set<VirtualRegister> vertices;
