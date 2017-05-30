@@ -47,7 +47,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
         for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
             if (!physicalRegistor.isCalleeSaved) {
                 output.printf("\tmov    qword [rbp + (%d)], %s\n",
-                        -graph.frame.size - NASMRegister.size() * physicalRegistor.identity,
+                        -graph.frame.size - NASMRegister.size() * (physicalRegistor.identity + 1),
                         physicalRegistor.name);
             }
         }
@@ -58,7 +58,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
             if (!physicalRegistor.isCalleeSaved) {
                 output.printf("\tmov    %s, qword [rbp + (%d)]\n",
                         physicalRegistor.name,
-                        -graph.frame.size - NASMRegister.size() * physicalRegistor.identity);
+                        -graph.frame.size - NASMRegister.size() * (physicalRegistor.identity + 1));
             }
         }
     }
@@ -133,7 +133,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
         for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
             if (physicalRegistor.isCalleeSaved) {
                 output.printf("\tmov    qword [rbp + (%d)], %s\n",
-                        -graph.frame.size - physicalRegistor.identity * NASMRegister.size(),
+                        -graph.frame.size - (physicalRegistor.identity + 1) * NASMRegister.size(),
                         physicalRegistor);
             }
         }
@@ -308,7 +308,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
             if (physicalRegistor.isCalleeSaved) {
                 output.printf("\tmov    %s, qword [rbp + (%d)]\n",
                         physicalRegistor,
-                        -graph.frame.size - physicalRegistor.identity * NASMRegister.size());
+                        -graph.frame.size - (physicalRegistor.identity + 1) * NASMRegister.size());
             }
         }
         output.printf("\tleave\n");

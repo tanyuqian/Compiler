@@ -35,8 +35,6 @@ import java.util.List;
  * Created by tan on 5/23/17.
  */
 public class NASMNaiveTranslator extends NASMTranslator {
-    public Graph graph;
-
     public NASMNaiveTranslator(PrintStream output) {
         super(output);
     }

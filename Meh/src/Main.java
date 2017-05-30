@@ -43,6 +43,6 @@ public class Main {
             function.graph = new Graph(function);
             function.allocator = new RegisterAllocator(function);
         }
-        new NASMSimpleTranslator(System.out).translate();
+        new NASMNaiveTranslator(System.out).translate();
     }
 }
