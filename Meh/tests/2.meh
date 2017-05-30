@@ -1,30 +1,12 @@
-int main()
-{
-    int[][] a = new int[100][];
-    int i;
-	int j;
-    for (i = 0; i < 100; i++)
-        a[i] = new int[100];
-    int sum = 0;
+int tak(int x, int y, int z) {
+	if ( y < x ) return 1 + tak( tak(x-1, y, z), tak(y-1, z, x), tak(z-1, x, y) );
+	else return z;
+}
 
-    for (i = 0;i < 100;i++)
-        for (j = 0;j < 100;j++)
-            a[i][j] = 0;
-    int quotient;
-    int remainder;
-    for (i = 0;i < 100;i++)
-    	if (i > 20 && i < 80) {
-        	for (j = 0;j < 100;j++)
-            	if (j > 5 || i < 90) {
-                    quotient = j * 4 / 100;
-                    remainder = j * 4 % 100;
-                	a[i + quotient][remainder] = j + (100 - 1 + 1 - 1 + 1) / 2;
-                }
-    	}
-
-    for (i = 0;i < 100;i++)
-        for (j = 0;j < 100;j++)
-            sum = sum + a[i][j];
-    println(toString(sum));
-    return 0;
+int main(){
+	int a = 18;
+	int b = 12;
+	int c = 6;
+	println(toString(tak(a,b,c)));
+	return 0;
 }

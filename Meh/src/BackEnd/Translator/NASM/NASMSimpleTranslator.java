@@ -98,14 +98,19 @@ public class NASMSimpleTranslator extends NASMTranslator {
         output.printf("%s:\n", getFunctionName(graph.function));
         output.printf("\tpush   rbp\n");
         output.printf("\tmov    rbp, rsp\n");
-        output.printf("\tsub    rsp, %d\n", graph.frame.size + NASMRegister.size() * 20);
+        output.printf("\tsub    rsp, %d\n", graph.frame.size + NASMRegister.size() * 40);
         output.printf("\tmov    qword [rbp-8], rdi\n");
         output.printf("\tmov    qword [rbp-16], rsi\n");
         output.printf("\tmov    qword [rbp-24], rdx\n");
         output.printf("\tmov    qword [rbp-32], rcx\n");
         output.printf("\tmov    qword [rbp-40], r8\n");
         output.printf("\tmov    qword [rbp-48], r9\n");
-        protectScene();
+        //protectScene();
+        for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
+            output.printf("\tmov    qword [rbp + (%d)], %s\n",
+                    -graph.frame.size - NASMRegister.size() * 20 - physicalRegistor.identity * NASMRegister.size(),
+                    physicalRegistor);
+        }
 
         for (Block block : graph.blocks) {
             output.printf("%s:\n", getBlockName(block));
@@ -178,7 +183,7 @@ public class NASMSimpleTranslator extends NASMTranslator {
                             output.printf("\tsetne   al\n");
                             output.printf("\tmovzx    %s, al\n", NASMRegister.r10);
                         } else if (instruction instanceof SubtractionInstruction) {
-                            output.printf("\tsub    %s, %s\n", NASMRegister.r11, NASMRegister.r10);
+                            output.printf("\tsub    %s, %s\n", NASMRegister.r10, NASMRegister.r11);
                         }
                         PhysicalRegistor c = loadToWrite(((BinaryInstruction) instruction).destination, NASMRegister.rax);
                         output.printf("\tmov    %s, %s\n", c, NASMRegister.r10);
@@ -268,7 +273,12 @@ public class NASMSimpleTranslator extends NASMTranslator {
                 output.printf("\tmov    %s, %s\n", getPhisicalMemoryName(register), allocator.mapping.get(register));
             }
         }
-        restoreScene();
+        //restoreScene();
+        for (PhysicalRegistor physicalRegistor : allocator.getUsedPhysicalRegister()) {
+            output.printf("\tmov    %s, qword [rbp + (%d)]\n",
+                    physicalRegistor,
+                    -graph.frame.size - NASMRegister.size() * 20 - physicalRegistor.identity * NASMRegister.size());
+        }
         output.printf("\tleave\n");
         output.printf("\tret\n");
     }
