@@ -1,0 +1,7 @@
+.idea/
+bin/
+data/
+out/
+.texpadtmp/
+report/result.xlsx
+Compiler.iml
