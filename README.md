@@ -1,5 +1,5 @@
 A compiler named `Meh`.
 
-Too hard for me...
+10000+ lines.
 
-Now it is finished...
+Now it is finished.
